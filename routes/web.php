@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProfileController;
 
+
+use App\Http\Controllers\TenantController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,8 +23,6 @@ Route::get('/', function () {
 });
 
 
-// Route::get('/register-tenant', [RegisteredTenantController::class, 'create' ]);
-// Route::post('/register-tenant', [RegisteredTenantController::class, 'store' ]);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -32,6 +32,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+
+
+    Route::get('/register-tenant', [RegisteredTenantController::class, 'create' ])->name('tenant.register');
+    Route::post('/register-tenant', [RegisteredTenantController::class, 'store' ]);
+
+    Route::get('/show_tenant', [TenantController::class,'show_tenant'])->name('tenants.show_tenant');
+
+
+
 });
 
 require __DIR__.'/auth.php';

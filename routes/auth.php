@@ -10,25 +10,20 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/register-tenant', [RegisteredUserController::class, 'create'])
-//                 ->middleware('guest')
-//                 ->name('register');
-
-// Route::post('/register-tenant', [RegisteredUserController::class, 'store'])
-//                 ->middleware('guest');
-
-
-
-
-
-
-
-
-
-
-
+use App\Http\Controllers\RegisteredTenantController;
 
 Route::middleware('guest')->group(function () {
+
+// Route::get('/register-tenant',[RegisteredTenantController::class, 'create'])
+//             ->name('register-tenant');
+
+// Route::post('/register-tenant', [RegisteredTenantController::class, 'store']);
+
+
+
+
+
+
     Route::get('register', [RegisteredUserController::class, 'create'])
                 ->name('register');
 
