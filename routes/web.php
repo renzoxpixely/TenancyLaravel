@@ -22,7 +22,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('/register-tenant', [RegisteredTenantController::class, 'create' ])->name('tenant.register');
+Route::post('/register-tenant', [RegisteredTenantController::class, 'store' ]);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -36,8 +37,8 @@ Route::middleware('auth')->group(function () {
 
 
 
-    Route::get('/register-tenant', [RegisteredTenantController::class, 'create' ])->name('tenant.register');
-    Route::post('/register-tenant', [RegisteredTenantController::class, 'store' ]);
+    // Route::get('/register-tenant', [RegisteredTenantController::class, 'create' ])->name('tenant.register');
+    // Route::post('/register-tenant', [RegisteredTenantController::class, 'store' ]);
 
     Route::get('/show_tenant', [TenantController::class,'show_tenant'])->name('tenants.show_tenant');
 
