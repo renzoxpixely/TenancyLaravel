@@ -41,6 +41,7 @@ Route::group([
         return view('tenant/dashboard');
     })->middleware(['auth'])->name('dashboard');
 
+    //auth
     Route::get('/login', [AuthenticatedSessionController::class, 'create'])
         ->middleware('guest')
         ->name('login');
@@ -86,4 +87,13 @@ Route::group([
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
         ->middleware('auth')
         ->name('logout');
+    //end auth
+
+
+    // agregando branch
+    // Route::get('/branch', function () {
+    //     return view('tenant.branch');
+    // });
+
+
 });
