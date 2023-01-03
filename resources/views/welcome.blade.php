@@ -7,12 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600|Lato:700,900,400|Raleway' rel='stylesheet' type='text/css'>
 
-  <link href="{{ asset('assetsAdmin/assets/css/bootstrap.css') }}" rel="stylesheet">
+  <link href="{{ asset('assetsPage/assets/css/bootstrap.css') }}" rel="stylesheet">
   <!-- <link rel="stylesheet" href="assets/css/bootstrap.css"> -->
-  <link rel="stylesheet" href="{{ asset('assetsAdmin/libs/bower/font-awesome/css/font-awesome.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('assetsAdmin/libs/misc/owl-carousel/owl.carousel.css') }}">
-  <link rel="stylesheet" href="{{ asset('assetsAdmin/libs/bower/animate.css/animate.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('assetsAdmin/assets/css/landing-page.css') }}">
+  <link rel="stylesheet" href="{{ asset('assetsPage/libs/bower/font-awesome/css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assetsPage/libs/misc/owl-carousel/owl.carousel.css') }}">
+  <link rel="stylesheet" href="{{ asset('assetsPage/libs/bower/animate.css/animate.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assetsPage/assets/css/landing-page.css') }}">
 
 
   <title>Infinity Landing Page</title>
@@ -57,14 +57,14 @@
                                     <!-- <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a> -->
                                     <li><a href="{{ route('login') }}" style="background-color:rgba(0,0,255,0.3);" >Iniciar Sesion</a></li>
 
-                                    @if (Route::has('register'))
+                                    <!-- @if (Route::has('register')) -->
                                         <!-- <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a> -->
-                                        <li><a href="{{ route('register') }}" style="background-color:rgba(0,0,255,0.3);" >Registrate</a></li>
-                                    @endif
+                                        <!-- <li><a href="{{ route('register') }}" style="background-color:rgba(0,0,255,0.3);" >Registrate</a></li> -->
+                                    <!-- @endif -->
                                 @endauth
 
                         @endif
-                        <li><a href="{{ route('tenant.register') }}" style="background-color:rgba(0,0,255,0.3);" >Registrate inquilino</a></li>
+                        <li><a href="{{ route('tenant.register') }}" style="background-color:rgba(0,0,255,0.3);" >Registrate cliente</a></li>
 
 
             </ul>
@@ -88,9 +88,9 @@
 
         <div id="video-container">
           <a id="play-video" href="#" data-toggle="modal" data-target="#video-modal" data-backdrop="true">
-            <img src="{{ asset('assetsAdmin/assets/images/landing-page/video-bg.png') }}" alt="">
+            <img src="{{ asset('assetsPage/assets/images/landing-page/video-bg.png') }}" alt="">
             <span class="play-icon">
-              <img src="{{ asset('assetsAdmin/assets/images/landing-page/play-icon.png') }}" alt="">
+              <img src="{{ asset('assetsPage/assets/images/landing-page/play-icon.png') }}" alt="">
             </span>
           </a>
         </div>
@@ -115,7 +115,7 @@
 
           <div class="col-md-4">
             <div class="col-inner feature">
-              <img src="{{ asset('assetsAdmin/assets/svg/tie.svg') }}" alt="icon">
+              <img src="{{ asset('assetsPage/assets/svg/tie.svg') }}" alt="icon">
               <h4>Myspace profile</h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. ipsum dolor sit amet, consectetur adipisicing elit.</p>
             </div>
@@ -123,7 +123,7 @@
 
           <div class="col-md-4">
             <div class="col-inner feature">
-              <img src="{{ asset('assetsAdmin/assets/svg/pig.svg') }}" alt="icon">
+              <img src="{{ asset('assetsPage/assets/svg/pig.svg') }}" alt="icon">
               <h4>Myspace profile</h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. ipsum dolor sit amet, consectetur adipisicing elit.</p>
             </div>
@@ -131,7 +131,7 @@
 
           <div class="col-md-4">
             <div class="col-inner feature">
-              <img src="{{ asset('assetsAdmin/assets/svg/pointer.svg') }}" alt="icon">
+              <img src="{{ asset('assetsPage/assets/svg/pointer.svg') }}" alt="icon">
               <h4>Myspace profile</h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. ipsum dolor sit amet, consectetur adipisicing elit.</p>
             </div>
@@ -143,7 +143,7 @@
 
     <section id="brief">
       <div id="brief-img">
-        <img src="{{ asset('assetsAdmin/assets/images/landing-page/img-1.jpg') }}" alt="">
+        <img src="{{ asset('assetsPage/assets/images/landing-page/img-1.jpg') }}" alt="">
       </div><!-- #brief-img -->
 
       <div class="container">
@@ -152,15 +152,15 @@
           <p class="section-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo sit non sunt, a numquam reiciendis expedita possimus quisquam ipsam veritatis doloribus voluptas illum, nostrum perspiciatis laudantium minima obcaecati maxime laborum.</p>
           <ul>
             <li>
-              <img class="item-icon" src="{{ asset('assetsAdmin/assets/svg/check.svg') }}" alt="">
+              <img class="item-icon" src="{{ asset('assetsPage/assets/svg/check.svg') }}" alt="">
               <span class="item-text">Home Audio Recording For Everyone</span>
             </li>
             <li>
-              <img class="item-icon" src="{{ asset('assetsAdmin/assets/svg/check.svg') }}" alt="">
+              <img class="item-icon" src="{{ asset('assetsPage/assets/svg/check.svg') }}" alt="">
               <span class="item-text">Understanding Operating Systems</span>
             </li>
             <li>
-              <img class="item-icon" src="{{ asset('assetsAdmin/assets/svg/check.svg') }}" alt="">
+              <img class="item-icon" src="{{ asset('assetsPage/assets/svg/check.svg') }}" alt="">
               <span class="item-text">Compare Prices Find The Best</span>
             </li>
           </ul>
@@ -222,14 +222,14 @@
             <div class="col-md-4">
               <div class="control-wrap">
                 <input type="text" class="form-control" placeholder="Your Name">
-                <img src="{{ asset('assetsAdmin/assets/svg/users.svg') }}" alt="">
+                <img src="{{ asset('assetsPage/assets/svg/users.svg') }}" alt="">
               </div>
             </div><!-- /.col -->
 
             <div class="col-md-4">
               <div class="control-wrap">
                 <input type="text" class="form-control" placeholder="Your Email">
-                <img src="{{ asset('assetsAdmin/assets/svg/email.svg') }}" alt="">
+                <img src="{{ asset('assetsPage/assets/svg/email.svg') }}" alt="">
               </div>
             </div><!-- /.col -->
 
@@ -261,23 +261,23 @@
               </header>
               <ul>
                 <li>
-                  <img class="item-icon" src="{{ asset('assetsAdmin/assets/svg/check.svg') }}" alt="">
+                  <img class="item-icon" src="{{ asset('assetsPage/assets/svg/check.svg') }}" alt="">
                   <span>Simple Install</span>
                 </li>
                 <li>
-                  <img class="item-icon" src="{{ asset('assetsAdmin/assets/svg/check.svg') }}" alt="">
+                  <img class="item-icon" src="{{ asset('assetsPage/assets/svg/check.svg') }}" alt="">
                   <span>Unlimited Projects</span>
                 </li>
                 <li>
-                  <img class="item-icon" src="{{ asset('assetsAdmin/assets/svg/remove.svg') }}" alt="">
+                  <img class="item-icon" src="{{ asset('assetsPage/assets/svg/remove.svg') }}" alt="">
                   <span class="crossed">After Hourss Support</span>
                 </li>
                 <li>
-                  <img class="item-icon" src="{{ asset('assetsAdmin/assets/svg/remove.svg') }}" alt="">
+                  <img class="item-icon" src="{{ asset('assetsPage/assets/svg/remove.svg') }}" alt="">
                   <span class="crossed">Unlimited Storage</span>
                 </li>
                 <li>
-                  <img class="item-icon" src="{{ asset('assetsAdmin/assets/svg/remove.svg') }}" alt="">
+                  <img class="item-icon" src="{{ asset('assetsPage/assets/svg/remove.svg') }}" alt="">
                   <span class="crossed">Desdcated Server</span>
                 </li>
               </ul>
@@ -295,23 +295,23 @@
               </header>
               <ul>
                 <li>
-                  <img class="item-icon" src="{{ asset('assetsAdmin/assets/svg/check.svg') }}" alt="">
+                  <img class="item-icon" src="{{ asset('assetsPage/assets/svg/check.svg') }}" alt="">
                   <span>Simple Install</span>
                 </li>
                 <li>
-                  <img class="item-icon" src="{{ asset('assetsAdmin/assets/svg/check.svg') }}" alt="">
+                  <img class="item-icon" src="{{ asset('assetsPage/assets/svg/check.svg') }}" alt="">
                   <span>Unlimited Projects</span>
                 </li>
                 <li>
-                  <img class="item-icon" src="{{ asset('assetsAdmin/assets/svg/check.svg') }}" alt="">
+                  <img class="item-icon" src="{{ asset('assetsPage/assets/svg/check.svg') }}" alt="">
                   <span>After Hourss Support</span>
                 </li>
                 <li>
-                  <img class="item-icon" src="{{ asset('assetsAdmin/assets/svg/remove.svg') }}" alt="">
+                  <img class="item-icon" src="{{ asset('assetsPage/assets/svg/remove.svg') }}" alt="">
                   <span class="crossed">Unlimited Storage</span>
                 </li>
                 <li>
-                  <img class="item-icon" src="{{ asset('assetsAdmin/assets/svg/remove.svg') }}" alt="">
+                  <img class="item-icon" src="{{ asset('assetsPage/assets/svg/remove.svg') }}" alt="">
                   <span class="crossed">Desdcated Server</span>
                 </li>
               </ul>
@@ -329,23 +329,23 @@
               </header>
               <ul>
                 <li>
-                  <img class="item-icon" src="{{ asset('assetsAdmin/assets/svg/check.svg') }}" alt="">
+                  <img class="item-icon" src="{{ asset('assetsPage/assets/svg/check.svg') }}" alt="">
                   <span>Simple Install</span>
                 </li>
                 <li>
-                  <img class="item-icon" src="{{ asset('assetsAdmin/assets/svg/check.svg') }}" alt="">
+                  <img class="item-icon" src="{{ asset('assetsPage/assets/svg/check.svg') }}" alt="">
                   <span>Unlimited Projects</span>
                 </li>
                 <li>
-                  <img class="item-icon" src="{{ asset('assetsAdmin/assets/svg/check.svg') }}" alt="">
+                  <img class="item-icon" src="{{ asset('assetsPage/assets/svg/check.svg') }}" alt="">
                   <span>After Hourss Support</span>
                 </li>
                 <li>
-                  <img class="item-icon" src="{{ asset('assetsAdmin/assets/svg/check.svg') }}" alt="">
+                  <img class="item-icon" src="{{ asset('assetsPage/assets/svg/check.svg') }}" alt="">
                   <span>Unlimited Storage</span>
                 </li>
                 <li>
-                  <img class="item-icon" src="a{{ asset('assetsAdmin/ssets/svg/check.svg') }}" alt="">
+                  <img class="item-icon" src="a{{ asset('assetsPage/ssets/svg/check.svg') }}" alt="">
                   <span>Desdcated Server</span>
                 </li>
               </ul>
@@ -363,7 +363,7 @@
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
             <div class="text-center">
-              <img src="{{ asset('assetsAdmin/assets/images/landing-page/talk-bubble.png') }}" alt="">
+              <img src="{{ asset('assetsPage/assets/images/landing-page/talk-bubble.png') }}" alt="">
             </div>
             <div id="owl-slider" class="owl-carousel owl-theme">
               <div class="item">
@@ -414,9 +414,9 @@
             <div class="col-inner">
               <h2>PROJECTS</h2>
               <div class="images clearfix">
-                <a href="#"><img class="img-responsive" src="{{ asset('assetsAdmin/assets/images/103.jpg') }}" alt=""></a>
-                <a href="#"><img class="img-responsive" src="{{ asset('assetsAdmin/assets/images/102.jpg') }}" alt=""></a>
-                <a href="#"><img class="img-responsive" src="{{ asset('assetsAdmin/assets/images/101.jpg') }}" alt=""></a>
+                <a href="#"><img class="img-responsive" src="{{ asset('assetsPage/assets/images/103.jpg') }}" alt=""></a>
+                <a href="#"><img class="img-responsive" src="{{ asset('assetsPage/assets/images/102.jpg') }}" alt=""></a>
+                <a href="#"><img class="img-responsive" src="{{ asset('assetsPage/assets/images/101.jpg') }}" alt=""></a>
               </div>
 
               <div class="icons">
@@ -438,14 +438,14 @@
     </section><!-- #copyright -->
   </div>
   <div id="loading-div">
-    <img src="{{ asset('assetsAdmin/assets/images/landing-page/puff.svg') }}" width="50" alt="">
+    <img src="{{ asset('assetsPage/assets/images/landing-page/puff.svg') }}" width="50" alt="">
   </div>
-  <script src="{{ asset('assetsAdmin/libs/bower/jquery/dist/jquery.js') }}"></script>
-  <script src="{{ asset('assetsAdmin/libs/bower/bootstrap-sass/assets/javascripts/bootstrap.js') }}"></script>
-  <script src="{{ asset('assetsAdmin/libs/misc/owl-carousel/owl.carousel.min.js') }}"></script>
-  <script src="{{ asset('assetsAdmin/libs/bower/smooth-scroll/dist/js/smooth-scroll.min.js') }}"></script>
-  <script src="{{ asset('assetsAdmin/libs/bower/waypoints/lib/jquery.waypoints.min.js') }}"></script>
-  <script src="{{ asset('assetsAdmin/libs/bower/counterup/jquery.counterup.min.js') }}"></script>
+  <script src="{{ asset('assetsPage/libs/bower/jquery/dist/jquery.js') }}"></script>
+  <script src="{{ asset('assetsPage/libs/bower/bootstrap-sass/assets/javascripts/bootstrap.js') }}"></script>
+  <script src="{{ asset('assetsPage/libs/misc/owl-carousel/owl.carousel.min.js') }}"></script>
+  <script src="{{ asset('assetsPage/libs/bower/smooth-scroll/dist/js/smooth-scroll.min.js') }}"></script>
+  <script src="{{ asset('assetsPage/libs/bower/waypoints/lib/jquery.waypoints.min.js') }}"></script>
+  <script src="{{ asset('assetsPage/libs/bower/counterup/jquery.counterup.min.js') }}"></script>
 
 
 
