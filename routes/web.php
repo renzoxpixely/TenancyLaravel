@@ -7,6 +7,10 @@ use App\Http\Controllers\ProfileController;
 
 
 use App\Http\Controllers\TenantController;
+
+
+
+use App\Http\Controllers\CompanyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,8 +46,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/show_tenant', [TenantController::class,'show_tenant'])->name('tenants.show_tenant');
 
-
-
+//company
+    Route::resource('companies', CompanyController::class);
 });
 
 require __DIR__.'/auth.php';

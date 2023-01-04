@@ -13,6 +13,10 @@ use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 
+
+
+
+use App\Http\Controllers\Tenant\CompanyController;
 /*
 |--------------------------------------------------------------------------
 | Tenant Routes
@@ -90,10 +94,12 @@ Route::group([
     //end auth
 
 
-    // agregando branch
-    // Route::get('/branch', function () {
-    //     return view('tenant.branch');
-    // });
-
+//    agregando branch
+    Route::get('/branch', function () {
+        return view('tenant.branch');
+    });
+//company
+    //Route::resource('companies', CompanyController::class);
+    Route::resource('companies', CompanyController::class);
 
 });
