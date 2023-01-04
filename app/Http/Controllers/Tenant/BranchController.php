@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Tenant;
-use Illuminate\Http\Request;
-use App\Models\Tenant\Company;
+use App\Models\Tenant\Branch;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-class CompanyController extends Controller
+class BranchController extends Controller
 {
     /**
     * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CompanyController extends Controller
     */
     public function index()
     {
-        $companies = Company::orderBy('id','desc')->paginate(5);
-        return view('tenant.companies.index', compact('companies'));
+        $branches = Branch::orderBy('id','desc')->paginate(5);
+        return view('tenant.branches.index', compact('branches'));
     }
 
     /**
@@ -25,7 +25,7 @@ class CompanyController extends Controller
     */
     public function create()
     {
-        return view('tenant.companies.create');
+        return view('tenant.branches.create');
     }
 
     /**
@@ -42,41 +42,41 @@ class CompanyController extends Controller
             'address' => 'required',
         ]);
         
-        Company::create($request->post());
+        Branch::create($request->post());
 
-        return redirect()->route('tenant.companies.index')->with('success','Company has been created successfully.');
+        return redirect()->route('tenant.branches.index')->with('success','Branch has been created successfully.');
     }
 
     /**
     * Display the specified resource.
     *
-    * @param  \App\company  $company
+    * @param  \App\branch  $branch
     * @return \Illuminate\Http\Response
     */
-    public function show(Company $company)
+    public function show(Branch $branch)
     {
-        return view('tenant.companies.show',compact('company'));
+        return view('tenant.branches.show',compact('branch'));
     }
 
     /**
     * Show the form for editing the specified resource.
     *
-    * @param  \App\Company  $company
+    * @param  \App\Branch  $branch
     * @return \Illuminate\Http\Response
     */
-    public function edit(Company $company)
+    public function edit(Branch $branch)
     {
-        return view('tenant.companies.edit',compact('company'));
+        return view('tenant.branches.edit',compact('branch'));
     }
 
     /**
     * Update the specified resource in storage.
     *
     * @param  \Illuminate\Http\Request  $request
-    * @param  \App\company  $company
+    * @param  \App\branch  $branch
     * @return \Illuminate\Http\Response
     */
-    public function update(Request $request, Company $company)
+    public function update(Request $request, Branch $branch)
     {
         $request->validate([
             'name' => 'required',
@@ -84,20 +84,20 @@ class CompanyController extends Controller
             'address' => 'required',
         ]);
         
-        $company->fill($request->post())->save();
+        $branch->fill($request->post())->save();
 
-        return redirect()->route('tenant.companies.index')->with('success','Company Has Been updated successfully');
+        return redirect()->route('tenant.branches.index')->with('success','Branch Has Been updated successfully');
     }
 
     /**
     * Remove the specified resource from storage.
     *
-    * @param  \App\Company  $company
+    * @param  \App\Branch  $branch
     * @return \Illuminate\Http\Response
     */
-    public function destroy(Company $company)
+    public function destroy(Branch $branch)
     {
-        $company->delete();
-        return redirect()->route('tenant.companies.index')->with('success','Company has been deleted successfully');
+        $branch->delete();
+        return redirect()->route('tenant.branches.index')->with('success','Branch has been deleted successfully');
     }
 }
