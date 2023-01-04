@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Edit Company Form - Laravel 9 CRUD Tutorial</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
+
+@extends('tenant.branch')
+
+@section('content')
+
+
 
 <body>
     <div class="container mt-2">
@@ -65,4 +64,5 @@
     </div>
 </body>
 
-</html>
+
+@endsection
