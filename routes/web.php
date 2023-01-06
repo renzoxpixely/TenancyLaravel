@@ -52,7 +52,7 @@ Route::middleware('auth')->group(function () {
 
 //sucursales
     //Route::resource('companies', CompanyController::class);
-    Route::resource('branches', BranchController::class);    
+    Route::resource('branches', BranchController::class);
 
 });
 
