@@ -10,7 +10,7 @@ use App\Http\Controllers\TenantController;
 
 
 
-use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\BranchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,8 +46,14 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/show_tenant', [TenantController::class,'show_tenant'])->name('tenants.show_tenant');
 
-//company
+//empresa
+    //Route::resource('companies', CompanyController::class);
     Route::resource('companies', CompanyController::class);
+
+//sucursales
+    //Route::resource('companies', CompanyController::class);
+    Route::resource('branches', BranchController::class);    
+
 });
 
 require __DIR__.'/auth.php';

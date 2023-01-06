@@ -4,56 +4,58 @@
 
 @section('content')
 
-    <div class="container mt-2">
-             <div class="row">
+    <!-- Main content -->
+    <section class="content container-fluid">
+    <div class="row">
                     <div class="col-lg-12 margin-tb">
                         <div class="pull-left">
                             <h2>Sucursales</h2>
                         </div>
                         <div class="pull-right mb-2">
-                            <a class="btn btn-success" href="{{ route('tenant.branches.create') }}"> Create Company</a>
+                            <a class="btn btn-success" href="{{ route('tenant.branches.create') }}"> Create Sucursal</a>
                         </div>
                     </div>
-                </div>
+    </div>
         @if ($message = Session::get('success'))
-            <div class="alert alert-success">
-                <p>{{ $message }}</p>
-            </div>
+                <div class="alert alert-success">
+                    <p>{{ $message }}</p>
+                </div>
         @endif
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>S.No</th>
-                    <th>Company Name</th>
-                    <th>Company Email</th>
-                    <th>Company Address</th>
-                    <th width="280px">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($branches as $branch)
-                    <tr>
-                        <td>{{ $branch->id }}</td>
-                        <td>{{ $branch->description }}</td>
-                        <td>{{ $branch->direction }}</td>
-                        <td>{{ $branch->company_id }}</td>
-                        <td>{{ $branch->ubigeo_id }}</td>                        
-                        <td>
+
+        @foreach ($branches as $branch)
+      <div class="row">
+      <div class="col-lg-4">
+          <div class="chart-box">
+            <h4>Descripción: {{$branch->description}}</h4>
+            <div class="message-widget">
+
+            <div class="row">
+                <div class="col-lg-4 col-xs-4 m-bot-2"><img src="{{ asset('assetsAdmin/dist/img/img5.jpg') }}" alt="user" class="img-responsive img-rounded"></div>
+                </div>
+                <div class="mail-contnet">
+                    <h5>Dirección: {{ $branch->direction }}</h5>
+                    <div class="col-md-2">
+                    <button type="button" class="btn btn-primary btn-rounded">Entrar</button>
+                    </div>
+                </div>
+                <div class="mail-contnet">
+                    <h5>Empresa id: {{ $branch->company_id }}</h5>
+                    <div class="col-md-2">
+                     <button type="button" class="btn btn-primary btn-rounded">Entrar</button>
+                    </div>
+                </div>
+                <td>
                             <form action="{{ route('tenant.branches.destroy',$branch->id) }}" method="Post">
                                 <a class="btn btn-primary" href="{{ route('tenant.branches.edit',$branch->id) }}">Edit</a>
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
-                        </td>
-                    </tr>
-                    @endforeach
-            </tbody>
-        </table>
-        {!! $branches->links() !!}
-    </div>
-<
+                </td>
+          </div>
 
+        </div>
+        @endforeach
 
 
 

@@ -34,12 +34,14 @@ class BranchController extends Controller
     * @param  \Illuminate\Http\Request  $request
     * @return \Illuminate\Http\Response
     */
+
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'address' => 'required',
+            'description' => 'required',
+            'direction' => 'required',
+            'company_id' => 'required',
+            'ubigeo_id' => 'required',            
         ]);
         
         Branch::create($request->post());
@@ -79,9 +81,10 @@ class BranchController extends Controller
     public function update(Request $request, Branch $branch)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'address' => 'required',
+            'description' => 'required',
+            'direction' => 'required',
+            'company_id' => 'required',
+            'ubigeo_id' => 'required',   
         ]);
         
         $branch->fill($request->post())->save();

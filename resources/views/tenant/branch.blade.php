@@ -164,10 +164,8 @@
     </section>
 
     <!-- Main content -->
-    <section class="content container-fluid">
+    <!-- <section class="content container-fluid">
       <div class="row">
-
-
       <div class="col-lg-4">
           <div class="chart-box">
             <h4>Local principal</h4>
@@ -194,10 +192,8 @@
                      <button type="button" class="btn btn-primary btn-rounded">Entrar</button>
                      </div>
              </div>
-
-
           </div>
-        </div>
+        </div> -->
 
       @yield('content')
 
