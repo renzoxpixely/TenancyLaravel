@@ -22,40 +22,48 @@
                 </div>
         @endif
 
-        @foreach ($branches as $branch)
-      <div class="row">
-      <div class="col-lg-4">
-          <div class="chart-box">
-            <h4>Descripción: {{$branch->description}}</h4>
-            <div class="message-widget">
 
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content"> 
+
+
+    @foreach ($branches as $branch)
+    <!-- Main content -->
+    <section class="content container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="chart-box">
             <div class="row">
-                <div class="col-lg-4 col-xs-4 m-bot-2"><img src="{{ asset('assetsAdmin/dist/img/img5.jpg') }}" alt="user" class="img-responsive img-rounded"></div>
-                </div>
+              <div class="col-md-3">
+                <div class="user-img pull-left"><img src="https://api.nubefa.com/storage/131/AfypFkZIQzfSYYXXugD8ODsowI7akiFywgoxtGb1.png" class="img-circle img-responsive" alt="User Image"> </div>
+              </div>
+              <div class="col-md-9">
                 <div class="mail-contnet">
-                    <h5>Dirección: {{ $branch->direction }}</h5>
-                    <div class="col-md-2">
-                    <button type="button" class="btn btn-primary btn-rounded">Entrar</button>
-                    </div>
-                </div>
-                <div class="mail-contnet">
-                    <h5>Empresa id: {{ $branch->company_id }}</h5>
-                    <div class="col-md-2">
-                     <button type="button" class="btn btn-primary btn-rounded">Entrar</button>
-                    </div>
-                </div>
-                <td>
+                  <h4>{{ $branch->description }}<span class="desig">- Web Designer</span></h4>
+                  <p class="m-bot-2">{{ $branch->direction }}</p>
+                  <h5>{{ $branch->company_id }} </h5>
+                  <ul class="social-icons">
                             <form action="{{ route('tenant.branches.destroy',$branch->id) }}" method="Post">
                                 <a class="btn btn-primary" href="{{ route('tenant.branches.edit',$branch->id) }}">Edit</a>
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
-                </td>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-
         </div>
-        @endforeach
+
+        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+      </div>
+    </section>
+    <!-- content --> 
+    @endforeach
+  </div>
+  <!-- content-wrapper --> 
+
 
 
 
