@@ -27,10 +27,12 @@
   <div class="content"> 
 
 
-    @foreach ($branches as $branch)
+
     <!-- Main content -->
     <section class="content container-fluid">
+    
       <div class="row">
+      @foreach ($branches as $branch)
         <div class="col-md-4">
           <div class="chart-box">
             <div class="row">
@@ -39,9 +41,9 @@
               </div>
               <div class="col-md-9">
                 <div class="mail-contnet">
-                  <h4>{{ $branch->description }}<span class="desig">- Web Designer</span></h4>
-                  <p class="m-bot-2">{{ $branch->direction }}</p>
-                  <h5>{{ $branch->company_id }} </h5>
+                  <h4><span class="desig">Descripción: </span>{{ $branch->description }}</h4>
+                  <h4 class="desig"><span class="desig">Dirección: </span>{{ $branch->direction }}</h4>
+                  <h4><span class="desig">Compañia id: </span>{{ $branch->company_id }} </h4>
                   <ul class="social-icons">
                             <form action="{{ route('tenant.branches.destroy',$branch->id) }}" method="Post">
                                 <a class="btn btn-primary" href="{{ route('tenant.branches.edit',$branch->id) }}">Edit</a>
@@ -50,17 +52,20 @@
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                   </ul>
-                </div>
+                </div>                
               </div>
             </div>
+
+            
           </div>
         </div>
-
         <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-      </div>
+        @endforeach   
+    </div>
+           
     </section>
     <!-- content --> 
-    @endforeach
+
   </div>
   <!-- content-wrapper --> 
 
