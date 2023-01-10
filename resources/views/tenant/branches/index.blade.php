@@ -1,6 +1,5 @@
 
-
-@extends('tenant.branch')
+@extends('tenant.layouts.base')
 
 @section('content')
 
