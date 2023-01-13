@@ -1,5 +1,4 @@
-
-@extends('tenant.layouts.base')
+@extends('tenant.layouts.layout_home.base')
 
 @section('content')
 
@@ -59,7 +58,7 @@
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
-                </div>                
+                </div>
                 <button type="submit" class="btn btn-primary ml-3">Submit</button>
             </div>
         </form>

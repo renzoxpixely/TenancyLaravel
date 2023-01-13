@@ -1,4 +1,4 @@
-@extends('tenant.layouts.base')
+@extends('tenant.layouts.layout_home.base')
 
 @section('content')
 
@@ -8,52 +8,44 @@
                         <div class="pull-left">
                             <h2>Hola! Bienvenido a Nubefa</h2>
 
-                            @if (count($companies) === 0)
-                          
-    <div class="container mt-2">
+
+
+    <!-- <div class="container mt-2">
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left mb-2">
                 <div class="row">
 
                     <div class="col-lg-12 margin-tb">
-                       
+
                         <div class="pull-right mb-2">
                             <a class="btn btn-success" href="{{ route('tenant.companies.create') }}"> Registro Empresa</a>
                         </div>
                     </div>
-    </div>
+                 </div>
                 </div>
 
             </div>
         </div>
-        @if(session('status'))
-        <div class="alert alert-success mb-1 mt-1">
-            {{ session('status') }}
-        </div>
-        @endif
-    </div>
-</body>
-@else
+
+    </div> -->
+
+
     <h1>Foto</h1>
-    <script>window.location = "/branches";</script>
-@endif
+
+
                         </div>
                     </div>
                 </div>
-        @if ($message = Session::get('success'))
-            <div class="alert alert-success">
-                <p>{{ $message }}</p>
-            </div>
-        @endif
-        <!-- <table class="table table-bordered">
+
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>S.No</th>
                     <th>Company Name</th>
                     <th>Company Email</th>
                     <th>Company Address</th>
-                    <th width="280px">Action</th>
+                    <!-- <th width="280px">Action</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -63,18 +55,18 @@
                         <td>{{ $company->name }}</td>
                         <td>{{ $company->email }}</td>
                         <td>{{ $company->address }}</td>
-                        <td>
+                        <!-- <td>
                             <form action="{{ route('tenant.companies.destroy',$company->id) }}" method="Post">
                                 <a class="btn btn-primary" href="{{ route('tenant.companies.edit',$company->id) }}">Edit</a>
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
-                        </td>
+                        </td> -->
                     </tr>
                     @endforeach
             </tbody>
-        </table> -->
-        {!! $companies->links() !!}
+        </table>
+
     </div>
 @endsection

@@ -1,6 +1,4 @@
-
-
-@extends('tenant.branch')
+@extends('tenant.layouts.layout_home.base')
 
 @section('content')
 
@@ -37,7 +35,7 @@
                         <td>{{ $branch->description }}</td>
                         <td>{{ $branch->direction }}</td>
                         <td>{{ $branch->company_id }}</td>
-                        <td>{{ $branch->ubigeo_id }}</td>                        
+                        <td>{{ $branch->ubigeo_id }}</td>
                         <td>
                             <form action="{{ route('tenant.branches.destroy',$branch->id) }}" method="Post">
                                 <a class="btn btn-primary" href="{{ route('tenant.branches.edit',$branch->id) }}">Edit</a>

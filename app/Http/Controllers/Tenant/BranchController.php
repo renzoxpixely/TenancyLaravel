@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Tenant;
 use App\Models\Tenant\Branch;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Tenant\Company;
 class BranchController extends Controller
 {
     /**
@@ -14,8 +14,9 @@ class BranchController extends Controller
     */
     public function index()
     {
+        $companies = Company::orderBy('id','desc')->paginate(5);
         $branches = Branch::orderBy('id','desc')->paginate(5);
-        return view('tenant.branches.index', compact('branches'));
+        return view("tenant.branches.index",["companies" => $companies, "branches" => $branches]);
     }
 
     /**
@@ -41,9 +42,9 @@ class BranchController extends Controller
             'description' => 'required',
             'direction' => 'required',
             'company_id' => 'required',
-            'ubigeo_id' => 'required',            
+            'ubigeo_id' => 'required',
         ]);
-        
+
         Branch::create($request->post());
 
         return redirect()->route('tenant.branches.index')->with('success','Branch has been created successfully.');
@@ -84,9 +85,9 @@ class BranchController extends Controller
             'description' => 'required',
             'direction' => 'required',
             'company_id' => 'required',
-            'ubigeo_id' => 'required',   
+            'ubigeo_id' => 'required',
         ]);
-        
+
         $branch->fill($request->post())->save();
 
         return redirect()->route('tenant.branches.index')->with('success','Branch Has Been updated successfully');
