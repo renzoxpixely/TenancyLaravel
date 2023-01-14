@@ -94,6 +94,11 @@
 
           <!-- Tasks Menu -->
           <!-- User Account Menu -->
+          <li class="dropdown user user-menu"> <a href="{{ route('tenant.users.index') }}" class="dropdown-toggle" > <img src="{{ asset('assetsAdmin/dist/img/img1.jpg') }}" class="user-image" alt="User Image"> <span class="h4">Usuarios</span> </a>
+          </li>
+
+          <!-- Tasks Menu -->
+          <!-- User Account Menu -->
           <li class="dropdown user user-menu"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="{{ asset('assetsAdmin/dist/img/img1.jpg') }}" class="user-image" alt="User Image"> <span class="h4">Perfil</span> </a>
             <ul class="dropdown-menu">
               <!-- <li class="user-header">
