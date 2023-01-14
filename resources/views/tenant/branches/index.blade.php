@@ -27,7 +27,7 @@
       <div class="row">
             @if(count($companies) === 0)
                         <div class="pull-right mb-2">
-                            <a class="btn btn-success" href="{{ route('tenant.branches.create') }}"> Registrar Empresa</a>
+                            <a class="btn btn-success" href="{{ route('tenant.companies.create') }}"> Registrar Empresa</a>
                         </div>
             @elseif(count($branches) === 0)
                         <div class="pull-right mb-2">
