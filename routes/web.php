@@ -26,7 +26,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register-tenant', [RegisteredTenantController::class, 'create' ])->name('tenant.register');
+Route::get('/register-tenant', [RegisteredTenantController::class, 'create' ])->name('register-tenant');
 Route::post('/register-tenant', [RegisteredTenantController::class, 'store' ]);
 
 Route::get('/dashboard', function () {
