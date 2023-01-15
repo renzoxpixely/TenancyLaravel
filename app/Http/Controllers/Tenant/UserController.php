@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Tenant;
 use App\Models\Tenant\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -38,12 +39,17 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'address' => 'required',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required'],
+            'password' => ['required', 'string', 'max:255'],
+            // 'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        User::create($request->post());
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
 
         return redirect()->route('tenant.users.index')->with('success','User has been created successfully.');
     }

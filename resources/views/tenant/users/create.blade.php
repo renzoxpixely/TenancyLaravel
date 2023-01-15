@@ -42,8 +42,8 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>User Address:</strong>
-                        <input type="text" name="address" class="form-control" placeholder="User Address">
-                        @error('address')
+                        <input type="password" name="password" class="form-control" placeholder="password Address">
+                        @error('password')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
