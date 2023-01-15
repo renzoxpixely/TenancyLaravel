@@ -30,7 +30,7 @@ Route::get('/register-tenant', [RegisteredTenantController::class, 'create' ])->
 Route::post('/register-tenant', [RegisteredTenantController::class, 'store' ]);
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('layout.base');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
