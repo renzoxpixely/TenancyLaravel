@@ -32,7 +32,7 @@
 </head>
 
  <!-- partial -->
- @include('tenant.layouts.layout.partials.header')
+ @include('system.layout.partials.header')
 
 <!-- jQuery -->
 <script src="{{ asset('assetsAdmin/dist/js/jquery.min.js') }}"></script>
