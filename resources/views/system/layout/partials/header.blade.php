@@ -120,26 +120,9 @@
   </header>
   @include('system.layout.partials.sidebar')
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>Dashboard</h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-        <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
-      </ol>
-    </section>
 
-    <!-- Main content -->
-    <section class="content container-fluid">
-    <div class="row">
-    @yield('content')
-    </div>
-    </section>
-    <!-- content -->
-  </div>
-  <!-- content-wrapper -->
+  @yield('content')
+
 
   <!-- Main Footer -->
   <footer class="main-footer dark-bg">

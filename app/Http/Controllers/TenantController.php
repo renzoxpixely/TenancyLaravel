@@ -17,6 +17,6 @@ class TenantController extends Controller
     {
     	$post = Tenant::all();
 
-    	return view('show_tenant',['tenants' => $post]);
+    	return view('system/tenants/show_tenant',['tenants' => $post]);
     }
 }

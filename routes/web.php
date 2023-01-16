@@ -30,7 +30,7 @@ Route::get('/register-tenant', [RegisteredTenantController::class, 'create' ])->
 Route::post('/register-tenant', [RegisteredTenantController::class, 'store' ]);
 
 Route::get('/dashboard', function () {
-    return view('system.layout.base');
+    return view('system.home.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -43,9 +43,13 @@ Route::middleware('auth')->group(function () {
 
     // Route::get('/register-tenant', [RegisteredTenantController::class, 'create' ])->name('tenant.register');
     // Route::post('/register-tenant', [RegisteredTenantController::class, 'store' ]);
-
     Route::get('/show_tenant', [TenantController::class,'show_tenant'])->name('tenants.show_tenant');
 
+    //prueba ruta
+    Route::get('/test', function () {
+        // return view('tenant.layouts.layout_dashboard.dashboard');
+        return view('system.customers.index');
+    });    
 
 });
 
