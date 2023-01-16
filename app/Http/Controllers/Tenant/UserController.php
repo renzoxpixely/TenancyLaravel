@@ -5,7 +5,7 @@ use App\Models\Tenant\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Validation\Rules;
 class UserController extends Controller
 {
 
@@ -40,9 +40,8 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required'],
-            'password' => ['required', 'string', 'max:255'],
-            // 'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
@@ -51,7 +50,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('tenant.users.index')->with('success','User has been created successfully.');
+        return redirect()->route('tenant.users.index')->with('success','Usuario creado exitosamente!');
     }
 
     /**
@@ -88,12 +87,12 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'address' => 'required',
+            'password' => 'required',
         ]);
 
         $user->fill($request->post())->save();
 
-        return redirect()->route('tenant.users.index')->with('success','User Has Been updated successfully');
+        return redirect()->route('tenant.users.index')->with('success','Usuario  actualizado exitosamente!');
     }
 
     /**
@@ -105,7 +104,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('tenant.users.index')->with('success','User has been deleted successfully');
+        return redirect()->route('tenant.users.index')->with('success','Usuario eliminado exitosamente!');
     }
 
 }

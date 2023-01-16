@@ -45,7 +45,7 @@ Route::group([
     });
 
     Route::get('/dashboard', function () {
-        return view('tenant/dashboard');
+        return view('tenant.layouts.layout_dashboard.dashboard');
     })->middleware(['auth'])->name('dashboard');
 
     //auth

@@ -125,12 +125,12 @@
                 <div class="view-link text-left"><a href="#">View Profile</a> </div>
               </li>
               <li><a href="#"><i class="icon-profile-male"></i> My Profile</a></li>
-              <li><a href="#"><i class="icon-wallet"></i> My Balance</a></li>
-              <li><a href="#"><i class="icon-envelope"></i> Inbox</a></li>
+              <!-- <li><a href="#"><i class="icon-wallet"></i> My Balance</a></li>
+              <li><a href="#"><i class="icon-envelope"></i> Inbox</a></li> -->
               <li role="separator" class="divider"></li>
-              <li><a href="#"><i class="icon-gears"></i> Account Setting</a></li>
+              <li><a href="{{ route('tenant.branches.index') }}"><i class="icon-gears"></i> Cambiar Empresa</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+              <!-- <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li> -->
 
                                         <!-- Authentication -->
                                         <form method="POST" action="{{ route('tenant.logout') }}">
@@ -139,7 +139,7 @@
                             <x-dropdown-link :href="route('tenant.logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Cerrar Sesión') }}
                             </x-dropdown-link>
                         </form>
 

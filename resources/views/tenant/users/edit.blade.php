@@ -6,11 +6,11 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Edit User</h2>
+                    <h2>Editar Usuario</h2>
                 </div>
                 <div class="pull-right">
                     <a class="btn btn-primary" href="{{ route('tenant.users.index') }}" enctype="multipart/form-data">
-                        Back</a>
+                        Atrás</a>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>User Name:</strong>
+                        <strong>Nombre:</strong>
                         <input type="text" name="name" value="{{ $user->name }}" class="form-control"
                             placeholder="User name">
                         @error('name')
@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>User Email:</strong>
+                        <strong>Correo:</strong>
                         <input type="email" name="email" class="form-control" placeholder="User Email"
                             value="{{ $user->email }}">
                         @error('email')
@@ -45,8 +45,8 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>User Address:</strong>
-                        <input type="text" name="address" value="{{ $user->address }}" class="form-control"
+                        <strong>Contraseña:</strong>
+                        <input type="password" name="address" value="{{ $user->address }}" class="form-control"
                             placeholder="User Address">
                         @error('address')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
