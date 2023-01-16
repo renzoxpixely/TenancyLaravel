@@ -16,6 +16,7 @@ use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Tenant\CompanyController;
 use App\Http\Controllers\Tenant\BranchController;
 use App\Http\Controllers\Tenant\UserController;
+use App\Http\Controllers\Tenant\ShoppingController;
 
 use App\Http\Controllers\Tenant\RegisteredTenantUserController;
 
@@ -107,6 +108,8 @@ Route::group([
 //company
     //Route::resource('branches', CompanyController::class);
     Route::resource('users', UserController::class);
+//shopping
+    Route::resource('branches.shoppings', ShoppingController::class);
 
 //prueba ruta
 Route::get('/test', function () {

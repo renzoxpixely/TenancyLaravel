@@ -48,6 +48,7 @@
                             @foreach ($branches as $branch)
                             <div class="mail-contnet">
                                 <h4><span class="desig">Descripción: </span>{{ $branch->description }}</h4>
+                                <a class="btn btn-success" href="{{ route('tenant.branches.shoppings.index', $branch->id) }}"> Ingrsardashhs</a>
                                 <!-- <h4 class="desig"><span class="desig">Dirección: </span>{{ $branch->direction }}</h4>
                                 <h4><span class="desig">Compañia id: </span>{{ $branch->company_id }} </h4> -->
                                 <a class="btn btn-primary" href="{{ route('tenant.dashboard') }}">Ingresar</a>
