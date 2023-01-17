@@ -26,9 +26,18 @@
 
       <div class="row">
             @if(count($companies) === 0)
-                        <div class="pull-right mb-2">
+<!--                         <div class="pull-right mb-2">
+                         <img src="https://app.nubefa.com/assets/images/welcome.png" class="img-responsive" alt="User Image">
                             <a class="btn btn-success" href="{{ route('tenant.companies.create') }}"> Registrar Empresa</a>
-                        </div>
+                        </div> -->
+  <div class="form-body">
+    <div class="form-group has-feedback">
+        <img src="https://app.nubefa.com/assets/images/welcome.png" class="img-responsive" alt="User Image">            
+    </div>
+    <div class="form-group has-feedback">
+        <a class="btn btn-primary" href="{{ route('tenant.companies.create') }}"> Registrar Empresa</a> </div>
+      </div>
+  </div>
             @elseif(count($branches) === 0)
                         <div class="pull-right mb-2">
                             <a class="btn btn-success" href="{{ route('tenant.branches.create') }}"> Registrar Sucursal</a>

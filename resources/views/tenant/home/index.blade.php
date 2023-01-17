@@ -1,4 +1,4 @@
-@extends('system.layout.base')
+@extends('tenant.layouts.layout_dashboard.layout.base')
 
 
 @section('content')

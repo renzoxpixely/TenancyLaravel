@@ -46,7 +46,7 @@ Route::group([
     });
 
     Route::get('/dashboard', function () {
-        return view('tenant.layouts.layout_dashboard.dashboard');
+        return view('tenant.home.index');
     })->middleware(['auth'])->name('dashboard');
 
     //auth
@@ -113,7 +113,7 @@ Route::group([
 
 //prueba ruta
 Route::get('/test', function () {
-    return view('tenant.layouts.layout_dashboard.dashboard');
+    return view('tenant.layouts.layout_dashboard.layout.base');
 });    
 
 

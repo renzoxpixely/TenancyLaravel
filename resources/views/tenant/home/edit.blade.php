@@ -36,31 +36,23 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Correo:</strong>
-                        <input type="email" name="email" value="{{ $user->email }}" class="form-control" placeholder="Correo">
+                        <input type="email" name="email" class="form-control" placeholder="User Email"
+                            value="{{ $user->email }}">
                         @error('email')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div>                
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Contraseña:</strong>
-                        <input type="password" name="password" class="form-control" placeholder="Contraseña">
-                        @error('password')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Confirmar Contraseña:</strong>
-                        <input type="password" name="password_confirmation" class="form-control" placeholder="Confirmar Contraseña">
-                        @error('password_confirmation')
-                        <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                        <strong>Contraseña:</strong>
+                        <input type="password" name="address" value="{{ $user->address }}" class="form-control"
+                            placeholder="User Address">
+                        @error('address')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
-                </div> 
+                </div>
                 <button type="submit" class="btn btn-primary ml-3">Submit</button>
             </div>
         </form>
