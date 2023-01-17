@@ -113,7 +113,7 @@ Route::group([
 
 //prueba ruta
 Route::get('/test', function () {
-    return view('tenant.layouts.layout_dashboard.layout.base');
+    return view('tenant.sales.index');
 });    
 
 

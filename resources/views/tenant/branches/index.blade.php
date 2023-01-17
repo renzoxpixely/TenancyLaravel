@@ -72,7 +72,7 @@
                   
                  
                   </div>
-                  <!-- <a class="btn btn-success" href="{{ route('tenant.branches.shoppings.index', $branch->id) }}"> Ingrsardashhs</a> -->
+                  <a class="btn btn-success" href="{{ route('tenant.branches.shoppings.index', $branch->id) }}"> Ingrsardashhs</a>
                   @endforeach  
                   </div>
                   </div>
