@@ -43,46 +43,47 @@
                             <a class="btn btn-success" href="{{ route('tenant.branches.create') }}"> Registrar Sucursal</a>
                         </div>
             @else
-                <!-- Main content -->
-                <section class="content container-fluid">
-                    <div class="row">
 
-                    <div class="col-md-4">
-                        <div class="chart-box">
-                        <div class="row">
-                            <div class="col-md-3">
-                            <div class="user-img pull-left"><img src="https://api.nubefa.com/storage/131/AfypFkZIQzfSYYXXugD8ODsowI7akiFywgoxtGb1.png" class="img-circle img-responsive" alt="User Image"> </div>
-                            </div>
-                            <div class="col-md-9">
-                            @foreach ($branches as $branch)
-                            <div class="mail-contnet">
-                                <h4><span class="desig">Descripción: </span>{{ $branch->description }}</h4>
-                                <a class="btn btn-success" href="{{ route('tenant.branches.shoppings.index', $branch->id) }}"> Ingrsardashhs</a>
-                                <!-- <h4 class="desig"><span class="desig">Dirección: </span>{{ $branch->direction }}</h4>
-                                <h4><span class="desig">Compañia id: </span>{{ $branch->company_id }} </h4> -->
-                                <a class="btn btn-primary" href="{{ route('tenant.dashboard') }}">Ingresar</a>
-                                <!-- <ul class="social-icons">
-                                        <form action="{{ route('tenant.branches.destroy',$branch->id) }}" method="Post">
-                                            <a class="btn btn-primary" href="{{ route('tenant.branches.edit',$branch->id) }}">Edit</a>
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
-                                </ul> -->
-                            </div>
-                            @endforeach
-                            </div>
-                        </div>
+    <!-- Main content -->
 
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="chart-box">
+                <div class="panel">
+                
+                  <div class="panel-box"> <img src="https://api.nubefa.com/storage/131/AfypFkZIQzfSYYXXugD8ODsowI7akiFywgoxtGb1.png" class="img-responsive img-rounded">
+                   
+            <!-- Tab panes -->
+            <div class="tab-content">
+            @foreach ($branches as $branch)
+              <div role="tabpanel" class="tab-pane active" id="home">
 
-                        </div>
+                <div class="message-widget">
+               
+                              
+                    <div class="mail-contnet">
+                      <h4 class="pull-left">{{ $branch->description }}</h4>
+                      <div class="pull-right">
+                      <!-- <a class="btn btn-primary" href="{{ route('tenant.dashboard') }}">Ingresar</a> -->
+                      <div class="col-md-2">
+          <button type="button"  class="btn btn-primary"><a class="" href="{{ route('tenant.dashboard') }}">Ingresar</a></button>
+        </div>
                     </div>
-                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                  
+                 
+                  </div>
+                  <!-- <a class="btn btn-success" href="{{ route('tenant.branches.shoppings.index', $branch->id) }}"> Ingrsardashhs</a> -->
+                  @endforeach  
+                  </div>
+                  </div>
 
-                    </div>
+                </div>
+          </div>
+        </div>
+      </div>
 
-                </section>
-                <!-- content -->
+    <!-- content --> 
+
             @endif
     </div>
 
@@ -91,9 +92,6 @@
 
   </div>
   <!-- content-wrapper -->
-
-
-
 
 @endsection
 
