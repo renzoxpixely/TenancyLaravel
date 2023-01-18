@@ -17,6 +17,7 @@ use App\Http\Controllers\Tenant\CompanyController;
 use App\Http\Controllers\Tenant\BranchController;
 use App\Http\Controllers\Tenant\UserController;
 use App\Http\Controllers\Tenant\ShoppingController;
+use App\Http\Controllers\Tenant\SaleController;
 
 use App\Http\Controllers\Tenant\RegisteredTenantUserController;
 
@@ -110,6 +111,9 @@ Route::group([
     Route::resource('users', UserController::class);
 //shopping
     Route::resource('branches.shoppings', ShoppingController::class);
+
+//sale
+Route::resource('branches.sales', SaleController::class);
 
 //prueba ruta
 Route::get('/test', function () {

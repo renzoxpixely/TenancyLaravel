@@ -1,6 +1,28 @@
-@extends('tenant.layouts.layout_home.base')
+@extends('tenant.layouts.layout_dashboard.layout.base')
+
 
 @section('content')
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper"> 
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>Ventas</h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+        <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
+      </ol>
+    </section>
+    
+    <!-- Main content -->
+    <section class="content container-fluid">
+
+
+
+                
+
+
 
 <div class="container mt-2">
         <div class="row">
@@ -9,7 +31,7 @@
                     <h2>Agregar Usuario</h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-primary" href="{{ route('tenant.users.index') }}"> Atrás</a>
+                <a href="{{ route("tenant.branches.sales.index", $branch_id) }}">atrs</a>
                 </div>
             </div>
         </div>
@@ -18,14 +40,16 @@
             {{ session('status') }}
         </div>
         @endif
-        <form action="{{ route('tenant.users.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route("tenant.branches.sales.store", $branch_id) }}" method="POST">        
+        <!-- <form action="{{ route('tenant.users.store') }}" method="POST" enctype="multipart/form-data"> -->
+        <!-- protected $fillable = ['customer','product','amount','price','total']; -->
             @csrf
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Nombre:</strong>
-                        <input type="text" name="name" class="form-control" placeholder="Nombre">
-                        @error('name')
+                        <input type="text" name="customer" class="form-control" placeholder="customer">
+                        @error('customer')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
@@ -33,8 +57,8 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Correo:</strong>
-                        <input type="email" name="email" class="form-control" placeholder="Correo">
-                        @error('email')
+                        <input type="text" name="product" class="form-control" placeholder="Correo">
+                        @error('product')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
@@ -42,25 +66,43 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Contraseña:</strong>
-                        <input type="password" name="password" class="form-control" placeholder="Contraseña">
-                        @error('password')
+                        <input type="text" name="amount" class="form-control" placeholder="Contraseña">
+                        @error('amount')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Confirmar Contraseña:</strong>
-                        <input type="password" name="password_confirmation" class="form-control" placeholder="Confirmar Contraseña">
-                        @error('password_confirmation')
-                        <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                        <strong>Contraseña:</strong>
+                        <input type="text" name="price" class="form-control" placeholder="Contraseña">
+                        @error('price')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
-                </div>                
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Contraseña:</strong>
+                        <input type="text" name="total" class="form-control" placeholder="Contraseña">
+                        @error('total')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>     
+                                                
                 <button type="submit" class="btn btn-primary ml-3">Agregar</button>
             </div>
         </form>
     </div>
+
+
+
+
+    </section>
+    <!-- content --> 
+
+  </div>
+  <!-- content-wrapper --> 
 
 @endsection

@@ -9,4 +9,10 @@ class Branch extends Model
 {
     protected $fillable = ['description', 'direction', 'company_id', 'ubigeo_id'];
     use HasFactory;
+
+    public function sales()
+    {
+        return $this->hasMany(Sale::class);
+    }
 }
+
