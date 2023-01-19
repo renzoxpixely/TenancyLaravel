@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Tenant\Sale;
 use App\Http\Controllers\Controller;
 
+use App\Models\Tenant\Branch;
 class SaleController extends Controller
 {
     /**
@@ -16,7 +17,8 @@ class SaleController extends Controller
     public function index($branch_id)
     {
         $sales = Sale::where('branch_id', $branch_id)->get();
-        return view('tenant.sales.index', compact('sales', 'branch_id'));
+        $branches = Branch::where('id', $branch_id)->get();
+        return view('tenant.sales.index', compact('sales', 'branch_id','branches'));
         // $cities = City::where('country_id', $country_id)->get();
         // return view('admin.cities.index', compact('cities', 'country_id'));
     }

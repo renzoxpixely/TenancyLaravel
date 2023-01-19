@@ -6,7 +6,12 @@
   <div class="content-wrapper"> 
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>Ventas</h1>
+
+    @foreach ($branches as $branch)
+        <h1>{{ ucfirst($branch->description) }}</h1>
+    @endforeach  
+
+  
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
         <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
@@ -58,6 +63,9 @@
                     </tr>
                     @endforeach
             </tbody>
+         
+           
+        
         </table>
         
     </div>
