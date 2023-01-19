@@ -47,7 +47,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Nombre:</strong>
+                        <strong>customer:</strong>
                         <input type="text" name="customer" class="form-control" placeholder="customer">
                         @error('customer')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -56,8 +56,8 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Correo:</strong>
-                        <input type="text" name="product" class="form-control" placeholder="Correo">
+                        <strong>product:</strong>
+                        <input type="text" name="product" class="form-control" placeholder="product">
                         @error('product')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
@@ -65,8 +65,8 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Contraseña:</strong>
-                        <input type="text" name="amount" class="form-control" placeholder="Contraseña">
+                        <strong>amount:</strong>
+                        <input type="text" name="amount" class="form-control" placeholder="amount">
                         @error('amount')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
@@ -74,8 +74,8 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Contraseña:</strong>
-                        <input type="text" name="price" class="form-control" placeholder="Contraseña">
+                        <strong>price:</strong>
+                        <input type="text" name="price" class="form-control" placeholder="price">
                         @error('price')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
@@ -83,8 +83,8 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Contraseña:</strong>
-                        <input type="text" name="total" class="form-control" placeholder="Contraseña">
+                        <strong>total:</strong>
+                        <input type="text" name="total" class="form-control" placeholder="total">
                         @error('total')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
