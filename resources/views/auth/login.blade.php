@@ -22,14 +22,12 @@
 </head>
 
 <body class="simple-page">
-    <div id="back-to-home">
-        <a href="index.html" class="btn btn-outline btn-default"><i class="fa fa-home animated zoomIn"></i></a>
-    </div>
+
     <div class="simple-page-wrap">
 
-        <div>
-            <a href="">Inicio</a>
-            <a href="">Registrarse</a>
+        <div class="text-center row m-b-md">
+            <a class="text-white col-auto" href="/login">Inicio</a>
+            <a class="text-white col-auro text-muted" href="/login">Registrarse</a>
         </div>
 
         <div class="simple-page-form animated flipInY" id="login-form">
@@ -51,45 +49,49 @@
                     @csrf
 
                     <fieldset>
-                        <legend>Iniciar sesion</legend>
-
-                        <div class="inline items-end justify-end mt-4">
-                            <input type="button" class="btn mw-md btn-purple" value="Usa tu cuenta de Google">
+                        <legend class="text-blue-900">Iniciar sesion</legend>
+                        <div class="inline text-center m-b-xs">
+                            <input type="button" class="btn mw-md btn-outline btn-purple"
+                                value="Usa tu cuenta de Google">
                         </div>
-                        <div class="inline items-end justify-end mt-4">
-                            <input type="button" class="btn mw-md btn-purple" value="Usa tu cuenta de Facebook">
+                        <div class="inline text-center m-b-sm">
+                            <input type="button" class="btn mw-md btn-outline btn-purple"
+                                value="Usa tu cuenta de Facebook">
                         </div>
 
                         <p>Ingrese su correo y contraseña para iniciar sesión</p>
+
                         <!-- Email Address -->
-                        <div>
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            <input id="email" class="block mt-1 w-full" type="email" name="email"
-                            :value="old('email')" required autofocus>
+
+                        {{-- class="form-inline" -> no tiene margin --}}
+                        <div class="form-group m-b-sm">
+                            <div class="input-group">
+                                <span class="input-group-addon bg-purple text-white">
+                                    <span class="fa fa-user" aria-hidden="true"></span>
+                                </span>
+                                <input id="email" class="form-control" type="email" name="email"
+                                    :value="old('email')" placeholder="Correo electrónico" required autofocus>
+                            </div>
                         </div>
 
                         <!-- Password -->
-                        <div class="mt-4">
-                            <i class="fa fa-lock" aria-hidden="true"></i>
-                            <input id="password" class="block mt-1 w-full" type="password" name="password" required
-                            autocomplete="current-password">
+                        <div class="form-group m-b-md">
+                            <div class="input-group">
+                                <span class="input-group-addon bg-purple text-white">
+                                    <i class="fa fa-lock" aria-hidden="true"></i>
+                                </span>
+                                <input id="password" class="form-control border-solid border-y border-r border-black"
+                                    type="password" name="password" placeholder="Contraseña" required
+                                    autocomplete="current-password">
+                            </div>
                         </div>
 
-                        {{-- <div class=" items-end justify-end  mt-4">
-                            <input type="submit" class="" value="Ingresar">
-                        </div> --}}
-                        {{-- inline-block items-center --}}
-                        <div class="flex justify-content-between mt-4">
-                            @if (Route::has('password.request'))
-                                <a class="underline text-sm text-gray-600 hover:text-gray-900"
-                                    href="{{ route('password.request') }}">
-                                    {{ __('Forgot your password?') }}
-                                </a>
-                            @endif
-
-                            <x-button class=" btn btn-primary btn-md btn-purpleml-3 ml-3">
-                                {{ __('Ingresar') }}
-                            </x-button>
+                        <div class="m-b-md text-right">
+                            <div class="inline-block">
+                                <x-button class=" btn btn-primary btn-md btn-purple ml-3">
+                                    {{ __('Ingresar') }}
+                                </x-button>
+                            </div>
                         </div>
                     </fieldset>
                 </form>
