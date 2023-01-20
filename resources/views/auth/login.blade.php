@@ -19,10 +19,11 @@
     <link rel="stylesheet" href="{{ asset('assetsLogin/assets/css/core.css') }}">
     <link rel="stylesheet" href="{{ asset('assetsLogin/assets/css/misc-pages.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900,300">
+    <link rel="stylesheet" href="{{ asset('assetsLogin/assets/css/styles-login.css') }}">
 </head>
 
 <body class="simple-page">
-
+    {{-- <img class="imageen" src="/public/assetsLogin/assets/images/fondo.jpg" alt=""> --}}
     <div class="simple-page-wrap">
 
         <div class="text-center row m-b-md">
@@ -49,22 +50,28 @@
                     @csrf
 
                     <fieldset>
-                        <legend class="text-blue-900">Iniciar sesion</legend>
-                        <div class="inline text-center m-b-xs">
-                            <input type="button" class="btn mw-md btn-outline btn-purple"
-                                value="Usa tu cuenta de Google">
-                        </div>
-                        <div class="inline text-center m-b-sm">
-                            <input type="button" class="btn mw-md btn-outline btn-purple"
-                                value="Usa tu cuenta de Facebook">
+                        <legend class="text-center leyenda">Iniciar sesion</legend>
+
+                        <div class="input-wrapper inline text-center m-b-sm">
+
+                            <i class="input-icon-g zmdi zmdi-google zmdi-hc-fw"></i>
+                            <input type="button" class="input btn mw-md btn-purple" value="Usa tu cuenta de Google">
+
                         </div>
 
-                        <p>Ingrese su correo y contraseña para iniciar sesión</p>
+                        <div class="input-wrapper inline text-center m-b-sm">
+
+                            <i id="fb" class="input-icon zmdi zmdi-facebook zmdi-hc-fw"></i>
+                            <input type="button" class="input btn mw-md btn-purple" value="Usa tu cuenta de Facebook">
+
+                        </div>
+
+                        <p class="parr">Ingrese su correo y contraseña para iniciar sesión</p>
 
                         <!-- Email Address -->
 
-                        {{-- class="form-inline" -> no tiene margin --}}
                         <div class="form-group m-b-sm">
+
                             <div class="input-group">
                                 <span class="input-group-addon bg-purple text-white">
                                     <span class="fa fa-user" aria-hidden="true"></span>
@@ -72,6 +79,7 @@
                                 <input id="email" class="form-control" type="email" name="email"
                                     :value="old('email')" placeholder="Correo electrónico" required autofocus>
                             </div>
+
                         </div>
 
                         <!-- Password -->
@@ -80,15 +88,14 @@
                                 <span class="input-group-addon bg-purple text-white">
                                     <i class="fa fa-lock" aria-hidden="true"></i>
                                 </span>
-                                <input id="password" class="form-control border-solid border-y border-r border-black"
-                                    type="password" name="password" placeholder="Contraseña" required
-                                    autocomplete="current-password">
+                                <input id="password" class="form-control" type="password" name="password"
+                                    placeholder="Contraseña" required autocomplete="current-password">
                             </div>
                         </div>
 
-                        <div class="m-b-md text-right">
+                        <div class="m-b-0 text-right">
                             <div class="inline-block">
-                                <x-button class=" btn btn-primary btn-md btn-purple ml-3">
+                                <x-button class="btn btn-primary btn-sm btn-purple ml-3">
                                     {{ __('Ingresar') }}
                                 </x-button>
                             </div>
@@ -98,7 +105,7 @@
             </x-auth-card>
 
             <div>
-                <p class="text-center">2023 &#169 NUBEFA</p>
+                <p class="text-center m-t-xs p-b-xs parr">2023 &#169 NUBEFA</p>
             </div><!-- .simple-page-footer -->
 
         </div><!-- #login-form -->

@@ -1,113 +1,115 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Infinity - Bootstrap Admin Template</title>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-	<meta name="description" content="Admin, Dashboard, Bootstrap" />
-	<link rel="shortcut icon" sizes="196x196" href="{{ asset('assetsAdmin/assets/images/logo.png') }}">
+    <meta charset="UTF-8">
+    <title>Infinity - Bootstrap Admin Template</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="Admin, Dashboard, Bootstrap" />
+    <link rel="shortcut icon" sizes="196x196" href="{{ asset('assetsAdmin/assets/images/logo.png') }}">
 
     <!-- <link rel="stylesheet" href="{{ asset('assetsAdmin/assets/css/landing-page.css') }}"> -->
 
-	<link rel="stylesheet" href="{{ asset('assetsAdmin/libs/bower/font-awesome/css/font-awesome.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('assetsAdmin/libs/bower/material-design-iconic-font/dist/css/material-design-iconic-font.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('assetsAdmin/libs/bower/animate.css/animate.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('assetsAdmin/assets/css/bootstrap.css') }}">
-	<link rel="stylesheet" href="{{ asset('assetsAdmin/assets/css/core.css') }}">
-	<link rel="stylesheet" href="{{ asset('assetsAdmin/assets/css/misc-pages.css') }}">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900,300">
+    <link rel="stylesheet" href="{{ asset('assetsAdmin/libs/bower/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('assetsAdmin/libs/bower/material-design-iconic-font/dist/css/material-design-iconic-font.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetsAdmin/libs/bower/animate.css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetsAdmin/assets/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetsAdmin/assets/css/core.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetsAdmin/assets/css/misc-pages.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900,300">
+    <link rel="stylesheet" href="{{ asset('assetsLogin/assets/css/styles-login.css') }}">
 </head>
+
 <body class="simple-page">
-	<div id="back-to-home">
-		<a href="index.html" class="btn btn-outline btn-default"><i class="fa fa-home animated zoomIn"></i></a>
-	</div>
-	<div class="simple-page-wrap">
-		<div class="simple-page-logo animated swing">
-			<a href="index.html">
-				<span><i class="fa fa-gg"></i></span>
-				<span>Infinity</span>
-			</a>
-		</div><!-- logo -->
-		<div class="simple-page-form animated flipInY" id="login-form">
-	<h4 class="form-title m-b-xl text-center">Registro de administrador</h4>
+    {{-- <img class="imageen" src="/public/assetsLogin/assets/images/fondo.jpg" alt=""> --}}
+    <div class="simple-page-wrap">
 
+        <div class="text-center row m-b-md">
+            <a class="text-white col-auto" href="/login">Inicio</a>
+            <a class="text-white col-auro text-muted" href="/login">Registrarse</a>
+        </div>
 
+        <div class="simple-page-form animated flipInY" id="login-form">
 
+            <x-auth-card>
+                <x-slot name="logo">
+                    <a href="/">
+                        <!-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> -->
+                    </a>
+                </x-slot>
 
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <!-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> -->
-            </a>
-        </x-slot>
+                <!-- Session Status -->
+                <x-auth-session-status class="mb-4" :status="session('status')" />
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+                <!-- Validation Errors -->
+                <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-            <!-- Name -->
+                <form method="POST" action="{{ route('tenant.login') }}">
+                    @csrf
+
+                    <fieldset>
+                        <legend class="text-center leyenda">Iniciar sesion</legend>
+
+                        <div class="input-wrapper inline text-center m-b-sm">
+
+                            <i class="input-icon-g zmdi zmdi-google zmdi-hc-fw"></i>
+                            <input type="button" class="input btn mw-md btn-purple" value="Usa tu cuenta de Google">
+
+                        </div>
+
+                        <div class="input-wrapper inline text-center m-b-sm">
+
+                            <i id="fb" class="input-icon zmdi zmdi-facebook zmdi-hc-fw"></i>
+                            <input type="button" class="input btn mw-md btn-purple" value="Usa tu cuenta de Facebook">
+
+                        </div>
+
+                        <p class="parr">Ingrese su correo y contraseña para iniciar sesión</p>
+
+                        <!-- Email Address -->
+
+                        <div class="form-group m-b-sm">
+
+                            <div class="input-group">
+                                <span class="input-group-addon bg-purple text-white">
+                                    <span class="fa fa-user" aria-hidden="true"></span>
+                                </span>
+                                <input id="email" class="form-control" type="email" name="email"
+                                    :value="old('email')" placeholder="Correo electrónico" required autofocus>
+                            </div>
+
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group m-b-md">
+                            <div class="input-group">
+                                <span class="input-group-addon bg-purple text-white">
+                                    <i class="fa fa-lock" aria-hidden="true"></i>
+                                </span>
+                                <input id="password" class="form-control" type="password" name="password"
+                                    placeholder="Contraseña" required autocomplete="current-password">
+                            </div>
+                        </div>
+
+                        <div class="m-b-0 text-right">
+                            <div class="inline-block">
+                                <x-button class="btn btn-primary btn-sm btn-purple ml-3">
+                                    {{ __('Ingresar') }}
+                                </x-button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </x-auth-card>
+
             <div>
-                <x-input-label for="name" :value="__('Name')" />
-                <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
-                <x-input-error :messages="$errors->get('name')" class="mt-2" />
-            </div>
+                <p class="text-center m-t-xs p-b-xs parr">2023 &#169 NUBEFA</p>
+            </div><!-- .simple-page-footer -->
 
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-input-label for="email" :value="__('Email')" />
-                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-                <x-input-error :messages="$errors->get('email')" class="mt-2" />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-input-label for="password" :value="__('Password')" />
-
-                <x-text-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-
-                <x-input-error :messages="$errors->get('password')" class="mt-2" />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-
-                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-primary-button class="ml-4">
-                    {{ __('Register') }}
-                </x-primary-button>
-            </div>
-        </form>
-    </x-auth-card>
-
-
-
-    </div><!-- #login-form -->
-
-<div class="simple-page-footer">
-	<p><a href="password-forget.html">FORGOT YOUR PASSWORD ?</a></p>
-	<p>
-		<small>Don't have an account ?</small>
-		<a href="signup.html">CREATE AN ACCOUNT</a>
-	</p>
-</div><!-- .simple-page-footer -->
-
-
-	</div><!-- .simple-page-wrap -->
+        </div><!-- #login-form -->
+    </div><!-- .simple-page-wrap -->
 </body>
+
 </html>

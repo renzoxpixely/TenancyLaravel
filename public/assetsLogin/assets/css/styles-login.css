@@ -1,0 +1,63 @@
+/* GLOBAL */
+body {
+    background-image: url(../images/fondo.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 913px;
+}
+/* UTILIDADES */
+.parr {
+    color: black;
+}
+.input-wrapper {
+    position: relative;
+    max-width: 332px;
+}
+.input {
+    box-sizing: border-box;
+    color: white;
+    padding-left: 43px;
+    width: 100%;
+}
+.input-icon {
+    color: #fff;
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    left: 60px;
+    top: 50%;
+    transform: translateY(-26%);
+}
+.input-icon-g {
+    color: #fff;
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    left: 65px;
+    top: 50%;
+    transform: translateY(-26%);
+}
+.leyenda {
+    display: block;
+    width: 33%;
+    padding: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: inherit;
+    color: #5b69bc;
+    border: 0;
+    border-bottom: 0;
+}
+fieldset {
+    padding: 5px 20px 20px 20px;
+    border: 0.5px solid #c0c0c0;
+    border-radius: 6px;
+}
+.form-control {
+    border: 1px solid #c0c0c0 !important;
+    border-left: none !important;
+}
+.input-group span {
+    border-color: #c0c0c0;
+}
