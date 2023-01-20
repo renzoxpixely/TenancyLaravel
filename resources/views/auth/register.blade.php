@@ -27,8 +27,8 @@
     <div class="simple-page-wrap">
 
         <div class="text-center row m-b-md">
-            <a class="text-white col-auto" href="/login">Inicio</a>
-            <a class="text-white col-auro text-muted" href="/login">Registrarse</a>
+            <a class="text-white col-auto text-muted" href="/login">Inicio</a>
+            <a class="text-white col-auro" href="/login">Registrarse</a>
         </div>
 
         <div class="simple-page-form animated flipInY" id="login-form">
@@ -50,25 +50,11 @@
                     @csrf
 
                     <fieldset>
-                        <legend class="text-center leyenda">Iniciar sesion</legend>
+                        <legend class="text-center leyenda">Registro de Usuario</legend>
 
-                        <div class="input-wrapper inline text-center m-b-sm">
+                        <p class="parr">Ingrese su información de registro.</p>
 
-                            <i class="input-icon-g zmdi zmdi-google zmdi-hc-fw"></i>
-                            <input type="button" class="input btn mw-md btn-purple" value="Usa tu cuenta de Google">
-
-                        </div>
-
-                        <div class="input-wrapper inline text-center m-b-sm">
-
-                            <i id="fb" class="input-icon zmdi zmdi-facebook zmdi-hc-fw"></i>
-                            <input type="button" class="input btn mw-md btn-purple" value="Usa tu cuenta de Facebook">
-
-                        </div>
-
-                        <p class="parr">Ingrese su correo y contraseña para iniciar sesión</p>
-
-                        <!-- Email Address -->
+                        <!-- Ingrese sus Nombres -->
 
                         <div class="form-group m-b-sm">
 
@@ -76,22 +62,104 @@
                                 <span class="input-group-addon bg-purple text-white">
                                     <span class="fa fa-user" aria-hidden="true"></span>
                                 </span>
-                                <input id="email" class="form-control" type="email" name="email"
-                                    :value="old('email')" placeholder="Correo electrónico" required autofocus>
+                                <input id="text" class="form-control" type="name" name="name"
+                                    :value="old('')" placeholder="Ingrese sus Nombres" required autofocus>
                             </div>
 
                         </div>
 
-                        <!-- Password -->
+                        <!-- Ingrese sus Apellidos -->
                         <div class="form-group m-b-md">
+
+                            <div class="input-group">
+                                <span class="input-group-addon bg-purple text-white">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </span>
+                                <input id="password" class="form-control" type="password" name="password"
+                                    placeholder="Ingrese sus Apellidos" required autocomplete="current-password">
+                            </div>
+
+                        </div>
+
+                        {{-- Ingrese su Email --}}
+                        <div class="form-group m-b-md">
+
+                            <div class="input-group">
+                                <span class="input-group-addon bg-purple text-white">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                </span>
+                                <input id="password" class="form-control" type="password" name="password"
+                                    placeholder="Ingrese su Email" required autocomplete="current-password">
+                            </div>
+
+                        </div>
+
+                        {{-- Ingrese su Contraseña --}}
+                        <div class="form-group m-b-md">
+
                             <div class="input-group">
                                 <span class="input-group-addon bg-purple text-white">
                                     <i class="fa fa-lock" aria-hidden="true"></i>
                                 </span>
                                 <input id="password" class="form-control" type="password" name="password"
-                                    placeholder="Contraseña" required autocomplete="current-password">
+                                    placeholder="Ingrese su Contraseña" required autocomplete="current-password">
                             </div>
+
                         </div>
+
+                        {{-- Confirme su Contraseña --}}
+                        <div class="form-group m-b-md">
+
+                            <div class="input-group">
+                                <span class="input-group-addon bg-purple text-white">
+                                    <i class="fa fa-lock" aria-hidden="true"></i>
+                                </span>
+                                <input id="password" class="form-control" type="password" name="password"
+                                    placeholder="Confirme su Contraseña" required autocomplete="current-password">
+                            </div>
+
+                        </div>
+
+                        {{-- Select --}}
+                        <div class="form-group m-b-md">
+
+                            <div class="input-group">
+                                <span class="input-group-addon bg-purple text-white">
+                                    <i class="fa fa-users" aria-hidden="true"></i>
+                                </span>
+                                <input id="password" class="form-control" type="password" name="password"
+                                    placeholder="Contraseña" required autocomplete="current-password">
+                                <select class="form-control">
+                                    <option>Empresario</option>
+                                    <option>Usuario</option>
+                                    <option>Contador</option>
+                                    <option>Asistente de Contabilidad</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        {{-- <div class="form-group">
+
+                            <div id="control-demo-6" class="col-sm-9">
+                                <select class="form-control">
+                                    <option>HTML</option>
+                                    <option>CSS</option>
+                                    <option>Javascript</option>
+                                    <option>Bootstrap</option>
+                                    <option>AngularJs</option>
+                                </select>
+                            </div>
+
+                        </div> --}}
+
+                        {{-- <div class="btn-group" role="group">      INTENTAR UNIENDO ESTILO  url: Infinity/MailBox/Inbox
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter<span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">time</a></li>
+                                <li><a href="#">importance</a></li>
+                            </ul>
+                        </div> --}}
 
                         <div class="m-b-0 text-right">
                             <div class="inline-block">
