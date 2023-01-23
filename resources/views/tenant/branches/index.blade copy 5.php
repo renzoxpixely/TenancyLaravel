@@ -1,6 +1,7 @@
 @extends('tenant.layouts.layout_home.base')
 
 @section('content')
+
     <!-- Main content -->
     <section class="content container-fluid">
     <!-- <div class="row">
@@ -18,7 +19,6 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content">
 
-            <h1>GOKUUUUUUUUUUUUUUUUUU</h1>
 
 
     <!-- Main content -->
@@ -32,7 +32,7 @@
                         </div> -->
   <div class="form-body">
     <div class="form-group has-feedback">
-        <img src="https://app.nubefa.com/assets/images/welcome.png" class="img-responsive" alt="User Image">
+        <img src="https://app.nubefa.com/assets/images/welcome.png" class="img-responsive" alt="User Image">            
     </div>
     <div class="form-group has-feedback">
         <a class="btn btn-primary" href="{{ route('tenant.companies.create') }}"> Registrar Empresa</a> </div>
@@ -50,17 +50,17 @@
         <div class="col-lg-3">
           <div class="chart-box">
                 <div class="panel">
-
+                
                   <div class="panel-box"> <img src="https://api.nubefa.com/storage/131/AfypFkZIQzfSYYXXugD8ODsowI7akiFywgoxtGb1.png" class="img-responsive img-rounded">
-
+                   
             <!-- Tab panes -->
             <div class="tab-content">
             @foreach ($branches as $branch)
               <div role="tabpanel" class="tab-pane active" id="home">
 
                 <div class="message-widget">
-
-
+               
+                              
                     <div class="mail-contnet">
                       <h4 class="pull-left">{{ $branch->description }}</h4>
                       <div class="pull-right">
@@ -69,12 +69,12 @@
           <button type="button"  class="btn btn-primary"><a class="" href="{{ route('tenant.dashboard') }}">Ingresar</a></button>
         </div>
                     </div>
-
-
+                  
+                 
                   </div>
                   <a class="btn btn-success" href="{{ route('tenant.branches.shoppings.index', $branch->id) }}"> Ingrsardashhs</a>
                   <a class="btn btn-success" href="{{ route('tenant.branches.sales.index', $branch->id) }}"> Ventas</a>
-                  @endforeach
+                  @endforeach  
                   </div>
                   </div>
 
@@ -83,7 +83,7 @@
         </div>
       </div>
 
-    <!-- content -->
+    <!-- content --> 
 
             @endif
     </div>
@@ -95,3 +95,5 @@
   <!-- content-wrapper -->
 
 @endsection
+
+

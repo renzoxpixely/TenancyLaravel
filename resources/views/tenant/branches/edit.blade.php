@@ -1,9 +1,6 @@
-
-
-@extends('tenant.branch')
+@extends('tenant.layouts.layout_home.base')
 
 @section('content')
-
 
 
 <body>
@@ -31,9 +28,9 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Company Name:</strong>
-                        <input type="text" name="name" value="{{ $branch->name }}" class="form-control"
+                        <input type="text" name="description" value='{{ $branch->description }}' class="form-control"
                             placeholder="Company name">
-                        @error('name')
+                        @error('description')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
@@ -41,9 +38,9 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Company Email:</strong>
-                        <input type="email" name="email" class="form-control" placeholder="Company Email"
-                            value="{{ $branch->email }}">
-                        @error('email')
+                        <input type="text" name="direction" class="form-control" placeholder="Company Email"
+                            value="{{ $branch->direction }}">
+                        @error('direction')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
@@ -51,9 +48,19 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Company Address:</strong>
-                        <input type="text" name="address" value="{{ $branch->address }}" class="form-control"
+                        <input type="text" name="company_id" value="{{ $branch->company_id }}" class="form-control"
                             placeholder="Company Address">
-                        @error('address')
+                        @error('company_id')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Company Address:</strong>
+                        <input type="text" name="ubigeo_id" value="{{ $branch->ubigeo_id}}" class="form-control"
+                            placeholder="Company Address">
+                        @error('ubigeo_id')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>

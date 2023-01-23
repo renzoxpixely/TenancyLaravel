@@ -41,7 +41,7 @@ class CompanyController extends Controller
             'email' => 'required',
             'address' => 'required',
         ]);
-        
+
         Company::create($request->post());
 
         return redirect()->route('tenant.companies.index')->with('success','Company has been created successfully.');
@@ -83,7 +83,7 @@ class CompanyController extends Controller
             'email' => 'required',
             'address' => 'required',
         ]);
-        
+
         $company->fill($request->post())->save();
 
         return redirect()->route('tenant.companies.index')->with('success','Company Has Been updated successfully');

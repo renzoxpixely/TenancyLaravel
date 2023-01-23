@@ -2,18 +2,15 @@
 
 @section('content')
 
-
-
-<body>
-    <div class="container mt-2">
+<div class="container mt-2">
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Edit Company</h2>
+                    <h2>Editar Usuario</h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-primary" href="{{ route('tenant.companies.index') }}" enctype="multipart/form-data">
-                        Back</a>
+                    <a class="btn btn-primary" href="{{ route('tenant.users.index') }}" enctype="multipart/form-data">
+                        Atrás</a>
                 </div>
             </div>
         </div>
@@ -22,15 +19,15 @@
             {{ session('status') }}
         </div>
         @endif
-        <form action="{{ route('tenant.companies.update',$company->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('tenant.users.update',$user->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Company Name:</strong>
-                        <input type="text" name="name" value="{{ $company->name }}" class="form-control"
-                            placeholder="Company name">
+                        <strong>Nombre:</strong>
+                        <input type="text" name="name" value="{{ $user->name }}" class="form-control"
+                            placeholder="User name">
                         @error('name')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
@@ -38,9 +35,9 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Company Email:</strong>
-                        <input type="email" name="email" class="form-control" placeholder="Company Email"
-                            value="{{ $company->email }}">
+                        <strong>Correo:</strong>
+                        <input type="email" name="email" class="form-control" placeholder="User Email"
+                            value="{{ $user->email }}">
                         @error('email')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
@@ -48,9 +45,9 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Company Address:</strong>
-                        <input type="text" name="address" value="{{ $company->address }}" class="form-control"
-                            placeholder="Company Address">
+                        <strong>Contraseña:</strong>
+                        <input type="password" name="address" value="{{ $user->address }}" class="form-control"
+                            placeholder="User Address">
                         @error('address')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
@@ -60,7 +57,5 @@
             </div>
         </form>
     </div>
-</body>
-
 
 @endsection

@@ -13,11 +13,14 @@ use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 
-
-
-
 use App\Http\Controllers\Tenant\CompanyController;
 use App\Http\Controllers\Tenant\BranchController;
+use App\Http\Controllers\Tenant\UserController;
+use App\Http\Controllers\Tenant\ShoppingController;
+use App\Http\Controllers\Tenant\SaleController;
+
+use App\Http\Controllers\Tenant\RegisteredTenantUserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +47,7 @@ Route::group([
     });
 
     Route::get('/dashboard', function () {
-        return view('tenant/dashboard');
+        return view('tenant.home.index');
     })->middleware(['auth'])->name('dashboard');
 
     //auth
@@ -52,7 +55,7 @@ Route::group([
         ->middleware('guest')
         ->name('login');
 
-    Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+    Route::post('/login', [AuthenticatedSessionController::class, 'storeTenant'])
         ->middleware('guest');
 
     Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
@@ -96,15 +99,30 @@ Route::group([
     //end auth
 
 
-//    agregando branch
-    Route::get('/branch', function () {
-        return view('tenant.branch');
-    });
+
 //company
     //Route::resource('companies', CompanyController::class);
     Route::resource('companies', CompanyController::class);
 //company
     //Route::resource('branches', CompanyController::class);
     Route::resource('branches', BranchController::class);
+//company
+    //Route::resource('branches', CompanyController::class);
+    Route::resource('users', UserController::class);
+//shopping
+    Route::resource('branches.shoppings', ShoppingController::class);
 
+//sale
+Route::resource('branches.sales', SaleController::class);
+
+//prueba ruta
+Route::get('/test', function () {
+    return view('tenant.sales.index');
+});    
+
+
+Route::get('register', [RegisteredTenantUserController::class, 'create'])
+->name('register');
+
+Route::post('register', [RegisteredTenantUserController::class, 'store']);
 });

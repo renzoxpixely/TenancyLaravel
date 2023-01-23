@@ -2,16 +2,15 @@
 
 @section('content')
 
-
-<body>
-    <div class="container mt-2">
+<div class="container mt-2">
         <div class="row">
             <div class="col-lg-12 margin-tb">
-                <div class="pull-left mb-2">
-                    <h2>Add Company</h2>
+                <div class="pull-left">
+                    <h2>Editar Usuario</h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-primary" href="{{ route('tenant.branches.index') }}"> Back</a>
+                    <a class="btn btn-primary" href="{{ route('tenant.users.index') }}" enctype="multipart/form-data">
+                        Atrás</a>
                 </div>
             </div>
         </div>
@@ -20,51 +19,51 @@
             {{ session('status') }}
         </div>
         @endif
-        <form action="{{ route('tenant.branches.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('tenant.users.update',$user->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Company Descripcion:</strong>
-                        <input type="text" name="description" class="form-control" placeholder="Company Descripcion">
-                        @error('description')
+                        <strong>Nombre:</strong>
+                        <input type="text" name="name" value="{{ $user->name }}" class="form-control"
+                            placeholder="User name">
+                        @error('name')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Company direction:</strong>
-                        <input type="text" name="direction" class="form-control" placeholder="Company Email">
-                        @error('direction')
+                        <strong>Correo:</strong>
+                        <input type="email" name="email" value="{{ $user->email }}" class="form-control" placeholder="Correo">
+                        @error('email')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>                
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Contraseña:</strong>
+                        <input type="password" name="password" class="form-control" placeholder="Contraseña">
+                        @error('password')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Company company_id:</strong>
-                        <input type="text" name="company_id" class="form-control" placeholder="Company Address">
-                        @error('company_id')
+                        <strong>Confirmar Contraseña:</strong>
+                        <input type="password" name="password_confirmation" class="form-control" placeholder="Confirmar Contraseña">
+                        @error('password_confirmation')
+                        <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Company ubigeo_id:</strong>
-                        <input type="text" name="ubigeo_id" class="form-control" placeholder="Company ubigeo_id">
-                        @error('ubigeo_id')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div>
+                </div> 
                 <button type="submit" class="btn btn-primary ml-3">Submit</button>
             </div>
         </form>
     </div>
-</body>
-
-
 
 @endsection

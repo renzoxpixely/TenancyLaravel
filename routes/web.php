@@ -26,11 +26,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register-tenant', [RegisteredTenantController::class, 'create' ])->name('tenant.register');
+Route::get('/register-tenant', [RegisteredTenantController::class, 'create' ])->name('register-tenant');
 Route::post('/register-tenant', [RegisteredTenantController::class, 'store' ]);
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('system.home.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -43,16 +43,16 @@ Route::middleware('auth')->group(function () {
 
     // Route::get('/register-tenant', [RegisteredTenantController::class, 'create' ])->name('tenant.register');
     // Route::post('/register-tenant', [RegisteredTenantController::class, 'store' ]);
-
     Route::get('/show_tenant', [TenantController::class,'show_tenant'])->name('tenants.show_tenant');
 
-//empresa
-    //Route::resource('companies', CompanyController::class);
-    Route::resource('companies', CompanyController::class);
+    //prueba ruta
+    Route::get('/test', function () {
+        // return view('tenant.layouts.layout_dashboard.dashboard');
+        return view('system.customers.index');
+    });
 
-//sucursales
-    //Route::resource('companies', CompanyController::class);
-    Route::resource('branches', BranchController::class);
+    // return view('tenant.layouts.layout_dashboard.dashboard');
+    return view('system.customers.index');
 
 });
 

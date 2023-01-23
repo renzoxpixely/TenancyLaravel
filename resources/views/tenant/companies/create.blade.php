@@ -1,6 +1,4 @@
-
-
-@extends('tenant.branch')
+@extends('tenant.layouts.layout_home.base')
 
 @section('content')
 
@@ -17,11 +15,6 @@
                 </div>
             </div>
         </div>
-        @if(session('status'))
-        <div class="alert alert-success mb-1 mt-1">
-            {{ session('status') }}
-        </div>
-        @endif
         <form action="{{ route('tenant.companies.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
