@@ -6,12 +6,14 @@ body {
     background-repeat: no-repeat;
     height: 913px;
 }
+i {
+    width: 10px;
+}
 
 /* UTILIDADES */
 .parr {
     color: black;
 }
-
 /* LOGIN */
 .input-wrapper {
     position: relative;
@@ -66,11 +68,20 @@ fieldset {
 }
 
 /* REGISTRO */
-.chg-evlp {
-    width: 10px;
+i.w-cent {
+    width: 12px;
+}
+.i-cent {
+    padding-left: 10px;
+}
+i.w-centem {
+    width: 11.5px;
+}
+.i-centem {
+    padding-left: 10.5px;
 }
 .reg-log {
-    width: 56% !important;
+    width: 55% !important;
 }
 .pad-b {
     padding-bottom: 0px !important;

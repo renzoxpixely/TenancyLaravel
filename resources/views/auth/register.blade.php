@@ -31,7 +31,7 @@
             <a class="text-white col-auro" href="/login">Registrarse</a>
         </div>
 
-        <div class="simple-page-form animated flipInY" id="login-form">
+        <div class="simple-page-form animated flipInY pad-b" id="register-form">
 
             <x-auth-card>
                 <x-slot name="logo">
@@ -46,13 +46,13 @@
                 <!-- Validation Errors -->
                 <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-                <form method="POST" action="{{ route('tenant.login') }}">
+                <form method="POST" action="/register-tenant">
                     @csrf
 
                     <fieldset>
-                        <legend class="text-center leyenda">Registro de Usuario</legend>
+                        <legend class="text-center reg-log leyenda">Registro de Usuario</legend>
 
-                        <p class="parr">Ingrese su información de registro.</p>
+                        <p class="parr text-center">Ingrese su información de registro</p>
 
                         <!-- Ingrese sus Nombres -->
 
@@ -62,8 +62,9 @@
                                 <span class="input-group-addon bg-purple text-white">
                                     <span class="fa fa-user" aria-hidden="true"></span>
                                 </span>
-                                <input id="text" class="form-control" type="name" name="name"
-                                    :value="old('')" placeholder="Ingrese sus Nombres" required autofocus>
+                                <x-label for="name" :value="__('Name')" hidden/>
+                                <input id="name" class="form-control" type="text" name="name"
+                                :value="old('name')" placeholder="Ingrese sus Nombres" autocomplete="name" required autofocus>
                             </div>
 
                         </div>
@@ -75,8 +76,9 @@
                                 <span class="input-group-addon bg-purple text-white">
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                 </span>
-                                <input id="password" class="form-control" type="password" name="password"
-                                    placeholder="Ingrese sus Apellidos" required autocomplete="current-password">
+                                <x-label for="name" :value="__('Name')" hidden/>
+                                <input id="LstName" class="form-control" type="text" name="name" :value="old('name')"
+                                    placeholder="Ingrese sus Apellidos" required autocomplete="family-name">
                             </div>
 
                         </div>
@@ -85,11 +87,12 @@
                         <div class="form-group m-b-md">
 
                             <div class="input-group">
-                                <span class="input-group-addon bg-purple text-white">
-                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <span class="input-group-addon bg-purple text-white i-centem">
+                                    <i class="fa fa-envelope w-centem" aria-hidden="true"></i>
                                 </span>
-                                <input id="password" class="form-control" type="password" name="password"
-                                    placeholder="Ingrese su Email" required autocomplete="current-password">
+                                <x-label for="email" :value="__('Email')" hidden/>
+                                <input id="email" class="form-control" type="email" name="email"
+                                    placeholder="Ingrese su Email" :value="old('email')" autocomplete="email" required autofocus>
                             </div>
 
                         </div>
@@ -101,6 +104,7 @@
                                 <span class="input-group-addon bg-purple text-white">
                                     <i class="fa fa-lock" aria-hidden="true"></i>
                                 </span>
+                                <x-label for="password" :value="__('Password')" hidden/>
                                 <input id="password" class="form-control" type="password" name="password"
                                     placeholder="Ingrese su Contraseña" required autocomplete="current-password">
                             </div>
@@ -114,8 +118,9 @@
                                 <span class="input-group-addon bg-purple text-white">
                                     <i class="fa fa-lock" aria-hidden="true"></i>
                                 </span>
-                                <input id="password" class="form-control" type="password" name="password"
-                                    placeholder="Confirme su Contraseña" required autocomplete="current-password">
+                                <x-label for="password_confirmation" :value="__('Confirm Password')" hidden />
+                                <input id="password_confirmation" class="form-control" type="password" name="password_confirmation"
+                                    placeholder="Confirme su Contraseña" required>
                             </div>
 
                         </div>
@@ -124,12 +129,12 @@
                         <div class="form-group m-b-md">
 
                             <div class="input-group">
-                                <span class="input-group-addon bg-purple text-white">
-                                    <i class="fa fa-users" aria-hidden="true"></i>
+                                <span class="input-group-addon bg-purple text-white i-cent">
+                                    <i class="fa fa-users w-cent" aria-hidden="true"></i>
                                 </span>
-                                <input id="password" class="form-control" type="password" name="password"
-                                    placeholder="Contraseña" required autocomplete="current-password">
-                                <select class="form-control">
+                                <x-label for="company" :value="__('Company')" hidden/>
+                                <select id="company" name="company" class="form-control sel-reg" :value="old('company')" required>
+                                    <option hidden >Seleccione una opción</option>
                                     <option>Empresario</option>
                                     <option>Usuario</option>
                                     <option>Contador</option>
@@ -139,32 +144,10 @@
 
                         </div>
 
-                        {{-- <div class="form-group">
-
-                            <div id="control-demo-6" class="col-sm-9">
-                                <select class="form-control">
-                                    <option>HTML</option>
-                                    <option>CSS</option>
-                                    <option>Javascript</option>
-                                    <option>Bootstrap</option>
-                                    <option>AngularJs</option>
-                                </select>
-                            </div>
-
-                        </div> --}}
-
-                        {{-- <div class="btn-group" role="group">      INTENTAR UNIENDO ESTILO  url: Infinity/MailBox/Inbox
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter<span class="caret"></span></button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">time</a></li>
-                                <li><a href="#">importance</a></li>
-                            </ul>
-                        </div> --}}
-
                         <div class="m-b-0 text-right">
                             <div class="inline-block">
                                 <x-button class="btn btn-primary btn-sm btn-purple ml-3">
-                                    {{ __('Ingresar') }}
+                                    {{ __('Register') }}
                                 </x-button>
                             </div>
                         </div>

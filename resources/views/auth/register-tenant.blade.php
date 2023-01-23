@@ -46,7 +46,7 @@
                 <!-- Validation Errors -->
                 <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-                <form method="POST" action="{{ route('tenant.register') }}">
+                <form method="POST" action="/register-tenant">
                     @csrf
 
                     <fieldset>
@@ -54,16 +54,46 @@
 
                         <p class="parr text-center">Ingrese su información de registro</p>
 
-                        <!-- Ingrese sus Nombres -->
-
+                        <!-- Ingrese sus Company -->
                         <div class="form-group m-b-sm">
 
                             <div class="input-group">
                                 <span class="input-group-addon bg-purple text-white">
                                     <span class="fa fa-user" aria-hidden="true"></span>
                                 </span>
+                                <x-label for="company" :value="__('Company')" hidden/>
+                                <input id="company" class="form-control" type="text" name="company"
+                                    :value="old('company')" placeholder="Nombre de la compania" required autofocus>
+                            </div>
+
+                        </div>
+
+                        <!-- Ingrese sus Domain -->
+                        <div class="form-group m-b-sm">
+
+                            <div class="input-group">
+                                <span class="input-group-addon bg-purple text-white">
+                                    <span class="fa fa-user" aria-hidden="true"></span>
+                                </span>
+                                <x-label for="domain" :value="__('Domain')" hidden/>
+                                <input id="domain" class="form-control" type="text" name="domain"
+                                :value="old('domain')" required autofocus>
+                                .{{ config('tenancy.central_domains')[1] }}
+                            </div>
+
+                        </div>
+
+                        <!-- Ingrese sus Nombres -->
+                        <div class="form-group m-b-sm">
+
+                            <div class="input-group">
+                                <span class="input-group-addon bg-purple text-white">
+                                    <span class="fa fa-user" aria-hidden="true"></span>
+                                </span>
+                                <x-label for="name" :value="__('Name')" hidden />
                                 <input id="name" class="form-control" type="text" name="name"
-                                    :value="old('')" placeholder="Ingrese sus Nombres" autocomplete="section-blue shipping name" required autofocus>
+                                    :value="old('name')" placeholder="Ingrese sus Nombres" autocomplete="name"
+                                    required autofocus>
                             </div>
 
                         </div>
@@ -75,8 +105,10 @@
                                 <span class="input-group-addon bg-purple text-white">
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                 </span>
-                                <input id="LstName" class="form-control" type="text" name="password"
-                                    placeholder="Ingrese sus Apellidos" required autocomplete="family-name">
+                                <x-label for="name" :value="__('Name')" hidden />
+                                <input id="LstName" class="form-control" type="text" name="name"
+                                    :value="old('name')" placeholder="Ingrese sus Apellidos" required
+                                    autocomplete="family-name">
                             </div>
 
                         </div>
@@ -85,11 +117,13 @@
                         <div class="form-group m-b-md">
 
                             <div class="input-group">
-                                <span class="input-group-addon bg-purple text-white">
-                                    <i class="fa fa-envelope chg-evlp" aria-hidden="true"></i>
+                                <span class="input-group-addon bg-purple text-white i-centem">
+                                    <i class="fa fa-envelope w-centem" aria-hidden="true"></i>
                                 </span>
-                                <input id="email" class="form-control" type="email" name="password"
-                                    placeholder="Ingrese su Email" :value="old('email')" autocomplete="email" required autofocus>
+                                <x-label for="email" :value="__('Email')" hidden />
+                                <input id="email" class="form-control" type="email" name="email"
+                                    placeholder="Ingrese su Email" :value="old('email')" autocomplete="email"
+                                    required autofocus>
                             </div>
 
                         </div>
@@ -101,6 +135,7 @@
                                 <span class="input-group-addon bg-purple text-white">
                                     <i class="fa fa-lock" aria-hidden="true"></i>
                                 </span>
+                                <x-label for="password" :value="__('Password')" hidden />
                                 <input id="password" class="form-control" type="password" name="password"
                                     placeholder="Ingrese su Contraseña" required autocomplete="current-password">
                             </div>
@@ -114,8 +149,9 @@
                                 <span class="input-group-addon bg-purple text-white">
                                     <i class="fa fa-lock" aria-hidden="true"></i>
                                 </span>
-                                <input id="prove_password" class="form-control" type="password" name="password"
-                                    placeholder="Confirme su Contraseña" required>
+                                <x-label for="password_confirmation" :value="__('Confirm Password')" hidden />
+                                <input id="password_confirmation" class="form-control" type="password"
+                                    name="password_confirmation" placeholder="Confirme su Contraseña" required>
                             </div>
 
                         </div>
@@ -124,11 +160,11 @@
                         <div class="form-group m-b-md">
 
                             <div class="input-group">
-                                <span class="input-group-addon bg-purple text-white">
-                                    <i class="fa fa-users chg-evlp" aria-hidden="true"></i>
+                                <span class="input-group-addon bg-purple text-white i-cent">
+                                    <i class="fa fa-users w-cent" aria-hidden="true"></i>
                                 </span>
-                                <select class="form-control sel-reg">
-                                    <option hidden >Seleccione una opción</option>
+                                <select class="form-control sel-reg" required>
+                                    <option hidden>Seleccione una opción</option>
                                     <option>Empresario</option>
                                     <option>Usuario</option>
                                     <option>Contador</option>
@@ -141,7 +177,7 @@
                         <div class="m-b-0 text-right">
                             <div class="inline-block">
                                 <x-button class="btn btn-primary btn-sm btn-purple ml-3">
-                                    {{ __('Ingresar') }}
+                                    {{ __('Register') }}
                                 </x-button>
                             </div>
                         </div>
