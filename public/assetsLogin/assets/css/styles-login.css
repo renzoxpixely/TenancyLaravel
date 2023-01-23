@@ -6,10 +6,13 @@ body {
     background-repeat: no-repeat;
     height: 913px;
 }
+
 /* UTILIDADES */
 .parr {
     color: black;
 }
+
+/* LOGIN */
 .input-wrapper {
     position: relative;
     max-width: 332px;
@@ -60,4 +63,18 @@ fieldset {
 }
 .input-group span {
     border-color: #c0c0c0;
+}
+
+/* REGISTRO */
+.chg-evlp {
+    width: 10px;
+}
+.reg-log {
+    width: 56% !important;
+}
+.pad-b {
+    padding-bottom: 0px !important;
+}
+.sel-reg {
+    color: #555555;
 }
