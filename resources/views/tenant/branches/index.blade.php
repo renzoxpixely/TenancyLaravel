@@ -18,7 +18,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content">
 
-            <h1>GOKUUUUUUUUUUUUUUUUUU</h1>
+            <h1>Seleccione un Local para ingresar</h1>
 
 
     <!-- Main content -->
