@@ -18,6 +18,7 @@ use App\Http\Controllers\Tenant\BranchController;
 use App\Http\Controllers\Tenant\UserController;
 use App\Http\Controllers\Tenant\ShoppingController;
 use App\Http\Controllers\Tenant\SaleController;
+use App\Http\Controllers\Tenant\DashboardController;
 
 use App\Http\Controllers\Tenant\RegisteredTenantUserController;
 
@@ -47,9 +48,10 @@ Route::group([
     });
 
     Route::get('/dashboard', function () {
+        $branch=1;
         return view('tenant.home.index');
     })->middleware(['auth'])->name('dashboard');
-
+ 
     //auth
     Route::get('/login', [AuthenticatedSessionController::class, 'create'])
         ->middleware('guest')
@@ -114,6 +116,9 @@ Route::group([
 
 //sale
 Route::resource('branches.sales', SaleController::class);
+
+ //dashboard
+Route::resource('branches.dashboard', DashboardController::class);
 
 //prueba ruta
 Route::get('/test', function () {

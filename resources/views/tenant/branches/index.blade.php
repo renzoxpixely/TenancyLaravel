@@ -64,16 +64,16 @@
                     <div class="mail-contnet">
                       <h4 class="pull-left">{{ $branch->description }}</h4>
                       <div class="pull-right">
-                      <!-- <a class="btn btn-primary" href="{{ route('tenant.dashboard') }}">Ingresar</a> -->
+                      <a class="btn btn-primary" href="{{ route('tenant.branches.dashboard.index', $branch->id) }}">Ingresar</a>
                       <div class="col-md-2">
-          <button type="button"  class="btn btn-primary"><a class="" href="{{ route('tenant.dashboard') }}">Ingresar</a></button>
+          <!-- <button type="button"  class="btn btn-primary"><a class="" href="{{ route('tenant.branches.dashboard.index', $branch->id) }}">Ingresar</a></button> -->
         </div>
                     </div>
 
 
                   </div>
-                  <a class="btn btn-success" href="{{ route('tenant.branches.shoppings.index', $branch->id) }}"> Ingrsardashhs</a>
-                  <a class="btn btn-success" href="{{ route('tenant.branches.sales.index', $branch->id) }}"> Ventas</a>
+<!--                   <a class="btn btn-success" href="{{ route('tenant.branches.shoppings.index', $branch->id) }}"> Ingrsardashhs</a>
+                  <a class="btn btn-success" href="{{ route('tenant.branches.sales.index', $branch->id) }}"> Ventas</a> -->
                   @endforeach
                   </div>
                   </div>

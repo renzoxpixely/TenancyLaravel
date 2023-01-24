@@ -10,7 +10,7 @@
     @foreach ($branches as $branch)
         <h1>{{ ucfirst($branch->description) }} - Ventas</h1>
     @endforeach  
-    
+    <a class="btn btn-success" href="{{ route('tenant.branches.shoppings.index', $branch->id) }}"> Ingrsardashhs</a>
     
     <div class="row">
         <div class="pull-right m-2">
