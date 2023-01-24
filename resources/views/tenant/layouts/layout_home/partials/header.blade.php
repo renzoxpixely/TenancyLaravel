@@ -26,7 +26,7 @@
           </div>
           <!-- Navbar Right Menu -->
           <div class="navbar-custom-menu">
-              <ul class="nav navbar-nav sidebar-menu">
+              <ul class="nav navbar-nav" data-widget="tree">
                   <!-- <li class="dropdown messages-menu"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-envelope"></i>
             <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
             </a>
@@ -68,7 +68,7 @@
                   <!-- Notifications Menu -->
                   <li class="dropdown notifications-menu"> <a href="#" class="dropdown-toggle"
                           data-toggle="dropdown"> <i class="icon-megaphone"></i>
-                          <!-- <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div> -->
+                          {{-- <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div> --}}
                       </a>
                       <ul class="dropdown-menu">
                           <li class="header">Notifications</li>
@@ -86,14 +86,16 @@
                   <!-- User Account Menu -->
                   <li class="dropdown user user-menu"> <a href="{{ route('tenant.branches.index') }}"
                           class="dropdown-toggle"> <img src="{{ asset('assetsAdmin/dist/img/img1.jpg') }}"
-                              class="user-image img-dis" alt="User Image"> <span class="h4">Empresa y Locales</span> </a>
+                              class="user-image" alt="User Image">
+                          <span class="hidden-xs">Empresa y Locales</span> </a>
                   </li>
 
                   <!-- Tasks Menu -->
                   <!-- User Account Menu -->
                   <li class="dropdown user user-menu"> <a href="{{ route('tenant.companies.index') }}"
                           class="dropdown-toggle"> <img src="{{ asset('assetsAdmin/dist/img/img1.jpg') }}"
-                              class="user-image img-dis" alt="User Image"> <span class="h4">Seleciona Empresa</span> </a>
+                              class="user-image" alt="User Image">
+                          <span class="hidden-xs">Seleciona Empresa</span> </a>
                   </li>
 
 
@@ -101,49 +103,60 @@
                   <!-- User Account Menu -->
                   <li class="dropdown user user-menu"> <a href="{{ route('tenant.users.index') }}"
                           class="dropdown-toggle"> <img src="{{ asset('assetsAdmin/dist/img/img1.jpg') }}"
-                              class="user-image img-dis" alt="User Image"> <span class="h4">Usuarios</span> </a>
+                              class="user-image" alt="User Image"> <span class="hidden-xs">Usuarios</span> </a>
                   </li>
 
                   <!-- Tasks Menu -->
                   <!-- User Account Menu -->
-                  <li class="dropdown user user-menu"> <a href="#" class="dropdown-toggle"
-                          data-toggle="dropdown"> <img src="{{ asset('assetsAdmin/dist/img/img1.jpg') }}"
-                              class="user-image img-dis" alt="User Image"> <span class="h4">Perfil</span> </a>
+                  <li class="dropdown user user-menu"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img
+                              src="{{ asset('assetsAdmin/dist/img/img1.jpg') }}" class="user-image"
+                              alt="User Image"> <span class="hidden-xs">Perfil</span> </a>
                       <ul class="dropdown-menu">
-                          <!-- <li class="user-header">
+                          <li class="user-header">
+                              <div class="pull-left user-img"><img src="dist/img/img1.jpg" class="img-responsive"
+                                      alt="User"></div>
+                              <p class="text-left">Florence Douglas <small>florence@gmail.com</small> </p>
+                              <div class="view-link text-left"><a href="#">View Profile</a> </div>
+                          </li>
+                          <li><a href="#"><i class="icon-profile-male"></i> My Profile</a></li>
+                          <li><a href="#"><i class="icon-wallet"></i> My Balance</a></li>
+                          <li><a href="#"><i class="icon-envelope"></i> Inbox</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li><a href="#"><i class="icon-gears"></i> Account Setting</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                      </ul>
+                  </li>
+
+                  <ul class="dropdown-menu">
+                      <!-- <li class="user-header">
                 <div class="pull-left user-img"><img src="{{ asset('assetsAdmin/dist/img/img1.jpg') }}" class="img-responsive" alt="User"></div>
                 <p class="text-left">Florence Douglas <small>florence@gmail.com</small> </p>
                 <div class="view-link text-left"><a href="#">View Profile</a> </div>
               </li> -->
-                          <li><a href="#"><i class="icon-profile-male"></i> Ajustar Perfil</a></li>
-                          <!-- <li><a href="#"><i class="icon-wallet"></i> My Balance</a></li>
+                      <li><a href="#"><i class="icon-profile-male"></i> Ajustar Perfil</a></li>
+                      <!-- <li><a href="#"><i class="icon-wallet"></i> My Balance</a></li>
               <li><a href="#"><i class="icon-envelope"></i> Inbox</a></li> -->
-                          <!-- <li role="separator" class="divider"></li> -->
-                          <!-- <li><a href="#"><i class="icon-gears"></i> Account Setting</a></li> -->
-                          <!-- <li role="separator" class="divider"></li> -->
-                          <li><a href="#"><i class="fa fa-power-off"></i> Cerrar Sesión</a></li>
+                      <!-- <li role="separator" class="divider"></li> -->
+                      <!-- <li><a href="#"><i class="icon-gears"></i> Account Setting</a></li> -->
+                      <!-- <li role="separator" class="divider"></li> -->
+                      <li><a href="#"><i class="fa fa-power-off"></i> Cerrar Sesión</a></li>
 
 
-                          <!-- Authentication -->
-                          <form method="POST" action="{{ route('tenant.logout') }}">
-                              @csrf
-                              <li><a href="#"><i class="fa fa-power-off"></i>
-                                      <x-dropdown-link :href="route('tenant.logout')"
-                                          onclick="event.preventDefault();
+                      <!-- Authentication -->
+                      <form method="POST" action="{{ route('tenant.logout') }}">
+                          @csrf
+                          <li><a href="#"><i class="fa fa-power-off"></i>
+                                  <x-dropdown-link :href="route('tenant.logout')"
+                                      onclick="event.preventDefault();
                                                         this.closest('form').submit();">
-                                          {{ __('Log Out') }}
-                                      </x-dropdown-link>
-                                  </a></li>
-                          </form>
+                                      {{ __('Log Out') }}
+                                  </x-dropdown-link>
+                              </a></li>
+                      </form>
 
-
-
-
-
-                      </ul>
-                  </li>
+                  </ul>
               </ul>
           </div>
       </nav>
   </header>
-  <!-- Left side column. contains the logo and sidebar -->

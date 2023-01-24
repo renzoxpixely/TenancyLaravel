@@ -96,8 +96,8 @@
   <!-- Main Footer -->
   <!-- <footer class="main-footer dark-bg">
     <div class="pull-right hidden-xs"> Version 1.0</div>
-    Copyright &copy; 2017 Yourdomian. All rights reserved. </footer>
-</div> -->
+    Copyright &copy; 2017 Yourdomian. All rights reserved. </footer> -->
+</div>
 <!-- wrapper -->
 
 <!-- jQuery -->
