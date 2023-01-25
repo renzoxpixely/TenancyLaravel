@@ -48,9 +48,13 @@ Route::group([
         return view('auth.login');
     });
 
+
+
+
     Route::get('/dashboard', function () {
-        $branch=1;
-        return view('tenant.home.index');
+        //valor por defecto
+        $branch_id=1;
+        return view('tenant.home.index', compact('branch_id'));
     })->middleware(['auth'])->name('dashboard');
  
     //auth
