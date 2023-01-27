@@ -17,6 +17,7 @@ class Product extends Model
     protected $fillable = [
       'codigo',
       'name',
+      'alternate_code',
       'sale_price_igv',
       'purchase_price_noigv',
       'sku',

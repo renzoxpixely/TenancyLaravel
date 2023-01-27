@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->text('name', 255)->nullable();
             $table->float('sale_price_igv', 8, 2);
             $table->float('purchase_price_noigv', 8, 2);
+            $table->text('alternate_code', 255)->nullable();
             $table->text('sku', 255)->nullable();
             $table->string('unitary_presentation');
             $table->integer('factor');

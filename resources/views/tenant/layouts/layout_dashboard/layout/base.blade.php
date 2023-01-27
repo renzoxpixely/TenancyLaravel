@@ -14,6 +14,9 @@
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
+
+<!-- ruta public/tenancy/assets -->
+
 <!-- Template style -->
 <link rel="stylesheet" href="{{ asset('assetsAdmin/dist/css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('assetsAdmin/dist/et-line-font/et-line-font.css') }}">
@@ -23,6 +26,7 @@
 
 <!-- datatables style -->
 <link rel="stylesheet" href="{{ asset('assetsAdmin/dist/css/dataTables.bootstrap4.min.css') }}">
+
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
