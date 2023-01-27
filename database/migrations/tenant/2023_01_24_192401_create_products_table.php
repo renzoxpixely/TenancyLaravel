@@ -15,18 +15,20 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->integer('codigo')->unique();
-            $table->string('name');
-            $table->bigInteger('sale_price_igv')->nullable();
-            $table->bigInteger('purchase_price_noigv')->nullable();
-            $table->string('sku');
+            $table->string('codigo');
+            $table->text('name', 255)->nullable();
+            $table->float('sale_price_igv', 8, 2);
+            $table->float('purchase_price_noigv', 8, 2);
+            $table->text('sku', 255)->nullable();
             $table->string('unitary_presentation');
             $table->integer('factor');
             $table->string('line');
-            $table->unsignedInteger('brand_id');
+            $table->text('brand_id', 255)->nullable();
             $table->unsignedInteger('quantity');
             $table->unsignedInteger('type_product');            
             $table->timestamps();
+
+            $table->foreignId('branch_id')->nullable()->constrained('branches')->onDelete('cascade');
         });
     }
 

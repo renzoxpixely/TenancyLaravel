@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Tenant;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Tenant\Product;
 use App\Models\Tenant\Branch;
 class InventoryController extends Controller
 {
@@ -15,8 +15,9 @@ class InventoryController extends Controller
      */
     public function index($branch_id)
     {
+        $products = Product::where('branch_id', $branch_id)->get();
         $branches = Branch::where('id', $branch_id)->get();
-        return view('tenant.inventories.index', compact('branch_id','branches'));
+        return view('tenant.inventories.index', compact('products','branch_id','branches'));
     }
 
     /**

@@ -53,16 +53,27 @@
               <table class="table table-responsive">
                 <thead>
                   <tr>
-                    <th class="sortable">Fecha</th>
-                    <th class="sortable">Documento</th>
-                    <th class="sortable">Cliente</th>
-                    <th class="sortable">Total</th>
-                    <th class="sortable">Saldo</th>
-                    <th class="sortable">Acciones</th>
-                    <th>Estado</th>
+                    <th class="sortable">Código</th>
+                    <th class="sortable">Descripción</th>
+                    <th class="sortable">Codigo de barra</th>
+                    <th class="sortable">Precio de venta con IGV</th>
+                    <th class="sortable">Precio de compra sin IGV</th>
+                    <th class="sortable">Presentación unitaria</th>
+                    <th class="sortable">Cantidad</th>                    
+                    <th>Acción</th>
                   </tr>
                 </thead>
-
+                @foreach ($products as $product)
+                <tr>          {{-- protected $fillable = ['codigo','name','sale_price_igv','purchase_price_noigv','sku','branch_id','quantity']; --}}
+                  <td class="text-truncate">{{ $product->codigo }}</td>
+                  <td class="text-truncate">{{ $product->name }}</td>
+                  <td class="text-truncate">{{ $product->sku }}</td>
+                  <td class="text-truncate">{{ $product->sale_price_igv }}</td>
+                  <td class="text-truncate"><span class="lable-tag tag-success">{{ $product->purchase_price_noigv }}</span></td>
+                  <td class="text-truncate">{{ $product->unitary_presentation }}</td>
+                  <td class="text-truncate">{{ $product->quantity }}</td>                
+                </tr>
+                @endforeach
               </table>
               <ul class="pagination m-bot-0">
                 <li> <a href="#" aria-label="Previous"> <span aria-hidden="true">«</span> </a> </li>
