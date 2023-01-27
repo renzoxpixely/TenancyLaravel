@@ -47,23 +47,52 @@
         <div class="pull-right mb-2">
             <!-- <a href="{{ route("tenant.branches.sales.create", $branch_id) }}">Nueva Transacción</a> -->
         </div>
-                <input class="form-control" id="placeholderInput" placeholder="Buscar" type="email">
+                
                 
               </div>
-              <table class="table table-responsive">
-                <thead>
-                  <tr>
-                    <th class="sortable">Fecha</th>
-                    <th class="sortable">Documento</th>
-                    <th class="sortable">Cliente</th>
-                    <th class="sortable">Total</th>
-                    <th class="sortable">Saldo</th>
-                    <th class="sortable">Acciones</th>
-                    <th>Estado</th>
-                  </tr>
-                </thead>
 
-              </table>
+
+           
+              <table id="example" class="table table-striped table-bordered table-responsive" style="width:100%">
+        <thead>
+            <tr>
+
+                <th class="sortable">Código</th>
+                    <th class="sortable">Descripción</th>
+                    <th class="sortable">Codigo de barra</th>
+                    <th class="sortable">Precio de venta con IGV</th>
+                    <th class="sortable">Precio de compra sin IGV</th>
+                    <th class="sortable">Presentación unitaria</th>
+                    <th class="sortable">Cantidad</th>    
+            </tr>
+        </thead>
+        <tbody>
+        @foreach ($products as $product)
+                <tr>          {{-- protected $fillable = ['codigo','name','sale_price_igv','purchase_price_noigv','sku','branch_id','quantity']; --}}
+                  <td class="text-truncate">{{ $product->codigo }}</td>
+                  <td class="text-truncate">{{ $product->name }}</td>
+                  <td class="text-truncate">{{ $product->sku }}</td>
+                  <td class="text-truncate">{{ $product->sale_price_igv }}</td>
+                  <td class="text-truncate"><span class="lable-tag tag-success">{{ $product->purchase_price_noigv }}</span></td>
+                  <td class="text-truncate">{{ $product->unitary_presentation }}</td>
+                <td class="text-truncate">{{ $product->quantity }}</td>                
+                </tr>
+        @endforeach
+        </tbody>
+        <tfoot>
+            <tr>
+            <th class="sortable">Código</th>
+                    <th class="sortable">Descripción</th>
+                    <th class="sortable">Codigo de barra</th>
+                    <th class="sortable">Precio de venta con IGV</th>
+                    <th class="sortable">Precio de compra sin IGV</th>
+                    <th class="sortable">Presentación unitaria</th>
+                    <th class="sortable">Cantidad</th>    
+            </tr>
+        </tfoot>
+    </table>
+
+
               <ul class="pagination m-bot-0">
                 <li> <a href="#" aria-label="Previous"> <span aria-hidden="true">«</span> </a> </li>
                 <li><a href="#">1</a></li>
@@ -78,6 +107,17 @@
         </div>
       </section>
       <!-- content -->         
+
+
+
+
+
+
+
+
+
+
+
 
       </section>
       <!-- content --> 

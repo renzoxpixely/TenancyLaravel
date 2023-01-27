@@ -21,6 +21,8 @@
 <link type="text/css" rel="stylesheet" href="{{ asset('assetsAdmin/dist/weather/weather-icons.min.css') }}">
 <link type="text/css" rel="stylesheet" href="{{ asset('assetsAdmin/dist/weather/weather-icons-wind.min.css') }}">
 
+<!-- datatables style -->
+<link rel="stylesheet" href="{{ asset('assetsAdmin/dist/css/dataTables.bootstrap4.min.css') }}">
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -39,8 +41,21 @@
 <script src="{{ asset('assetsAdmin/bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assetsAdmin/dist/js/ovio.js') }}"></script>
 
+<!-- datatables -->
+<script src="{{ asset('assetsAdmin/dist/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assetsAdmin/dist/js/dataTables.bootstrap4.min.js') }}"></script>
+
 <!-- charts -->
 <script src="{{ asset('assetsAdmin/plugins/charts/code/modules/exporting.js') }}"></script>
 <script src="{{ asset('assetsAdmin/plugins/charts/chart-functions.js') }}"></script>
+
+<script>
+$(document).ready(function () {
+    $('#example').DataTable(
+      
+    );
+});
+</script>
+
 </body>
 </html>
