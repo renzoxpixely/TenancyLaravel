@@ -1,7 +1,6 @@
 @extends('tenant.layouts.layout_dashboard.layout.base')
 
-
-@section('content')
+@section('css')
 
 <style>
 
@@ -131,10 +130,9 @@ body {
 	color: #fff;
 }
 </style>
+@endsection
 
-
-
-
+@section('content')
 
 
   <!-- Content Wrapper. Contains page content -->
@@ -162,8 +160,6 @@ body {
 			Nuevo
 		</button>
 	</div>
-
-
 
           <ul class="dropdown-menu">
             <li><a  href="{{ route("tenant.branches.sales.create", $branch_id) }}">Ventas</a></li>
@@ -235,12 +231,12 @@ body {
                   <!-- <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> -->
                   <!-- <i class="fa fa-times-circle fa-2x" aria-hidden="true"></i> -->
 
-                  <a class=""  aria-label="Delete" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o fa-lg text-success" aria-hidden="true"></i></a>
+                  <a class=""  aria-label="Delete" data-toggle="modal" data-target="#editModal"><i class="fa fa-pencil-square-o fa-lg text-success" aria-hidden="true"></i></a>
                   <!-- <a class="btn btn-default"  aria-label="Delete" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o fa-xs" aria-hidden="true"></i></a> -->
                   <!-- <a href="#" class="btn  btn-default btn-lg" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o   fa-xs" aria-hidden="true"></i></a>     -->
                   <!-- <a href="#" class="btn  btn-danger btn-lg" data-toggle="modal" data-target="#basicModal"><i class="fa fa-times-circle   fa-xs" aria-hidden="true"></i></a> -->
                   <!-- <a class="btn btn-danger"  aria-label="Delete" data-toggle="modal" data-target="#basicModal"><i class="fa fa-trash-o fa-xs" aria-hidden="true"></i></a> -->
-                  <a class=""   data-toggle="modal" data-target="#basicModal"><i class="fa fa-times-circle fa-lg text-warning" aria-hidden="true"></i></a>               
+                  <a class=""   data-toggle="modal" data-target="#deleteModal"><i class="fa fa-times-circle fa-lg text-warning" aria-hidden="true"></i></a>               
                 </td>
                 
                 </tr>
@@ -267,270 +263,32 @@ body {
 
 
 <!-- modales -->
-        <div class="container">
-  <h2>Bootstrap 3.3.7 - Modal Demo</h2>
 
-  <div class="row text-center">
-      <h3>The Basic Modal</h3>
-      <a href="#" class="btn btn-lg btn-success" data-toggle="modal" data-target="#basicModal">Click to open Modal</a>
-  </div>
-  <hr>
-  <div class="row text-center">
-      <h3>The Large Modal</h3>
-      <a href="#" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#largeModal">Click to open Modal</a>
-  </div>
-  <hr>
-  <div class="row text-center">
-      <h3>The Small Modal</h3>
-      <a href="#" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#smallModal">Click to open Modal</a>
-  </div>
-
+<!-- modal eliminar producto-->
+<div class="modal fade " id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
+  @include('tenant.inventories.delete_product_modal')
 </div>
 
-<div class="modal fade " id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <div style="text-align: center;">
-          <a href="#" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#basicModal"> <i class="fa fa-exclamation-triangle fa-5x" aria-hidden="true"></i></a>
-        </div>
-        <br>
-        <h4 class="modal-title" id="myModalLabel">¿Seguro deseas eliminar?</h4>
-      </div>
-      <div class="modal-body">
-        <h3>No vas a poder recuperar este producto, y no podras modificar operaciones realizadas con este producto/servicio</h3>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">No, cancelars</button>
-        <button type="button" class="btn btn-danger">Sí, eliminar</button>
-      </div>
-    </div>
-  </div>
+<!-- modal editar producto -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+  @include('tenant.inventories.edit_product_modal')
 </div>
 
-<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Editar Producto</h4>
-      </div>
-      <div class="modal-body">
-        <h3>Producto</h3>
-
-
-
-      <!-- Main content -->
-      <section class="content container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="chart-box">
-            <!-- <h4>Text Inputs</h4> -->
-            <div class="row">
-              <div class="col-md-4">
-                <fieldset class="form-group">
-                  <label>Código del producto</label>
-                  <input class="form-control" id="basicInput" type="text">
-                </fieldset>
-              </div>
-              <div class="col-md-4">
-                <fieldset class="form-group">
-                  <label>Código alternativo</label>
-                  <input class="form-control" id="helpInputTop" type="text">
-                </fieldset>
-              </div>
-              </div>
-              <div class="row">
-              <div class="col-md-8">
-                <fieldset class="form-group">
-                  <label>Nombre del product</label>
-                  <input class="form-control" id="disabledInput" disabled="" type="text">
-                </fieldset>
-              </div>
-              <div class="col-md-4">
-                <fieldset class="form-group">
-                  <label>Código de Barra / SKU</label>
-                  <input class="form-control" id="readonlyInput" readonly value="You can't update me :P" type="text">
-                </fieldset>
-              </div>
-              <div class="col-md-4">
-                <fieldset class="form-group">
-                  <label>Presentación Unitaria</label>
-                  <input class="form-control" id="placeholderInput" placeholder="Enter Email Address" type="email">
-                </fieldset>
-              </div>
-              <div class="col-md-4">
-                <fieldset class="form-group">
-                  <label>Unidades Contenidas (Factor)</label>
-                  <input class="form-control" id="placeholderInput" placeholder="Enter Email Address" type="email">
-                </fieldset>
-              </div>
-              <div class="col-md-4">
-                <fieldset class="form-group">
-                  <label>Marca</label>
-                  <input id="roundText" class="form-control round" placeholder="Rounded Input" type="text">
-                </fieldset>
-              </div>
-              <div class="col-md-4">
-                <fieldset class="form-group">
-                  <label>Linea</label>
-                  <input id="squareText" class="form-control square" placeholder="square Input" type="text">
-                </fieldset>
-              </div>
-              <div class="col-md-4">
-                <fieldset class="form-group">
-                  <label>Categoría</label>
-                  <input id="squareText" class="form-control square" placeholder="square Input" type="text">
-                </fieldset>
-              </div>
-              <div class="col-md-4">
-                <fieldset class="form-group">
-                  <label>Sub-Categoría</label>
-                  <input id="squareText" class="form-control square" placeholder="square Input" type="text">
-                </fieldset>
-              </div>    
-
- 
-
-
-              <div class="col-md-3">
-                <fieldset class="form-group">
-                  <label>Costo (Costo sin IGV)</label>
-                  <input id="squareText" class="form-control square" placeholder="square Input" type="text">
-                </fieldset>
-              </div>   
-              <div class="col-md-3">
-                <fieldset class="form-group">
-                  <label>Peso (Kg.)</label>
-                  <input id="squareText" class="form-control square" placeholder="square Input" type="text">
-                </fieldset>
-              </div>   
-              <div class="col-md-3">
-                <fieldset class="form-group">
-                  <label>% Detracción</label>
-                  <input id="squareText" class="form-control square" placeholder="square Input" type="text">
-                </fieldset>
-              </div>   
-              <div class="col-md-3">
-                <fieldset class="form-group">
-                  <label>% ISC</label>
-                  <input id="squareText" class="form-control square" placeholder="square Input" type="text">
-                </fieldset>
-              </div>     
-
-              
-
-     
-              <div class="col-md-3">
-                <fieldset class="form-group">
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">No Gravado con IGV</label>
-                </div>
-                </fieldset>
-              </div>   
-              <div class="col-md-3">
-                <fieldset class="form-group">
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">Producto importado</label>
-                </div>
-                </fieldset>
-              </div>     
-          </div>
-
-
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-    <!-- content --> 
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Small Modal</h4>
-      </div>
-      <div class="modal-body">
-        <h3>Modal Body</h3>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
+<!-- modal agregar producto -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true">
+  @include('tenant.inventories.create_product_modal')
 </div>
 
 
       </section>
       <!-- content -->         
-
-
       </section>
       <!-- content --> 
-
-
-
-
   </div>
   <!-- content-wrapper --> 
 
 
-
-
-
-
-
-
-
-	<!-- Modal -->
-	<div class="modal left fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel">Left Sidebar</h4>
-				</div>
-
-				<div class="modal-body">
-          <div class="row">
-            <div class="col-md-12">
-              <p>hola soy un boton</p>
-            </div>
-          </div>
-					<div class="row">
-            <p>hola soy un boton</p>
-          </div>
-          <div class="row">
-            <p>hola soy un boton</p>
-          </div>
-					</p>
-				</div>
-
-			</div><!-- modal-content -->
-		</div><!-- modal-dialog -->
-	</div><!-- modal -->
-	
-
-
-	<!-- Modal -->
+	<!-- Modal Sidebar derecha-->
 	<div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -544,7 +302,7 @@ body {
         <div class="row">
               <!-- Standard button -->
               <div class="chart-box over-hidden">
-                <button data-dismiss="modal" data-toggle="modal" data-target="#basicModal" type="button" class="btn btn-primary btn-lg btn-block">Productos</button>
+                <button data-dismiss="modal" data-toggle="modal" data-target="#addModal" type="button" class="btn btn-primary btn-lg btn-block">Productos</button>
               </div>
           </div>
 
@@ -562,7 +320,6 @@ body {
               </div>
           </div>
 
-				
 				</div>
 
 			</div><!-- modal-content -->
@@ -572,13 +329,14 @@ body {
 	
 </div><!-- container -->
 
+@endsection
 
 
-
-
-
-
-
-
-
+@section('script')
+<script>
+$(document).ready(function () {
+    $('#example').dataTable( {
+  "pageLength": 20
+} );
+});
 @endsection

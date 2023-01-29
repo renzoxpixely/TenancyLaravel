@@ -27,6 +27,8 @@
 <!-- datatables style -->
 <link rel="stylesheet" href="{{ asset('assetsAdmin/dist/css/dataTables.bootstrap4.min.css') }}">
 
+@yield('css')
+
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -53,13 +55,8 @@
 <script src="{{ asset('assetsAdmin/plugins/charts/code/modules/exporting.js') }}"></script>
 <script src="{{ asset('assetsAdmin/plugins/charts/chart-functions.js') }}"></script>
 
-<script>
-$(document).ready(function () {
-    $('#example').dataTable( {
-  "pageLength": 20
-} );
-});
 
+@yield('script')
 
 </script>
 
