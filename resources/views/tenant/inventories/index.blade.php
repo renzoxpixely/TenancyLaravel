@@ -147,16 +147,17 @@ body {
     
     <div class="row">
         <div class="pull-right m-2">
-          <button type="button" class="btn btn-primary btn-rounded dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nuevo <span class="caret"></span></button>
-  
+          <!-- <button type="button" class="btn btn-primary btn-rounded dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nuevo <span class="caret"></span></button>
+   -->
           
-          <div class="text-center">
-		<button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal">
-			Left Sidebar Modal
-		</button>
+         <div class="text-center">
 
-		<button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal2">
-			Right Sidebar Modal
+		<!-- <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal">
+			Left Sidebar Modal
+		</button>  -->
+
+		<button type="button" class="btn btn-primary btn-rounded" data-toggle="modal" data-target="#myModal2">
+			Nuevo
 		</button>
 	</div>
 
@@ -232,11 +233,12 @@ body {
                   <!-- <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> -->
                   <!-- <i class="fa fa-times-circle fa-2x" aria-hidden="true"></i> -->
 
-
-                  <a class="btn btn-default"  aria-label="Delete" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o fa-xs" aria-hidden="true"></i></a>
+                  <a class=""  aria-label="Delete" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o fa-lg text-success" aria-hidden="true"></i></a>
+                  <!-- <a class="btn btn-default"  aria-label="Delete" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o fa-xs" aria-hidden="true"></i></a> -->
                   <!-- <a href="#" class="btn  btn-default btn-lg" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o   fa-xs" aria-hidden="true"></i></a>     -->
                   <!-- <a href="#" class="btn  btn-danger btn-lg" data-toggle="modal" data-target="#basicModal"><i class="fa fa-times-circle   fa-xs" aria-hidden="true"></i></a> -->
-                  <a class="btn btn-danger"  aria-label="Delete" data-toggle="modal" data-target="#basicModal"><i class="fa fa-trash-o fa-xs" aria-hidden="true"></i></a>
+                  <!-- <a class="btn btn-danger"  aria-label="Delete" data-toggle="modal" data-target="#basicModal"><i class="fa fa-trash-o fa-xs" aria-hidden="true"></i></a> -->
+                  <a class=""   data-toggle="modal" data-target="#basicModal"><i class="fa fa-times-circle fa-lg text-warning" aria-hidden="true"></i></a>               
                 </td>
                 
                 </tr>
@@ -446,9 +448,6 @@ body {
     </section>
     <!-- content --> 
 
-
-
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -476,23 +475,9 @@ body {
   </div>
 </div>
 
-<p class="p">Demo by Syed Fazle Rahman. <a href="http://www.sitepoint.com/understanding-bootstrap-modals/" target="_blank">See article</a>.</p>
-
-
-
 
       </section>
       <!-- content -->         
-
-
-
-
-
-
-
-
-
-
 
 
       </section>
@@ -541,6 +526,8 @@ body {
 		</div><!-- modal-dialog -->
 	</div><!-- modal -->
 	
+
+
 	<!-- Modal -->
 	<div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
 		<div class="modal-dialog" role="document">
@@ -552,30 +539,25 @@ body {
 				</div>
 
 				<div class="modal-body">
-          <div class="row">
-              
-
-
-
-
-              <h4 class="m-bot-2">Outline Buttons</h4>
-              
-
-
-
-
+        <div class="row">
               <!-- Standard button -->
-              <div class="col-md-2">
-                <button type="button" class="btn btn-default btn-outline">Default</button>
+              <div class="chart-box over-hidden">
+                <button data-toggle="modal" data-target="#basicModal" type="button" class="btn btn-primary btn-lg btn-block">Productos</button>
               </div>
           </div>
 
 					<div class="row">
-            <p>hola soy un boton</p>
+              <!-- Standard button -->
+              <div class="chart-box over-hidden">
+                <button type="button" class="btn btn-primary btn-lg btn-block">Servicios</button>
+              </div>
           </div>
-
+  
           <div class="row">
-            <p>hola soy un boton</p>
+              <!-- Standard button -->
+              <div class="chart-box over-hidden">
+                <button type="button" class="btn btn-primary btn-lg btn-block">Promociones</button>
+              </div>
           </div>
 
 				

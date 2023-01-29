@@ -55,10 +55,12 @@
 
 <script>
 $(document).ready(function () {
-    $('#example').DataTable(
-      
-    );
+    $('#example').dataTable( {
+  "pageLength": 20
+} );
 });
+
+
 </script>
 
 </body>
