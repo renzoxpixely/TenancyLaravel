@@ -5,6 +5,8 @@
 
 <style>
 
+body { padding-right: 0 !important }
+
   /* modal center */
   .modal {
   text-align: center;
@@ -542,7 +544,7 @@ body {
         <div class="row">
               <!-- Standard button -->
               <div class="chart-box over-hidden">
-                <button data-toggle="modal" data-target="#basicModal" type="button" class="btn btn-primary btn-lg btn-block">Productos</button>
+                <button data-dismiss="modal" data-toggle="modal" data-target="#basicModal" type="button" class="btn btn-primary btn-lg btn-block">Productos</button>
               </div>
           </div>
 
