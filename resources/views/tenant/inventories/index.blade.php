@@ -354,11 +354,21 @@ $(document).ready(function() {
             });
             $.ajax({
           
-                url: "{{ route("tenant.branches.sales.store", $branch_id) }} }}",
+                url: "{{ route("tenant.branches.inventories.store", $branch_id) }}",
                 method: 'post',
                 data: {
-                    title: $('#title').val(),
-                    description: $('#description').val(),
+                  codigo: $('#codigo').val(),
+                  name: $('#name').val(),
+                  alternate_code: $('#alternate_code').val(),
+                  sale_price_igv: $('#sale_price_igv').val(),
+                  purchase_price_noigv: $('#purchase_price_noigv').val(),
+                  sku: $('#sku').val(),
+                  unitary_presentation: $('#unitary_presentation').val(),
+                  factor: $('#factor').val(),  
+                  line: $('#line').val(),                
+                  brand_id: $('#brand_id').val(),    
+                  quantity: $('#quantity').val(),    
+                  type_product: $('#type_product').val(),                                                       
                 },
                 success: function(result) {
                     if(result.errors) {
@@ -380,7 +390,6 @@ $(document).ready(function() {
                 }
             });
         });
-
         // Get single article in EditModel
 
     });
