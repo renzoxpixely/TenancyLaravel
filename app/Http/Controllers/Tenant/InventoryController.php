@@ -36,10 +36,13 @@ class InventoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($branch_id,Request $request)
     {
-        //
+        Product::create($request->all() + ['branch_id' => $branch_id]);
+        return redirect()->route('tenant.branches.inventories.index', $branch_id);
     }
+
+
 
     /**
      * Display the specified resource.

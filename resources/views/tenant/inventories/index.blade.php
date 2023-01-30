@@ -339,4 +339,49 @@ $(document).ready(function () {
   "pageLength": 20
 } );
 });
+
+
+$(document).ready(function() {
+
+
+        // Create article Ajax request.
+        $('#SubmitCreateArticleForm').click(function(e) {
+            e.preventDefault();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+          
+                url: "{{ route("tenant.branches.sales.store", $branch_id) }} }}",
+                method: 'post',
+                data: {
+                    title: $('#title').val(),
+                    description: $('#description').val(),
+                },
+                success: function(result) {
+                    if(result.errors) {
+                        $('.alert-danger').html('');
+                        $.each(result.errors, function(key, value) {
+                            $('.alert-danger').show();
+                            $('.alert-danger').append('<strong><li>'+value+'</li></strong>');
+                        });
+                    } else {
+                        $('.alert-danger').hide();
+                        $('.alert-success').show();
+                        $('.datatable').DataTable().ajax.reload();
+                        setInterval(function(){ 
+                            $('.alert-success').hide();
+                            $('#CreateArticleModal').modal('hide');
+                            location.reload();
+                        }, 2000);
+                    }
+                }
+            });
+        });
+
+        // Get single article in EditModel
+
+    });
 @endsection
