@@ -15,22 +15,31 @@
                           <a class="navbar-brand" href="#">Logo</a>
                       </div>
                       <div id="navbar" class="navbar-collapse collapse">
-                          <ul class="nav navbar-nav">
+                          <ul class="nav navbar-nav pull-right">
                               <li><a href="#">NOTIFICACIONES</a></li>
-                              <li class="active"><a href="{{ route('tenant.branches.index') }}" class="">SELECCIONAR EMPRESA</a></li>
+                              <li class="active"><a href="{{ route('tenant.branches.index') }}"
+                                      class="">SELECCIONAR EMPRESA</a></li>
                               <li><a href="{{ route('tenant.companies.index') }}">EMPRESAS Y LOCALES</a></li>
                               <li><a href="{{ route('tenant.users.index') }}">USUARIOS</a></li>
-                          </ul>
-                          <ul class="nav navbar-nav pull-right">
-                              <li class="dropdown"><a href="#" class="dropdown-toggle active"
+
+                              <!-- Authentication -->
+                              <li class=" dropdown"><a href="#" class="dropdown-toggle active"
                                       data-toggle="dropdown" role="button" aria-haspopup="true"
                                       aria-expanded="false">Signed in as <span class="caret"></span></a>
                                   <ul class="dropdown-menu">
                                       <li><a href="#">Change Password</a></li>
-                                      <li><a href="#">My Profile</a></li>
+                                      <li>
+                                          <form method="POST" action="{{ route('tenant.logout') }}">
+                                              @csrf
+                                              <a :href="route('tenant.logout')"
+                                                  onclick="event.preventDefault();
+                                                  this.closest('form').submit();">
+                                                  {{ __('Salir') }}
+                                              </a>
+                                          </form>
+                                      </li>
                                   </ul>
                               </li>
-                              <li class=""><a href="#">Logout</a></li>
                           </ul>
                       </div>
                   </div>
