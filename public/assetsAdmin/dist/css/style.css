@@ -155,7 +155,7 @@ a:hover, a:active, a:focus {
 	z-index: 1030;
 }
 .main-header.dark-bg {
-	background: #4a90e2;
+	background: #9591F2 !important;
 }
 .main-header .navbar {
 	-webkit-transition: margin-left 0.3s ease-in-out;
@@ -166,6 +166,7 @@ a:hover, a:active, a:focus {
 	border: none;
 	min-height: 50px;
 	border-radius: 0;
+    background: #9591F2 !important;
 }
 .main-header.rtl .navbar {
 	margin-left: 0px;
@@ -201,7 +202,7 @@ a:hover, a:active, a:focus {
 	background: #d4e8ff;
 }
 .main-header.dark-bg .navbar-custom-menu ul.navbar-nav li.dropdown a:hover {
-	background: #257fe8;
+	background: #716DD4;
 	color: #FFF;
 }
 @media (max-width: 991px) {
@@ -236,15 +237,15 @@ a:hover, a:active, a:focus {
 	color: #FFF;
 }
 .main-header.dark-bg .nav .open > a, .dark-bg .nav .open > a:focus, .dark-bg.nav .open > a:hover {
-	background-color: #257fe8;
-	border-color: #337ab7;
+	background-color: #716DD4 !important;
+	border-color: #6B70B6 !important;
 	color: #FFF;
 }
 .main-header .sidebar-toggle:before {
 	content: "\f0c9";
 }
 .main-header .sidebar-toggle:hover {
-	color: #66a9f8;
+	color: #66a9f8 !important;
 }
 .main-header .sidebar-toggle:focus, .main-header .sidebar-toggle:active {
 	background: transparent;
@@ -317,8 +318,8 @@ a:hover, a:active, a:focus {
 	font-size: 12px;
 }
 .main-header.dark-bg .search-form input.form-control {
-	border: solid 1px #4485d1;
-	background: #4485d1;
+	border: solid 1px #8D8AE4 !important;
+	background: #8D8AE4 !important;
 	color: #FFF;
 }
 .main-header.dark-bg .search-form input.form-control::-moz-placeholder {
@@ -331,9 +332,9 @@ a:hover, a:active, a:focus {
 	background-color: transparent;
 }
 .main-header.dark-bg .search-form button.btn {
-	border: solid 1px #4485d1;
+	border: solid 1px #8D8AE4 !important;
 	color: #FFF;
-	background: #4485d1;
+	background: #8D8AE4 !important;
 }
 .content-header {
 	position: relative;
@@ -482,7 +483,7 @@ a:hover, a:active, a:focus {
 	-moz-box-direction: normal;
 	-moz-box-orient: vertical;
 	background-color: #fff;
-	border: 1px solid rgba(0, 0, 0, 0.125);
+	border: 1px solid black !important;
 	border-radius: 0.25rem;
 	flex-direction: column;
 	position: relative;

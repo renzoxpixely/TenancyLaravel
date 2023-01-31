@@ -43,7 +43,7 @@ body.body-bg {
 body.body-bg-color {
 	background: #e8eff3;
 }
-h1, h2, h3, h4, h5, h6, {
+h1, h2, h3, h4, h5, h6 {
  font-family: 'Poppins', sans-serif;
 }
 a {
@@ -1110,7 +1110,7 @@ ul.social-icons li a:hover i {
 	opacity: 0;
 }
 .custom-file-control {
-	-moz-user-select: none;
+	user-select: none;
 	background-color: #fff;
 	border: 1px solid #e4e7ed;
 	border-radius: 0.25rem;
@@ -1682,7 +1682,7 @@ iframe {
 }
 .sidebar-mini.sidebar-collapse .main-sidebar .user-panel > .info, .sidebar-mini.sidebar-collapse .sidebar-menu > li > a > span, .sidebar-mini.sidebar-collapse .sidebar-menu > li > .treeview-menu, .sidebar-mini.sidebar-collapse .sidebar-menu > li > a > .pull-right, .sidebar-mini.sidebar-collapse .sidebar-menu li.header {
 	display: none !important;
-	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
 }
 .sidebar-mini.sidebar-collapse .main-header .logo {
 	width: 50px;
