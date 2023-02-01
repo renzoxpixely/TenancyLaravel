@@ -3,10 +3,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Agregar Producto</h4>
+        <h4 class="modal-title" id="myModalLabel">Agregar Promocion</h4>
       </div>
       <div class="modal-body">
-        <h3>Producto</h3>
+        <h3>Promocion</h3>
       <!-- Main content -->
       <section class="content container-fluid">
       <div class="row">
@@ -49,7 +49,7 @@
               <div class="col-md-8">
                 <fieldset class="form-group">
                   <label>Nombre del product</label>
-                  <input class="form-control" name="name" type="text">
+                  <input class="form-control" name="name type="text">
                 </fieldset>
               </div>
               <div class="col-md-4">
@@ -61,13 +61,13 @@
               <div class="col-md-4">
                 <fieldset class="form-group">
                   <label>Presentación Unitaria</label>
-                  <input class="form-control" name="unitary_presentation" placeholder="Presentación Unitaria" type="text">
+                  <input class="form-control" name="unitary_presentation" placeholder="Enter Email Address" type="text">
                 </fieldset>
               </div>
               <div class="col-md-4">
                 <fieldset class="form-group">
                   <label>Unidades Contenidas (Factor)</label>
-                  <input class="form-control" name="factor"  type="text">
+                  <input class="form-control" name="factor" placeholder="Enter Email Address" type="text">
                 </fieldset>
               </div>
               <div class="col-md-4">

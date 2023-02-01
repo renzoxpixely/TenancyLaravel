@@ -279,6 +279,15 @@ body {
   @include('tenant.inventories.create_product_modal')
 </div>
 
+<!-- modal agregar promocion -->
+<div class="modal fade" id="addPromotionModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true">
+  @include('tenant.inventories.create_promotion_modal')
+</div>
+
+<!-- modal agregar servicio -->
+<div class="modal fade" id="addServiceModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true">
+  @include('tenant.inventories.create_service_modal')
+</div>
 
       </section>
       <!-- content -->         
@@ -309,14 +318,14 @@ body {
 					<div class="row">
               <!-- Standard button -->
               <div class="chart-box over-hidden">
-                <button type="button" class="btn btn-primary btn-lg btn-block">Servicios</button>
+              <button data-dismiss="modal" data-toggle="modal" data-target="#addServiceModal" type="button" class="btn btn-primary btn-lg btn-block">Servicios</button>
               </div>
           </div>
   
           <div class="row">
               <!-- Standard button -->
               <div class="chart-box over-hidden">
-                <button type="button" class="btn btn-primary btn-lg btn-block">Promociones</button>
+              <button data-dismiss="modal" data-toggle="modal" data-target="#addPromotionModal" type="button" class="btn btn-primary btn-lg btn-block">Promociones</button>
               </div>
           </div>
 

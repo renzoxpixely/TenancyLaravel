@@ -39,10 +39,8 @@ class InventoryController extends Controller
     public function store($branch_id,Request $request)
     {
         Product::create($request->all() + ['branch_id' => $branch_id]);
-        return redirect()->route('tenant.branches.inventories.index', $branch_id);
+        return redirect()->route('tenant.branches.inventories.index', $branch_id)->with('success','Product has been created successfully.');
     }
-
-
 
     /**
      * Display the specified resource.
