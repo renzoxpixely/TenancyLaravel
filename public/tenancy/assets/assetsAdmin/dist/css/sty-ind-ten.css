@@ -114,11 +114,6 @@
     font-size: 11.5px;
 }
 
-.nav li:hover:nth-child(8n + 1),
-.nav li.active:nth-child(8n + 1) {
-    /* border-bottom: black 3px solid; */
-}
-
 .navbar-wrapper {
     background-color: rgb(90, 72, 167);
 }
@@ -195,6 +190,11 @@
     filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 
+.navbar-nav.pull-right .dropdown.open .dropdown-menu {
+    left: auto;
+    right: 0px;
+}
+
 /* HEADER  */
 
 /* MAIN  */
@@ -267,7 +267,8 @@ p.pr-inx {
     border: 2px solid rgb(0, 31, 88) !important;
     border-color: #d7dfe3;
     border-radius: 10px;
-    overflow-y: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
     max-height: 350px;
     padding: 10px 5px 5px 5px;

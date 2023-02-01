@@ -23,11 +23,11 @@
                               <li><a href="{{ route('tenant.users.index') }}">USUARIOS</a></li>
 
                               <!-- Authentication -->
-                              <li class=" dropdown"><a href="#" class="dropdown-toggle active"
+                              <li class="dropdown"><a href="#" class="dropdown-toggle active"
                                       data-toggle="dropdown" role="button" aria-haspopup="true"
-                                      aria-expanded="false">Signed in as <span class="caret"></span></a>
+                                      aria-expanded="false"><img src="https://app.nubefa.com/assets/images/media-user.png" class="img-responsive img-rounded" alt="" srcset=""><span class="caret"></span></a>
                                   <ul class="dropdown-menu">
-                                      <li><a href="#">Change Password</a></li>
+                                      <li><a href="#">Ajustar Perfil</a></li>
                                       <li>
                                           <form method="POST" action="{{ route('tenant.logout') }}">
                                               @csrf
