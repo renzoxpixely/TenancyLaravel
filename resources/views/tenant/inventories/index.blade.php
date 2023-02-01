@@ -328,14 +328,6 @@ body {
               <button data-dismiss="modal" data-toggle="modal" data-target="#addPromotionModal" type="button" class="btn btn-primary btn-lg btn-block">Promociones</button>
               </div>
           </div>
-
-
-					<div class="row">
-              <!-- Standard button -->
-              <div class="chart-box over-hidden">
-                <button data-dismiss="modal" data-toggle="modal" data-target="#addPromotionModal" type="button" class="btn btn-primary btn-lg btn-block">Promoción</button>
-              </div>
-          </div>
   
 				</div>
 
@@ -358,56 +350,5 @@ $(document).ready(function () {
 });
 
 
-$(document).ready(function() {
 
-
-        // Create article Ajax request.
-        $('#SubmitCreateArticleForm').click(function(e) {
-            e.preventDefault();
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-          
-                url: "{{ route("tenant.branches.inventories.store", $branch_id) }}",
-                method: 'post',
-                data: {
-                  codigo: $('#codigo').val(),
-                  name: $('#name').val(),
-                  alternate_code: $('#alternate_code').val(),
-                  sale_price_igv: $('#sale_price_igv').val(),
-                  purchase_price_noigv: $('#purchase_price_noigv').val(),
-                  sku: $('#sku').val(),
-                  unitary_presentation: $('#unitary_presentation').val(),
-                  factor: $('#factor').val(),  
-                  line: $('#line').val(),                
-                  brand_id: $('#brand_id').val(),    
-                  quantity: $('#quantity').val(),    
-                  type_product: $('#type_product').val(),                                                       
-                },
-                success: function(result) {
-                    if(result.errors) {
-                        $('.alert-danger').html('');
-                        $.each(result.errors, function(key, value) {
-                            $('.alert-danger').show();
-                            $('.alert-danger').append('<strong><li>'+value+'</li></strong>');
-                        });
-                    } else {
-                        $('.alert-danger').hide();
-                        $('.alert-success').show();
-                        $('.datatable').DataTable().ajax.reload();
-                        setInterval(function(){ 
-                            $('.alert-success').hide();
-                            $('#CreateArticleModal').modal('hide');
-                            location.reload();
-                        }, 2000);
-                    }
-                }
-            });
-        });
-        // Get single article in EditModel
-
-    });
 @endsection
