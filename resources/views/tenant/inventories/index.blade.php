@@ -329,6 +329,14 @@ body {
               </div>
           </div>
 
+
+					<div class="row">
+              <!-- Standard button -->
+              <div class="chart-box over-hidden">
+                <button data-dismiss="modal" data-toggle="modal" data-target="#addPromotionModal" type="button" class="btn btn-primary btn-lg btn-block">Promoción</button>
+              </div>
+          </div>
+  
 				</div>
 
 			</div><!-- modal-content -->
