@@ -168,27 +168,6 @@
     text-decoration: none;
     background-color: #f5f5f5;
 } */
-.dropdown-menu > .active > form,
-.dropdown-menu > .active > form:hover,
-.dropdown-menu > .active > form:focus {
-    color: #fff;
-    text-decoration: none;
-    background-color: #337ab7;
-    outline: 0;
-}
-.dropdown-menu > .disabled > form,
-.dropdown-menu > .disabled > form:hover,
-.dropdown-menu > .disabled > form:focus {
-    color: #777;
-}
-.dropdown-menu > .disabled > form:hover,
-.dropdown-menu > .disabled > form:focus {
-    text-decoration: none;
-    cursor: not-allowed;
-    background-color: transparent;
-    background-image: none;
-    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-}
 
 .navbar-nav.pull-right .dropdown.open .dropdown-menu {
     left: auto;
