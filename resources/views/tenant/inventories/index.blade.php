@@ -241,6 +241,33 @@ body {
                 
                 </tr>
         @endforeach
+        @foreach ($services as $service)
+                <tr>          {{-- protected $fillable = ['code','service_name','cost','debit_credit','Ledger_account','branch_id']; --}}
+                  <td class="text-truncate">{{ $service->code }}</td>
+                  <td class="text-truncate">{{ $service->service_name }}</td>
+                  <td class="text-truncate">{{ $service->cost }}</td>
+                  <td class="text-truncate">{{ $service->debit_credit }}</td>
+                  <td class="text-truncate">{{ $service->Ledger_account }}</td>
+                  <td class="text-truncate"><span class="lable-tag tag-success">{{ "" }}</span></td>
+                  <td class="text-truncate">{{ "" }}</td>
+                         -->
+
+                <!-- <td class="text-truncate"><i class="fa fa-dashboard"></i></td> -->
+                <!-- <td class="text-truncate"> <i class="fas fa-edit"></i></td> -->
+                <td class="text-truncate">
+                  <!-- <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> -->
+                  <!-- <i class="fa fa-times-circle fa-2x" aria-hidden="true"></i> -->
+
+                  <a class=""  aria-label="Delete" data-toggle="modal" data-target="#editModal"><i class="fa fa-pencil-square-o fa-lg text-success" aria-hidden="true"></i></a>
+                  <!-- <a class="btn btn-default"  aria-label="Delete" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o fa-xs" aria-hidden="true"></i></a> -->
+                  <!-- <a href="#" class="btn  btn-default btn-lg" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o   fa-xs" aria-hidden="true"></i></a>     -->
+                  <!-- <a href="#" class="btn  btn-danger btn-lg" data-toggle="modal" data-target="#basicModal"><i class="fa fa-times-circle   fa-xs" aria-hidden="true"></i></a> -->
+                  <!-- <a class="btn btn-danger"  aria-label="Delete" data-toggle="modal" data-target="#basicModal"><i class="fa fa-trash-o fa-xs" aria-hidden="true"></i></a> -->
+                  <a class=""   data-toggle="modal" data-target="#deleteModal"><i class="fa fa-times-circle fa-lg text-warning" aria-hidden="true"></i></a>               
+                </td>
+                
+                </tr>
+        @endforeach        
         </tbody>
         <tfoot>
             <tr>
