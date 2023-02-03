@@ -8,6 +8,12 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Ovio - Bootstrap Based Responsive Dashboard &amp; Admin Template</title>
 
+    {{-- Preload --}}
+    <link rel="preload" href="{{ asset('assetsAdmin/bootstrap/css/bootstrap.min.css') }}" as="style">
+    <link rel="preload" href="{{ asset('assetsAdmin/bootstrap/css/bootstrap.css') }}" as="style">
+    <link rel="preload" href="{{ asset('assetsAdmin/dist/css/style.css') }}" as="style">
+    <link rel="preload" href="{{ asset('assetsAdmin/dist/css/sty-ind-ten.css') }}" as="style">
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ asset('assetsAdmin/bootstrap/css/bootstrap.min.css') }}">
 
@@ -18,10 +24,11 @@
     <link type="text/css" rel="stylesheet" href="{{ asset('assetsAdmin/dist/weather/weather-icons-wind.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assetsAdmin/bootstrap/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('assetsAdmin/dist/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assetsAdmin/dist/css/sty-ind-ten.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/v/bs/jszip-2.5.0/dt-1.13.1/af-2.5.1/b-2.3.3/b-colvis-2.3.3/b-html5-2.3.3/b-print-2.3.3/cr-1.6.1/date-1.2.0/fc-4.2.1/fh-3.3.1/kt-2.8.0/r-2.4.0/rg-1.3.0/rr-1.3.1/sc-2.0.7/sb-1.4.0/sp-2.1.0/sl-1.5.0/sr-1.2.0/datatables.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap">
+    <link rel="stylesheet" href="{{ asset('assetsAdmin/dist/css/sty-ind-ten.css') }}"rel="stylesheet">
     <link rel="stylesheet" href="https://www.1001fonts.com/metropolis-font.html">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -112,6 +119,13 @@
     <!-- charts -->
     <script src="{{ asset('assetsAdmin/plugins/charts/code/modules/exporting.js') }}"></script>
     <script src="{{ asset('assetsAdmin/plugins/charts/chart-functions.js') }}"></script>
+
+    {{-- Datatable --}}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.datatables.net/v/bs/jszip-2.5.0/dt-1.13.1/af-2.5.1/b-2.3.3/b-colvis-2.3.3/b-html5-2.3.3/b-print-2.3.3/cr-1.6.1/date-1.2.0/fc-4.2.1/fh-3.3.1/kt-2.8.0/r-2.4.0/rg-1.3.0/rr-1.3.1/sc-2.0.7/sb-1.4.0/sp-2.1.0/sl-1.5.0/sr-1.2.0/datatables.min.js">
+    </script>
 </body>
 
 </html>

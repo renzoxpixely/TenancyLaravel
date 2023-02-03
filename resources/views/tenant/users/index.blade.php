@@ -3,44 +3,6 @@
 @section('content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <section class="content-header">
-
-            <h1>Administracion - Inventario</h1>
-
-            <!-- <a class="btn btn-success" href="http://queque.localhost:8001/branches/8/shoppings"> Ingrsardashhs</a> -->
-
-            <div class="row">
-                <div class="pull-right m-2">
-                    <!-- <button type="button" class="btn btn-primary btn-rounded dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nuevo <span class="caret"></span></button>
-       -->
-
-                    <div class="text-center">
-
-                        <!-- <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal">
-       Left Sidebar Modal
-      </button>  -->
-
-                        <button type="button" class="btn btn-primary btn-rounded" data-toggle="modal"
-                            data-target="#myModal2">
-                            Nuevo
-                        </button>
-                    </div>
-
-                    <ul class="dropdown-menu">
-                        <li><a href="http://queque.localhost:8001/branches/8/sales/create">Ventas</a></li>
-                        <li><a href="#">Cotización</a></li>
-                        <li><a href="#">Guía de Remisión</a></li>
-                    </ul>
-                </div>
-            </div>
-
-
-
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
-            </ol>
-        </section>
         <!-- Main content -->
         <section class="content container-fluid">
             <div class="row">
