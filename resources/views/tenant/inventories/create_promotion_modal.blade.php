@@ -17,149 +17,140 @@
             @csrf
 
             <div class="row">
-              <div class="col-md-4">
+
+              <div class="col-md-2">
                 <fieldset class="form-group">
-                  <label>Código del producto</label>
+                  <label>Código</label>
                   <input class="form-control" name="codigo" type="text">
                 </fieldset>
               </div>
 
-              
-
-
-
-
-
-
-
-
-
-
-
-
-
-              <div class="col-md-4">
+              <div class="col-md-7">
                 <fieldset class="form-group">
-                  <label>Código alternativo</label>
+                  <label>Nombre del Producto</label>
                   <input class="form-control" name="alternate_code" type="text">
                 </fieldset>
               </div>
-              </div>
-              <div class="row">
-              <div class="col-md-8">
+
+              <div class="col-md-3">
                 <fieldset class="form-group">
-                  <label>Nombre del product</label>
+                  <label>Nombre del Producto</label>
+                  <input class="form-control" name="alternate_code" type="text">
+                </fieldset>
+              </div>
+
+              </div>
+
+
+            <div class="row">
+              <div class="col-md-3">
+                <fieldset class="form-group">
+                  <label>Productos y Servicios</label>
                   <input class="form-control" name="name type="text">
                 </fieldset>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-2">
                 <fieldset class="form-group">
-                  <label>Código de Barra / SKU</label>
-                  <input class="form-control" name="sku" readonly value="You can't update me :P" type="text">
+                  <label>Presentación</label>
+                  <input class="form-control" name="name type="text">
                 </fieldset>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-2">
                 <fieldset class="form-group">
-                  <label>Presentación Unitaria</label>
-                  <input class="form-control" name="unitary_presentation" placeholder="Enter Email Address" type="text">
-                </fieldset>
-              </div>
-              <div class="col-md-4">
-                <fieldset class="form-group">
-                  <label>Unidades Contenidas (Factor)</label>
-                  <input class="form-control" name="factor" placeholder="Enter Email Address" type="text">
-                </fieldset>
-              </div>
-              <div class="col-md-4">
-                <fieldset class="form-group">
-                  <label>Marca</label>
-                  <input name="brand_id" class="form-control round" placeholder="Rounded Input" type="text">
-                </fieldset>
-              </div>
-              <div class="col-md-4">
-                <fieldset class="form-group">
-                  <label>Linea</label>
-                  <input name="line" class="form-control square" placeholder="square Input" type="text">
-                </fieldset>
-              </div>
-              <!-- <div class="col-md-4">
-                <fieldset class="form-group">
-                  <label>Categoría</label>
-                  <input name="squareText" class="form-control square" placeholder="square Input" type="text">
-                </fieldset>
-              </div> -->
-              <!-- <div class="col-md-4">
-                <fieldset class="form-group">
-                  <label>Sub-Categoría</label>
-                  <input name="squareText" class="form-control square" placeholder="square Input" type="text">
-                </fieldset>
-              </div>     -->
-              <div class="col-md-3">
-                <fieldset class="form-group">
-                  <label>Costo (Costo sin IGV)</label>
-                  <input name="purchase_price_noigv" class="form-control square" placeholder="square Input" type="text">
-                </fieldset>
-              </div>   
-
-
-
-
-              <div class="col-md-3">
-                <fieldset class="form-group">
-                  <label>Costo (Costo sin IGV)</label>
-                  <input name="sale_price_igv" class="form-control square" placeholder="square Input" type="text">
-                </fieldset>
-              </div>   
-              <div class="col-md-3">
-                <fieldset class="form-group">
-                  <label>Costo (Costo sin IGV)</label>
-                  <input name="quantity" class="form-control square" placeholder="square Input" type="text">
+                  <label>Precio</label>
+                  <input class="form-control" name="name type="text">
                 </fieldset>
               </div>  
-              <div class="col-md-3">
+              <div class="col-md-2">
                 <fieldset class="form-group">
-                  <label>Costo (Costo sin IGV)</label>
-                  <input name="type_product" class="form-control square" placeholder="square Input" type="text">
+                  <label>Descuento</label>
+                  <input class="form-control" name="name type="text">
                 </fieldset>
-              </div>  
+              </div>
+              <div class="col-md-1">
+                <fieldset class="form-group">
+                  <label>Des.%</label>
+                  <input class="form-control" name="name type="text">
+                </fieldset>
+              </div>
+              <div class="col-md-1">
+                <fieldset class="form-group">
+                  <label>Cant.</label>
+                  <input class="form-control" name="name type="text">
+                </fieldset>
+              </div>
+              <div class="col-md-1">
+                <fieldset class="form-group">
+                  <label>Agregar</label>
+                    <!-- Contextual button for informational alert messages -->
+                    <button class="btn btn-primary icon-button">
+  <i class="fa fa-arrow-down fa-sm"></i>
+</button>
+                </fieldset>
+              </div>                                                                                  
+            </div>
 
 
+      <div class="row"> 
+      <div class="col-md-12">                   
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Descripción</th>
+        <th>Cantidad</th>
+        <th>Precio de venta</th>
+        <th>Descuento</th>
+        <th>P. promo</th>                
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+        <td>Doe</td>
+        <td>john@example.com</td>        
+      </tr>
+      <tr>
+      <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+        <td>Doe</td>
+        <td>john@example.com</td>        
+      </tr>    
+    </tbody>
+  </table>
+<div>
+</div>
+
+          <div class="row"> 
+              <div class="col-md-3">
+                <fieldset class="form-group">
+                  <label>Almacén Origen</label>
+                  <input class="form-control" name="name type="text">
+                </fieldset>
+              </div>
+              <div class="col-md-3">
+                <fieldset class="form-group">
+                  <label>Almacén Destino</label>
+                  <input class="form-control" name="name type="text">
+                </fieldset>
+              </div>
+              <div class="col-md-3">
+                <fieldset class="form-group">
+                  <label>Cantidad</label>
+                  <input class="form-control" name="name type="text">
+                </fieldset>
+              </div>
+              <div class="col-md-3">
+                <fieldset class="form-group">
+                  <label>Total Precio</label>
+                  <input class="form-control" name="name type="text">
+                </fieldset>
+              </div>                            
+          </div>
 
 
-              <div class="col-md-3">
-                <fieldset class="form-group">
-                  <label>Peso (Kg.)</label>
-                  <input name="squareText" class="form-control square" placeholder="square Input" type="text">
-                </fieldset>
-              </div>   
-              <div class="col-md-3">
-                <fieldset class="form-group">
-                  <label>% Detracción</label>
-                  <input name="squareText" class="form-control square" placeholder="square Input" type="text">
-                </fieldset>
-              </div>   
-              <div class="col-md-3">
-                <fieldset class="form-group">
-                  <label>% ISC</label>
-                  <input name="squareText" class="form-control square" placeholder="square Input" type="text">
-                </fieldset>
-              </div>     
-              <div class="col-md-3">
-                <fieldset class="form-group">
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">No Gravado con IGV</label>
-                </div>
-                </fieldset>
-              </div>   
-              <div class="col-md-3">
-                <fieldset class="form-group">
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">Producto importado</label>
-                </div>
-                </fieldset>
-              </div>     
           </div>
             </div>
           </div>

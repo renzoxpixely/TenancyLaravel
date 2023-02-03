@@ -128,6 +128,10 @@ Route::resource('branches.dashboard', DashboardController::class);
 //invnetory
 Route::resource('branches.inventories', InventoryController::class);
 
+//invnetory autocomplete
+Route::resource('branches.inventories', InventoryController::class);
+Route::get('branches.inventories', [InventoryController::class, 'autocompleteSearch']);
+
 //prueba ruta
 Route::get('/test', function () {
     return view('tenant.sales.index');

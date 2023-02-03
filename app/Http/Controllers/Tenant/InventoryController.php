@@ -88,4 +88,18 @@ class InventoryController extends Controller
     {
         //
     }
+
+
+
+    public function autocompleteSearch(Request $request)
+    {
+          $query = $request->get('query');
+          $filterResult = Product::where('name', 'LIKE', '%'. $query. '%')->get();
+
+          $stack = array("orange", "banana");
+            array_push($stack, "apple", "raspberry");
+            
+          return response()->json($filterResult);
+    } 
+
 }
