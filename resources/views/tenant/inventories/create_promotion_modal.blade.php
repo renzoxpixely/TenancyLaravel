@@ -31,10 +31,10 @@
                   <input class="form-control" name="alternate_code" type="text">
                 </fieldset>
               </div>
-
+              
               <div class="col-md-3">
                 <fieldset class="form-group">
-                  <label>Nombre del Producto</label>
+                  <label>Código de Barra / SKU</label>
                   <input class="form-control" name="alternate_code" type="text">
                 </fieldset>
               </div>
@@ -147,8 +147,19 @@
                   <label>Total Precio</label>
                   <input class="form-control" name="name type="text">
                 </fieldset>
-              </div>                            
-          </div>
+              </div>   
+              
+
+              <form name="autocomplete-textbox" id="autocomplete-textbox" method="post" action="#">
+       @csrf
+ 
+        <div class="form-group">
+          <label for="exampleInputEmail1">Search Product By Name</label>
+          <input type="text" id="search" name="name" class="form-control">
+        </div>
+ 
+      </form>
+     
 
 
           </div>

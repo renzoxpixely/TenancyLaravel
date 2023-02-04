@@ -83,45 +83,52 @@
               <div id="example_filter" class="dataTables_filter pull-right">
 
                 
-        <div class="pull-right mb-2">
+        <!-- <div class="pull-right mb-2">
             <a href="{{ route("tenant.branches.sales.create", $branch_id) }}">Nueva Transacción</a>
-        </div>
-                <input class="form-control" id="placeholderInput" placeholder="Buscar" type="email">
-                
+        </div> -->
+
               </div>
-              <table class="table table-responsive">
-                <thead>
-                  <tr>
-                    <th class="sortable">Fecha</th>
-                    <th class="sortable">Documento</th>
-                    <th class="sortable">Cliente</th>
-                    <th class="sortable">Total</th>
-                    <th class="sortable">Saldo</th>
-                    <th class="sortable">Acciones</th>
-                    <th>Estado</th>
-                  </tr>
-                </thead>
-                @foreach ($sales as $sale)
+
+
+
+
+      <table id="example" class="table table-striped table-bordered table-responsive" style="width:100%">
+        <thead>
+            <tr>
+            <th>Fecha</th>
+                <th>Fecha</th>
+                <th>Documento</th>
+                <th>Cliente</th>
+                <th>Total</th>
+                <th>Saldo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+                 @foreach ($sales as $sale)
                 <tr>          {{-- protected $fillable = ['customer','product','amount','price','total','branch_id']; --}}
-                  <td class="text-truncate">{{ $sale->id }}</td>
-                  <td class="text-truncate"><a href="#"></a>{{ $sale->price }}</td>
-                  <td class="text-truncate">{{ $sale->product }}</td>
-                  <td class="text-truncate"><span class="lable-tag tag-success">{{ $sale->total }}</span></td>
-                  <td class="text-truncate">{{ $sale->branch_id }}</td>
-                  <td class="text-truncate">{{ $sale->product }}</td>
-                  <td class="text-truncate">{{ $sale->branch_id }}</td>                  
+                  <td>{{ $sale->id }}</td>
+                  <td><a href="#"></a>{{ $sale->price }}</td>
+                  <td>{{ $sale->product }}</td>
+                  <td><span class="lable-tag tag-success">{{ $sale->total }}</span></td>
+                  <td>{{ $sale->branch_id }}</td>
+                  <td>{{ $sale->product }}</td>
+                  <td>{{ $sale->branch_id }}</td>                  
                 </tr>
                 @endforeach
-              </table>
-              <ul class="pagination m-bot-0">
-                <li> <a href="#" aria-label="Previous"> <span aria-hidden="true">«</span> </a> </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li> <a href="#" aria-label="Next"> <span aria-hidden="true">»</span> </a> </li>
-              </ul>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Fecha</th>
+                <th>Documento</th>
+                <th>Cliente</th>
+                <th>Total</th>
+                <th>Saldo</th>
+                <th>Acciones</th>
+            </tr>
+        </tfoot>
+    </table>
+
             </div>
           </div>
         </div>
@@ -133,9 +140,18 @@
 
 
 
-
   </div>
   <!-- content-wrapper --> 
 
+
+@endsection
+@section('script')
+<script>
+$(document).ready(function () {
+    $('#example').dataTable( {
+  "pageLength": 20
+} );
+});
+</script>
 
 @endsection

@@ -187,42 +187,36 @@ body {
           <div class="col-md-12">
             <div class="chart-box">
               <h4>Ventas</h4>
-              <div id="example_filter" class="dataTables_filter pull-right">
 
                 
-        <div class="pull-right mb-2">
-            <!-- <a href="{{ route("tenant.branches.sales.create", $branch_id) }}">Nueva Transacción</a> -->
-        </div>
-                
-                
-              </div>
+        <!-- <div class="pull-right mb-2">
+            <a href="{{ route("tenant.branches.sales.create", $branch_id) }}">Nueva Transacción</a>
+        </div> -->
 
-
-           
-              <table id="example" class="table table-striped table-bordered table-responsive" style="width:100%">
+ <table id="example" class="table table-striped table-bordered table-responsive" style="width:100%">
         <thead>
             <tr>
 
                 <th class="sortable">Código</th>
-                    <th class="sortable">Descripción</th>
-                    <th class="sortable">Codigo alternativo</th>
-                    <th class="sortable">Codigo de barra</th>
-                    <th class="sortable">Precio de venta con IGV</th>
-                    <th class="sortable">Precio de compra sin IGV</th>
-                    <th class="sortable">Presentación unitaria</th>
-                    <th class="sortable">Acciones</th>    
+                    <th>Descripción</th>
+                    <th>Codigo alternativo</th>
+                    <th>Codigo de barra</th>
+                    <th>Precio de venta con IGV</th>
+                    <th>Precio de compra sin IGV</th>
+                    <th>Presentación unitaria</th>
+                    <th>Acciones</th>    
             </tr>
         </thead>
         <tbody>
         @foreach ($products as $product)
                 <tr>          {{-- protected $fillable = ['codigo','name','sale_price_igv','type_product','sku','branch_id','quantity', 'alternative_code']; --}}
-                  <td class="text-truncate">{{ $product->codigo }}</td>
-                  <td class="text-truncate">{{ $product->name }}</td>
-                  <td class="text-truncate">{{ $product->alternate_code }}</td>
-                  <td class="text-truncate">{{ $product->sku }}</td>
-                  <td class="text-truncate">{{ $product->sale_price_igv }}</td>
-                  <td class="text-truncate"><span class="lable-tag tag-success">{{ $product->purchase_price_noigv }}</span></td>
-                  <td class="text-truncate">{{ $product->unitary_presentation }}</td>
+                  <td>{{ $product->codigo }}</td>
+                  <td>{{ $product->name }}</td>
+                  <td>{{ $product->alternate_code }}</td>
+                  <td>{{ $product->sku }}</td>
+                  <td>{{ $product->sale_price_igv }}</td>
+                  <td><span class="lable-tag tag-success">{{ $product->purchase_price_noigv }}</span></td>
+                  <td>{{ $product->unitary_presentation }}</td>
                 <!-- <td class="text-truncate">{{ $product->quantity }}</td>                 -->
 
                 <!-- <td class="text-truncate"><i class="fa fa-dashboard"></i></td> -->
@@ -243,14 +237,14 @@ body {
         @endforeach
         @foreach ($services as $service)
                 <tr>          {{-- protected $fillable = ['code','service_name','cost','debit_credit','Ledger_account','branch_id']; --}}
-                  <td class="text-truncate">{{ $service->code }}</td>
-                  <td class="text-truncate">{{ $service->service_name }}</td>
-                  <td class="text-truncate">{{ $service->cost }}</td>
-                  <td class="text-truncate">{{ $service->debit_credit }}</td>
-                  <td class="text-truncate">{{ $service->Ledger_account }}</td>
-                  <td class="text-truncate"><span class="lable-tag tag-success">{{ "" }}</span></td>
-                  <td class="text-truncate">{{ "" }}</td>
-                         -->
+                  <td>{{ $service->code }}</td>
+                  <td>{{ $service->service_name }}</td>
+                  <td>{{ $service->cost }}</td>
+                  <td>{{ $service->debit_credit }}</td>
+                  <td>{{ $service->Ledger_account }}</td>
+                  <td><span class="lable-tag tag-success">{{ "" }}</span></td>
+                  <td>{{ "" }}</td>
+                         
 
                 <!-- <td class="text-truncate"><i class="fa fa-dashboard"></i></td> -->
                 <!-- <td class="text-truncate"> <i class="fas fa-edit"></i></td> -->
@@ -272,12 +266,12 @@ body {
         <tfoot>
             <tr>
             <th class="sortable">Código</th>
-                    <th class="sortable">Descripción</th>
-                    <th class="sortable">Codigo de barra</th>
-                    <th class="sortable">Precio de venta con IGV</th>
-                    <th class="sortable">Precio de compra sin IGV</th>
-                    <th class="sortable">Presentación unitaria</th>
-                    <th class="sortable">Acciones</th>    
+                    <th>Descripción</th>
+                    <th>Codigo de barra</th>
+                    <th>Precio de venta con IGV</th>
+                    <th>Precio de compra sin IGV</th>
+                    <th>Presentación unitaria</th>
+                    <th>Acciones</th>    
             </tr>
         </tfoot>
     </table>
@@ -375,26 +369,17 @@ $(document).ready(function () {
   "pageLength": 20
 } );
 });
+</script>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+<!-- 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js">
     </script>
     <script type="text/javascript">
         var route = "{{ url('branches.inventories') }}";
-        $('#search').typeahead({
+        $('#searchItem').typeahead({
             source: function (query, process) {
                 return $.get(route, {
                     query: query
@@ -403,7 +388,7 @@ $(document).ready(function () {
                 });
             }
         });
-    </script>
+    </script> -->
 
 
 @endsection
