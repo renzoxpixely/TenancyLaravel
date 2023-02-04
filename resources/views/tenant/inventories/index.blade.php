@@ -278,10 +278,6 @@ body {
 
             </div>
           </div>
-        </div>
-
-
-
 
 <!-- modales -->
 
@@ -300,15 +296,17 @@ body {
   @include('tenant.inventories.create_product_modal')
 </div>
 
+<!-- modal agregar servicio -->
+<div class="modal fade" id="addServiceModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true">
+  @include('tenant.inventories.create_service_modal')
+</div>
+
 <!-- modal agregar promocion -->
 <div class="modal fade" id="addPromotionModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true">
   @include('tenant.inventories.create_promotion_modal')
 </div>
 
-<!-- modal agregar servicio -->
-<div class="modal fade" id="addServiceModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true">
-  @include('tenant.inventories.create_service_modal')
-</div>
+
 
       </section>
       <!-- content -->         
