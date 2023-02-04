@@ -25,13 +25,13 @@
 
 .navbar-nav a,
 .dropdown-menu > li > a,
-.dropdown-menu > li > a:focus,
+.dropdown-menu > .nav_li > a:focus,
 .dropdown-menu > li > a:hover
 .navbar-toggle {
     color: #fff;
 }
 
-.nav.navbar-nav li.active {
+.nav_li.active .asd {
     color: #4527a0 !important;
 }
 
@@ -270,7 +270,7 @@ p.pr-inx {
     margin: 0px;
 }
 
-.content.container .content .chart-box {
+.content.container .content .chacha {
     border: 2px solid rgb(0, 31, 88) !important;
     border-color: #d7dfe3;
     border-radius: 10px;

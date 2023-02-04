@@ -16,11 +16,11 @@
                       </div>
                       <div id="navbar" class="navbar-collapse collapse">
                           <ul class="nav navbar-nav pull-right">
-                              <li class="nav_li" ><a href="#">NOTIFICACIONES</a></li>
+                              <li class="nav_li" ><a class="asd" href="#">NOTIFICACIONES</a></li>
                               <li class="nav_li {{ Route::is('tenant.branches.index') ? 'active' : '' }}"><a href="{{ route('tenant.branches.index') }}"
-                                      class="">SELECCIONAR EMPRESA</a></li>
-                              <li class="nav_li {{ Route::is('tenant.companies.index') ? 'active' : '' }}"><a href="{{ route('tenant.companies.index') }}">EMPRESAS Y LOCALES</a></li>
-                              <li  class="nav_li {{ Route::is('tenant.users.index') ? 'active' : '' }} "><a href="{{ route('tenant.users.index') }}">USUARIOS</a></li>
+                                      class="asd">SELECCIONAR EMPRESA</a></li>
+                              <li class="nav_li {{ Route::is('tenant.companies.index') ? 'active' : '' }}"><a class="asd" href="{{ route('tenant.companies.index') }}">EMPRESAS Y LOCALES</a></li>
+                              <li  class="nav_li {{ Route::is('tenant.users.index') ? 'active' : '' }} "><a class="asd" href="{{ route('tenant.users.index') }}">USUARIOS</a></li>
 
                               <!-- Authentication -->
                               <li class="dropdown"><a href="#" class="dropdown-toggle active"

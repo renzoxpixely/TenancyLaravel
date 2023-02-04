@@ -51,7 +51,7 @@
                 <div class="row">
                     {{-- @foreach ($branches as $branch)       ITERAR TODO EL CONTENEDOR --}}
                     <div class="col-md-4 col-sm-6">
-                        <div class="chart-box">
+                        <div class="chart-box chacha">
                             <div class="panel">
                                 <div class="panel-box"> <img
                                         src="https://api.nubefa.com/storage/131/AfypFkZIQzfSYYXXugD8ODsowI7akiFywgoxtGb1.png"
