@@ -13,26 +13,30 @@ use App\Models\Tenant\Provider;
 use App\Models\Tenant\Purchase;
 
 
+use App\Http\Requests\Purchase\StoreRequest;
+use App\Http\Requests\Purchase\UpdateRequest;
+
 class PurchaseController extends Controller
 {
 
     public function index()
     {
         $purchases = Purchase::get();
-        return view('admin.purchase.index', compact('purchases'));
+        return view('tenant.purchases.index', compact('purchases'));
     }
     public function create()
     {
         $providers = Provider::get();
 
-        $products = Product::pos_products()->get();
+        $products = Product::get();
 
-        return view('admin.purchase.create', compact('providers','products'));
+        return view('tenant.purchases.create', compact('providers','products'));
     }
     public function store(StoreRequest $request, Purchase $purchase)
     {
+  
         $purchase->my_store($request);
-        return redirect()->route('purchases.index')->with('toast_success', '¡Compra registrada con éxito!');
+        return redirect()->route('tenant.purchases.index')->with('toast_success', '¡Compra registrada con éxito!');
     }
     public function show(Purchase $purchase)
     {
@@ -41,7 +45,7 @@ class PurchaseController extends Controller
         foreach ($purchaseDetails as $purchaseDetail) {
             $subtotal += $purchaseDetail->quantity * $purchaseDetail->price;
         }
-        return view('admin.purchase.show', compact('purchase', 'purchaseDetails', 'subtotal'));
+        return view('tenant.purchases.show', compact('purchase', 'purchaseDetails', 'subtotal'));
     }
     public function edit(Purchase $purchase)
     {

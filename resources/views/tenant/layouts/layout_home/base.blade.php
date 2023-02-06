@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="{{ asset('assetsAdmin/dist/font-awesome/css/font-awesome.min.css') }}">
 <link type="text/css" rel="stylesheet" href="{{ asset('assetsAdmin/dist/weather/weather-icons.min.css') }}">
 <link type="text/css" rel="stylesheet" href="{{ asset('assetsAdmin/dist/weather/weather-icons-wind.min.css') }}">
-
+@yield('css')
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -100,11 +100,13 @@
 </div> -->
 <!-- wrapper -->
 
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <!-- jQuery -->
 <script src="{{ asset('assetsAdmin/dist/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assetsAdmin/bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assetsAdmin/dist/js/ovio.js') }}"></script>
-
+@yield('script')
 <!-- charts -->
 <script src="{{ asset('assetsAdmin/plugins/charts/code/modules/exporting.js') }}"></script>
 <script src="{{ asset('assetsAdmin/plugins/charts/chart-functions.js') }}"></script>

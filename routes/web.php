@@ -11,6 +11,12 @@ use App\Http\Controllers\TenantController;
 
 
 use App\Http\Controllers\BranchController;
+
+
+
+
+
+use App\Http\Controllers\Tenant\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,6 +56,13 @@ Route::middleware('auth')->group(function () {
         // return view('tenant.layouts.layout_dashboard.dashboard');
         return view('system.customers.index');
     });    
+
+
+
+    
+Route::get('get_products_by_barcode', [ProductController::class, 'get_products_by_barcode'])->name('get_products_by_barcode');
+Route::get('get_products_by_id', [ProductController::class, 'get_products_by_id'])->name('get_products_by_id');
+
 
 });
 
