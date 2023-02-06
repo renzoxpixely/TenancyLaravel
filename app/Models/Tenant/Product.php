@@ -38,5 +38,13 @@ class Product extends Model
     public function provider()
     {
         return $this->belongsTo(Provider::class);
-    }          
+    }
+    
+    
+    public function add_stock($quantity){
+        $this->increment('stock', $quantity);
+    }
+    public function subtract_stock($quantity){
+        $this->decrement('stock', $quantity);
+    }
 }

@@ -7,6 +7,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
 class Purchase extends Model
 {
     use HasFactory;
@@ -33,8 +35,9 @@ class Purchase extends Model
         $product->add_stock($quantity);
     }
     public function my_store($request){
+
         $purchase = self::create($request->all()+[
-            'user_id'=>Auth::user()->getId(),
+            'user_id'=>'1',
             'purchase_date'=>Carbon::now('America/Lima'),
         ]);
 
