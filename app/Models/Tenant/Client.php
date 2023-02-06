@@ -5,7 +5,7 @@ namespace App\Models\Tenant;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Client extends Model
 {
     use HasFactory;
 
@@ -15,14 +15,12 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-      'code',
-      'name',
-      'stock',
-      'image',
-      'sell_price',
-      'status',
-      'category_id',
-      'provider_id'
+        'name',
+        'dni',
+        'ruc',
+        'address',
+        'phone',
+        'email'
     ];
 
     public function branch()
