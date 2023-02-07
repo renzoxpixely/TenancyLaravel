@@ -14,8 +14,7 @@
         <li class="treeview {{ Route::is('tenant.branches.purchases.index', $branch_id) ? 'active' : '' }}"><a href="#"><i class="fa fa-dashboard"></i> <span>Compras</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
           <ul class="treeview-menu ">
             <li class="{{ Route::is('tenant.branches.purchases.index', $branch_id) ? 'active' : '' }}"><a href="{{ route('tenant.branches.purchases.index', $branch_id) }}"><i class="fa fa-angle-right"></i>Compras</a></li>
-            <li><a href="dashboard-2.html"><i class="fa fa-angle-right"></i> Dashboard 2</a></li>
-            <li><a href="dashboard-3.html"><i class="fa fa-angle-right"></i> Dashboard 3</a></li>
+            <li><a href="dashboard-2.html"><i class="fa fa-angle-right"></i>Proveedores</a></li>
           </ul>
         </li>
         <li class="treeview {{ Route::is('tenant.branches.sales.index', $branch_id) ? 'active' : '' }}"><a href="#"><i class="fa fa-dashboard"></i> <span>Ventas</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>

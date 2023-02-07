@@ -1,4 +1,4 @@
-@extends('tenant.layouts.layout_home.base')
+@extends('tenant.layouts.layout_dashboard.layout.base')
 @section('css')
 
 

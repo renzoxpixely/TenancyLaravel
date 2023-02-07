@@ -27,17 +27,19 @@ class PurchaseController extends Controller
         $purchases = Purchase::get();
         return view('tenant.purchases.index', compact('purchases','branch_id'));
     }
-    public function create()
+    public function create($branch_id)
     {
+        $branches = Branch::where('id', $branch_id)->get();
+
         $providers = Provider::get();
 
         $products = Product::get();
 
-        return view('tenant.purchases.create', compact('providers','products'));
+        return view('tenant.purchases.create', compact('providers','products','branch_id'));
     }
     public function store(StoreRequest $request, Purchase $purchase)
     {
-  
+
         $purchase->my_store($request);
         return redirect()->route('tenant.purchases.index')->with('toast_success', '¡Compra registrada con éxito!');
     }

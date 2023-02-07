@@ -97,7 +97,7 @@
                     text: '<i class="fas fa-plus"></i> Nuevo',
                     className: 'btn btn-info',
                     action: function ( e, dt, node, conf ) {
-                        window.location.href = "{{route('tenant.purchases.create')}}"
+                        window.location.href = "{{ route('tenant.branches.purchases.create', $branch_id) }}"
                     }
                 }
             ]
