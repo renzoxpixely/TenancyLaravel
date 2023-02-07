@@ -177,6 +177,12 @@ body {
                     @endforeach
             </tbody>
         </table>
+        <select name="" id="">
+          <option value="">PI</option>
+          <option value="">ASDASDASD</option>
+          <option value="">MEEEEEEEEE</option>
+          <option value="">AAAAAAAAAAAAAAAAAAAA</option>
+        </select>
         {!! $users->links() !!}
     </div>
 
