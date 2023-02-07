@@ -1,11 +1,74 @@
-@extends('tenant.layouts.layout_dashboard.layout.base')
+@extends('tenant.layouts.layout_dashboard.layout.base_only_style')
 @section('css')
 
 
 @endsection
 
 @section('content')
-<div class="content-wrapper">
+
+<div class="wrapper">
+    <div action="" class="col-form" novalidate>
+    <div class="col-logo"><a href="../index.html"><img alt="" src="../dist/img/logo-lg.png"></a></div>
+      <header>Compras</header>
+      <fieldset>
+      <div class="row">
+        <div class="col-lg-8">
+        <section>
+          <div class="form-group has-feedback">
+            <label class="control-label">Password</label>
+            <input class="form-control" placeholder="Password" type="password">
+            <span class="fa fa-lock form-control-feedback" aria-hidden="true"></span> </div>
+        </section>
+        </div>
+      <div class="col-lg-4">
+        <h1>sdfadsfdsafasdfdsafsafasdfadsf</h1>    
+    </div>
+        <section>
+          <div class="row">
+            <div class="col-md-4 checkbox"> <a href="forgot-password.html" class="modal-opener">Forgot password?</a> </div>
+            <div class="col-md-4 text-right">
+              <label class="checkbox">
+                <input name="remember" checked="" type="checkbox">
+                <i></i>Keep me logged in</label>
+            </div>
+          </div>
+        </section>
+      </fieldset>
+      <footer class="text-right">
+        <button type="button" class="btn btn-info pull-right">Login</button>
+        <a href="register.html" class="button button-secondary">Register</a> 
+      </footer>
+
+
+
+      </div>
+      </div> 
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- wrapper --> 
+
+
+<div class="content-wrapper row">
     <div class="page-header">
         <h3 class="page-title">
             Registro de compra
