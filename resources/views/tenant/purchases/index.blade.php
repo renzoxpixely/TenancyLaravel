@@ -1,4 +1,5 @@
-@extends('tenant.layouts.layout_home.base')
+@extends('tenant.layouts.layout_dashboard.layout.base')
+
 @section('css')
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.bootstrap4.min.css">
 @endsection

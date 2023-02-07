@@ -33,6 +33,9 @@ class CreateProductsTable extends Migration
 
             $table->foreignId('provider_id')->nullable()->constrained('providers')->onDelete('cascade');
 
+
+            $table->foreignId('branch_id')->nullable()->constrained('branches')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

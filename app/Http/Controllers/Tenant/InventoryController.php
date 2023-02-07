@@ -19,7 +19,7 @@ class InventoryController extends Controller
         $services = Service::where('branch_id', $branch_id)->get();
         $products = Product::where('branch_id', $branch_id)->get();
         $branches = Branch::where('id', $branch_id)->get();
-        return view('tenant.inventories.index', compact('products','branch_id','branches','services'));
+        return view('tenant.inventories.products_services.index', compact('products','branch_id','branches','services'));
     }
 
     /**

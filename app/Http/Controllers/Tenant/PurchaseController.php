@@ -12,6 +12,7 @@ use App\Models\Tenant\Product;
 use App\Models\Tenant\Provider;
 use App\Models\Tenant\Purchase;
 
+use App\Models\Tenant\Branch;
 
 use App\Http\Requests\Purchase\StoreRequest;
 use App\Http\Requests\Purchase\UpdateRequest;
@@ -19,10 +20,12 @@ use App\Http\Requests\Purchase\UpdateRequest;
 class PurchaseController extends Controller
 {
 
-    public function index()
+    public function index($branch_id)
     {
+        $branches = Branch::where('id', $branch_id)->get();
+
         $purchases = Purchase::get();
-        return view('tenant.purchases.index', compact('purchases'));
+        return view('tenant.purchases.index', compact('purchases','branch_id'));
     }
     public function create()
     {

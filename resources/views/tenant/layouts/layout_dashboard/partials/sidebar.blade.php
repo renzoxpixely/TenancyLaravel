@@ -11,9 +11,9 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header dark-bg">Menu</li>
         <li class=" {{ Route::is('tenant.branches.dashboard.index', $branch_id) ? 'active treeview' : '' }}"> <a href="{{ route('tenant.branches.dashboard.index', $branch_id) }}"> <i class="fa fa-th"></i> <span>Dashboard</span></a> </li>
-        <li class="treeview"><a href="#"><i class="fa fa-dashboard"></i> <span>Compras</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+        <li class="treeview {{ Route::is('tenant.branches.purchases.index', $branch_id) ? 'active' : '' }}"><a href="#"><i class="fa fa-dashboard"></i> <span>Compras</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
           <ul class="treeview-menu ">
-            <li><a href="index.html"><i class="fa fa-angle-right"></i> Dashboard 1</a></li>
+            <li class="{{ Route::is('tenant.branches.purchases.index', $branch_id) ? 'active' : '' }}"><a href="{{ route('tenant.branches.purchases.index', $branch_id) }}"><i class="fa fa-angle-right"></i>Compras</a></li>
             <li><a href="dashboard-2.html"><i class="fa fa-angle-right"></i> Dashboard 2</a></li>
             <li><a href="dashboard-3.html"><i class="fa fa-angle-right"></i> Dashboard 3</a></li>
           </ul>

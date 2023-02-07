@@ -16,12 +16,14 @@ class CreatePurchasesTable extends Migration
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('provider_id');
-            $table->foreign('provider_id')->references('id')->on('providers');
-           
-            $table->unsignedBigInteger('user_id')->nullable();;
-            $table->foreign('user_id')->references('id')->on('users');
+            // $table->unsignedBigInteger('provider_id');
+            // $table->foreign('provider_id')->references('id')->on('providers');
+            $table->foreignId('provider_id')->nullable()->constrained('providers')->onDelete('cascade');
 
+
+            // $table->unsignedBigInteger('user_id')->nullable();;
+            // $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade');
 
             $table->dateTime('purchase_date');
 

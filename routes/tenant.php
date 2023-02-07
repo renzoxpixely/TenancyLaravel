@@ -138,6 +138,10 @@ Route::resource('branches.inventories', InventoryController::class);
 Route::get('branches.inventories', [InventoryController::class, 'autocompleteSearch']);
 
 
+//purcharse
+Route::resource('branches.purchases', PurchaseController::class);
+
+
 
 
 
