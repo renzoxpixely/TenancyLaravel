@@ -25,7 +25,7 @@ class PurchaseController extends Controller
         $branches = Branch::where('id', $branch_id)->get();
 
         $purchases = Purchase::get();
-        return view('tenant.purchases.index', compact('purchases','branch_id'));
+        return view('tenant.purchases.index', compact('purchases','branch_id','branches'));
     }
     public function create($branch_id)
     {
