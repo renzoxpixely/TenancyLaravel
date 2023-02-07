@@ -483,7 +483,7 @@ a:hover, a:active, a:focus {
 	-moz-box-direction: normal;
 	-moz-box-orient: vertical;
 	background-color: #fff;
-	border: 1px solid black !important;
+	border: 1px solid rgba(0, 0, 0, 0.125);
 	border-radius: 0.25rem;
 	flex-direction: column;
 	position: relative;
