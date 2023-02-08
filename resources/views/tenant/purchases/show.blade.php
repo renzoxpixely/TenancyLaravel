@@ -7,8 +7,8 @@
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-custom">
-                <li class="breadcrumb-item"><a href="{{route('home')}}">Panel administrador</a></li>
-                <li class="breadcrumb-item"><a href="{{route('purchases.index')}}">Compras</a></li>
+           
+              
                 <li class="breadcrumb-item active" aria-current="page">Detalles de compra</li>
             </ol>
         </nav>
@@ -96,5 +96,5 @@
 </div>
 @endsection
 @section('scripts')
-{!! Html::script('melody/js/profile-demo.js') !!}
+
 @endsection

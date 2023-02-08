@@ -12,6 +12,22 @@
       <header>Compras</header>
       <fieldset>
       <div class="row">
+
+      <form action="{{ route('tenant.purchases.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                <div class="card-body">
+                    @include('tenant.purchases._form')
+                </div>
+                <div class="card-footer text-muted">
+                    <button type="submit" id="guardar" class="btn btn-primary float-right">Registrar</button>
+                    <a href="{{ URL::previous() }}" class="btn btn-light">
+                        Cancelar
+                    </a>
+                </div>
+                <form>
+
+
+                
         <div class="col-lg-8">
         <section>
           <div class="form-group has-feedback">
