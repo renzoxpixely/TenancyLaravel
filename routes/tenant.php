@@ -139,14 +139,11 @@ Route::get('branches.inventories', [InventoryController::class, 'autocompleteSea
 
 
 //purcharse
-Route::resource('branches.purchases', PurchaseController::class);
+Route::resource('branches.purchases', PurchaseController::class)->names('branches.purchases');
 
 
 
-
-
-
-Route::resource('/purchases', PurchaseController::class)->names('purchases')->except([
+Route::resource('/purchases', PurchaseController::class)->except([
     'edit', 'update', 'destroy'
 ]);
 

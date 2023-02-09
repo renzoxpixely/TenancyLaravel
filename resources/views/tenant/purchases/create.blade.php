@@ -6,21 +6,32 @@
 
 @section('content')
 
-<div class="content-wrapper">
+<body class="sidebar-mini">
+<div class="wrapper">
+
+  <!-- Main Header -->
+  <header class="main-header dark-bg">
+
+  
+  <div class="container mt-2">
+        <div class="row">
+            <div class="col-lg-12 margin-tb">
+
+
     <div class="page-header">
         <h3 class="page-title">
-            Registro de compra
+            Compras
         </h3>
-        <nav aria-label="breadcrumb">
+        <!-- <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-custom">
                 <li class="breadcrumb-item"><a href="#">Panel administrador</a></li>
                 <li class="breadcrumb-item"><a href="#">Compras</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Registro de compra</li>
             </ol>
-        </nav>
+        </nav> -->
     </div>
     <div class="row">
-        <div class="col-lg-12 grid-margin stretch-card">
+        <div class="col-lg-12 ">
             <div class="card">
             <form action="{{ route('tenant.purchases.store') }}" method="POST" enctype="multipart/form-data">
                 
@@ -39,7 +50,20 @@
         </div>
     </div>
 </div>
+
+
+</div>
+    </div>
+</div>
+
+
+
+</div>
+</body>
 @endsection
+
+
+
 
 @section('script')
 

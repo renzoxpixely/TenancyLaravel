@@ -292,7 +292,11 @@
 <script>
 $(document).ready(function () {
     $('#example').dataTable( {
-  "pageLength": 20
+  "pageLength": 20,
+  responsive: true,
+            language: {
+                "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+            }
 } );
 });
 </script>
