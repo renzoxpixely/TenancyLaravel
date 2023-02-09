@@ -409,6 +409,9 @@ a:hover, a:active, a:focus {
 .media-box.bg-green {
 	background-color: #4ac959;
 }
+.media-box.bg-white {
+	background-color: #fff;
+}
 .media-box .media-icon {
 	font-size: 40px;
 	color: #FFF;

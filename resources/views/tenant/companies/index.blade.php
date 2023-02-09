@@ -1,12 +1,29 @@
 @extends('tenant.layouts.layout_home.base')
 
+@section('css')
+<style>
+    .btn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    .btn-success {
+        background-color: #9591f2;
+        border-color: transparent;
+    }
+    .btn-success:hover {
+        background-color: #5a48a7;
+    }
+</style>
+@endsection
+
+
 @section('content')
 
     <div class="container mt-2">
              <div class="row">
                     <div class="col-lg-12 margin-tb">
                         <div class="pull-left">
-                            <h2>Hola! Bienvenido a Nubefa</h2>
+                            <h1>Mis Empresas y Locales</h1>
 
 
 
@@ -31,9 +48,11 @@
     </div> -->
 
 
-    <h1>Foto</h1>
+    <p class="pr-inx">Listado de empresas y locales a las que estas asignado</p>
 
-
+    <div class="pull-left mb-2" style="margin-bottom: 5px;">
+        <a class="btn btn-success" href="{{ route('tenant.users.create') }}"> Crear Nueva Empresa</a>
+    </div>
                         </div>
                     </div>
                 </div>
