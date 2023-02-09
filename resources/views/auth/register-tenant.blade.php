@@ -78,7 +78,8 @@
                                 <x-label for="domain" :value="__('Domain')" hidden/>
                                 <input id="domain" class="form-control" type="text" name="domain"
                                 :value="old('domain')" required autofocus>
-                                .{{ config('tenancy.central_domains')[1] }}
+                                <span class="input-group-addon">.{{ config('tenancy.central_domains')[1] }}</span>
+                                
                             </div>
 
                         </div>
