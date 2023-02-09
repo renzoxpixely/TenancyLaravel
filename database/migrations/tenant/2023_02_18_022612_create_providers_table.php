@@ -22,6 +22,8 @@ class CreateProvidersTable extends Migration
             $table->string('address')->nullable();
             $table->string('phone');
 
+            $table->foreignId('branch_id')->nullable()->constrained('branches')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

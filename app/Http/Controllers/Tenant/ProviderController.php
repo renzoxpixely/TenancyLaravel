@@ -18,7 +18,7 @@ class ProviderController extends Controller
     {
         $providers = Provider::where('branch_id', $branch_id)->get();
         $branches = Branch::where('id', $branch_id)->get();
-        return view('tenant.providers.index', compact('providers', 'branch_id','branches'));
+        return view('tenant.purchases.providers.index', compact('providers', 'branch_id','branches'));
         // $cities = City::where('country_id', $country_id)->get();
         // return view('admin.cities.index', compact('cities', 'country_id'));
     }
