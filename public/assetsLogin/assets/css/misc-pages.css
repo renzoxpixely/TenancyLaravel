@@ -1,10 +1,11 @@
 body.simple-page {
-  background-color: #188ae2;
+  background-color: #5b69bc;
   padding-top: 8%; }
 
 .simple-page-wrap {
-  width: 380px;
-  margin: 0 auto; }
+  width: 410px;
+  margin: 0 auto;
+}
 
 .simple-page-logo {
   text-align: center;
@@ -16,7 +17,7 @@ body.simple-page {
 .simple-page-form {
   background-color: #fff;
   border-radius: 6px;
-  padding: 24px;
+  padding: 24px 24px 0px 24px;
   margin-bottom: 24px; }
   .simple-page-form .form-group {
     margin-bottom: 32px; }

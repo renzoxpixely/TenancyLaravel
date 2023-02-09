@@ -30,15 +30,15 @@
             <tbody>
                 @foreach ($users as $user)
                     <tr>
-                        <td>{{ $user->id }}</td>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td>
+                        <td class="text-truncate">{{ $user->id }}</td>
+                        <td class="text-truncate">{{ $user->name }}</td>
+                        <td class="text-truncate">{{ $user->email }}</td>
+                        <td class="text-truncate">
                             <form action="{{ route('tenant.users.destroy',$user->id) }}" method="Post">
-                                <a class="btn btn-primary" href="{{ route('tenant.users.edit',$user->id) }}">Edit</a>
+                                <a class="btn btn-primary" href="{{ route('tenant.users.edit',$user->id) }}"><i class="fa fa-pencil-square-o fa-lg text-success" aria-hidden="true"></i></a>
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger"><i class="fa fa-times-circle fa-lg text-warning" aria-hidden="true"></i></button>
                             </form>
                         </td>
                     </tr>

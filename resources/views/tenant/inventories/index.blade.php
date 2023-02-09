@@ -11,7 +11,7 @@ body { padding-right: 0 !important }
   text-align: center;
 }
 
-@media screen and (min-width: 768px) { 
+@media screen and (min-width: 768px) {
   .modal:before {
     display: inline-block;
     vertical-align: middle;
@@ -49,7 +49,7 @@ body { padding-right: 0 !important }
 		height: 100%;
 		overflow-y: auto;
 	}
-	
+
 	.modal.left .modal-body,
 	.modal.right .modal-body {
 		padding: 15px 15px 80px;
@@ -63,11 +63,11 @@ body { padding-right: 0 !important }
 		     -o-transition: opacity 0.3s linear, left 0.3s ease-out;
 		        transition: opacity 0.3s linear, left 0.3s ease-out;
 	}
-	
+
 	.modal.left.fade.in .modal-dialog{
 		left: 0;
 	}
-        
+
 /*Right*/
 	.modal.right.fade .modal-dialog {
 		right: -320px;
@@ -76,7 +76,7 @@ body { padding-right: 0 !important }
 		     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
 		        transition: opacity 0.3s linear, right 0.3s ease-out;
 	}
-	
+
 	.modal.right.fade.in .modal-dialog {
 		right: 0;
 	}
@@ -136,20 +136,20 @@ body {
 
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper"> 
+  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
 
     @foreach ($branches as $branch)
         <h1>{{ ucfirst($branch->description) }} - Inventario</h1>
-    @endforeach  
+    @endforeach
     <!-- <a class="btn btn-success" href="{{ route('tenant.branches.shoppings.index', $branch->id) }}"> Ingrsardashhs</a> -->
-    
+
     <div class="row">
         <div class="pull-right m-2">
           <!-- <button type="button" class="btn btn-primary btn-rounded dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nuevo <span class="caret"></span></button>
    -->
-          
+
          <div class="text-center">
 
 		<!-- <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal">
@@ -169,8 +169,8 @@ body {
         </div>
       </div>
 
-       
-      
+
+
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
         <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
@@ -230,9 +230,9 @@ body {
                   <!-- <a href="#" class="btn  btn-default btn-lg" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o   fa-xs" aria-hidden="true"></i></a>     -->
                   <!-- <a href="#" class="btn  btn-danger btn-lg" data-toggle="modal" data-target="#basicModal"><i class="fa fa-times-circle   fa-xs" aria-hidden="true"></i></a> -->
                   <!-- <a class="btn btn-danger"  aria-label="Delete" data-toggle="modal" data-target="#basicModal"><i class="fa fa-trash-o fa-xs" aria-hidden="true"></i></a> -->
-                  <a class=""   data-toggle="modal" data-target="#deleteModal"><i class="fa fa-times-circle fa-lg text-warning" aria-hidden="true"></i></a>               
+                  <a class=""   data-toggle="modal" data-target="#deleteModal"><i class="fa fa-times-circle fa-lg text-warning" aria-hidden="true"></i></a>
                 </td>
-                
+
                 </tr>
         @endforeach
         @foreach ($services as $service)
@@ -309,11 +309,11 @@ body {
 
 
       </section>
-      <!-- content -->         
+      <!-- content -->
       </section>
-      <!-- content --> 
+      <!-- content -->
   </div>
-  <!-- content-wrapper --> 
+  <!-- content-wrapper -->
 
 
 	<!-- Modal Sidebar derecha-->
@@ -340,7 +340,7 @@ body {
               <button data-dismiss="modal" data-toggle="modal" data-target="#addServiceModal" type="button" class="btn btn-primary btn-lg btn-block">Servicios</button>
               </div>
           </div>
-  
+
           <div class="row">
               <!-- Standard button -->
               <div class="chart-box over-hidden">
@@ -353,8 +353,8 @@ body {
 			</div><!-- modal-content -->
 		</div><!-- modal-dialog -->
 	</div><!-- modal -->
-	
-	
+
+
 </div><!-- container -->
 
 @endsection
