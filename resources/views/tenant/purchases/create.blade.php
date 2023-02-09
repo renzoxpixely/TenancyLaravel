@@ -6,92 +6,15 @@
 
 @section('content')
 
-<div class="wrapper">
-    <div action="" class="col-form" novalidate>
-    <div class="col-logo"><a href="../index.html"><img alt="" src="../dist/img/logo-lg.png"></a></div>
-      <header>Compras</header>
-      <fieldset>
-      <div class="row">
-
-      <form action="{{ route('tenant.purchases.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                <div class="card-body">
-                    @include('tenant.purchases._form')
-                </div>
-                <div class="card-footer text-muted">
-                    <button type="submit" id="guardar" class="btn btn-primary float-right">Registrar</button>
-                    <a href="{{ URL::previous() }}" class="btn btn-light">
-                        Cancelar
-                    </a>
-                </div>
-                <form>
-
-
-                
-        <div class="col-lg-8">
-        <section>
-          <div class="form-group has-feedback">
-            <label class="control-label">Password</label>
-            <input class="form-control" placeholder="Password" type="password">
-            <span class="fa fa-lock form-control-feedback" aria-hidden="true"></span> </div>
-        </section>
-        </div>
-      <div class="col-lg-4">
-        <h1>sdfadsfdsafasdfdsafsafasdfadsf</h1>    
-    </div>
-        <section>
-          <div class="row">
-            <div class="col-md-4 checkbox"> <a href="forgot-password.html" class="modal-opener">Forgot password?</a> </div>
-            <div class="col-md-4 text-right">
-              <label class="checkbox">
-                <input name="remember" checked="" type="checkbox">
-                <i></i>Keep me logged in</label>
-            </div>
-          </div>
-        </section>
-      </fieldset>
-      <footer class="text-right">
-        <button type="button" class="btn btn-info pull-right">Login</button>
-        <a href="register.html" class="button button-secondary">Register</a> 
-      </footer>
-
-
-
-      </div>
-      </div> 
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- wrapper --> 
-
-
-<div class="content-wrapper row">
+<div class="content-wrapper">
     <div class="page-header">
         <h3 class="page-title">
             Registro de compra
         </h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-custom">
-                <li class="breadcrumb-item"><a href="{{route('tenant.purchases.index')}}">Compras</a></li>
+                <li class="breadcrumb-item"><a href="#">Panel administrador</a></li>
+                <li class="breadcrumb-item"><a href="#">Compras</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Registro de compra</li>
             </ol>
         </nav>
@@ -99,11 +22,9 @@
     <div class="row">
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
-
-
-              
-                <form action="{{ route('tenant.purchases.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
+            <form action="{{ route('tenant.purchases.store') }}" method="POST" enctype="multipart/form-data">
+                
+                @csrf
                 <div class="card-body">
                     @include('tenant.purchases._form')
                 </div>
@@ -113,9 +34,7 @@
                         Cancelar
                     </a>
                 </div>
-                <form>
-
-
+        </form>
             </div>
         </div>
     </div>
