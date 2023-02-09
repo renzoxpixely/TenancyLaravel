@@ -25,7 +25,6 @@ class CreatePurchaseDetailsTable extends Migration
             // $table->foreign('product_id')->references('id')->on('products');
             $table->foreignId('product_id')->nullable()->constrained('products')->onDelete('cascade');
 
-
             $table->integer('quantity');
             $table->decimal('price');
 

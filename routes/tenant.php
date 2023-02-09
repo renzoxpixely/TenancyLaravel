@@ -25,7 +25,7 @@ use App\Http\Controllers\Tenant\RegisteredTenantUserController;
 
 
 use App\Http\Controllers\Tenant\ProductController;
-
+use App\Http\Controllers\Tenant\ProviderController;
 
 
 use App\Http\Controllers\Tenant\PurchaseController;
@@ -139,19 +139,20 @@ Route::get('branches.inventories', [InventoryController::class, 'autocompleteSea
 
 
 //purcharse
-Route::resource('branches.purchases', PurchaseController::class)->names('branches.purchases');
-
-
+Route::resource('branches.purchases', PurchaseController::class);
 
 Route::resource('/purchases', PurchaseController::class)->except([
     'edit', 'update', 'destroy'
 ]);
 
 
+//providers
+Route::resource('branches.providers', ProviderController::class);
 
-Route::resource('products', ProductController::class)->except([
-    'create'
-])->names('products');
+
+
+
+
 
 Route::get('get_products_by_barcode', [ProductController::class, 'get_products_by_barcode']);
 Route::get('get_products_by_id', [ProductController::class, 'get_products_by_id']);

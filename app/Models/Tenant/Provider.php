@@ -12,6 +12,13 @@ class Provider extends Model
         'name', 'email','ruc_number', 'address','phone',
     ];
     
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
+    }
+
+
+    
     public function products(){
         return $this->hasMany(Product::class);
     }
