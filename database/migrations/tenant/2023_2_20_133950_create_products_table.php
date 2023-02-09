@@ -15,21 +15,28 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('codigo');
-            $table->text('name', 255)->nullable();
-            $table->float('sale_price_igv', 8, 2);
-            $table->float('purchase_price_noigv', 8, 2);
-            $table->text('alternate_code', 255)->nullable();
-            $table->text('sku', 255)->nullable();
-            $table->string('unitary_presentation');
-            $table->integer('factor');
-            $table->string('line');
-            $table->text('brand_id', 255)->nullable();
-            $table->unsignedInteger('quantity');
-            $table->unsignedInteger('type_product');            
-            $table->timestamps();
+            $table->string('code')->unique()->nullable();
+
+            $table->string('name')->unique();
+           
+
+            $table->integer('stock')->default(0);
+            $table->string('image')->nullable();
+            $table->decimal('sell_price',12,2)->nullable();
+
+            $table->enum('status',['ACTIVE','DISABLED'])->default('ACTIVE'); 
+
+       
+
+            $table->foreignId('category_id')->nullable()->constrained('categories')->onDelete('cascade');
+          
+
+            $table->foreignId('provider_id')->nullable()->constrained('providers')->onDelete('cascade');
+
 
             $table->foreignId('branch_id')->nullable()->constrained('branches')->onDelete('cascade');
+            
+            $table->timestamps();
         });
     }
 
@@ -43,7 +50,3 @@ class CreateProductsTable extends Migration
         Schema::dropIfExists('products');
     }
 }
-
-
-
-

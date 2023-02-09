@@ -14,8 +14,11 @@
     <link rel="preload" href="{{ asset('assetsAdmin/dist/css/style.css') }}" as="style">
     <link rel="preload" href="{{ asset('assetsAdmin/dist/css/sty-ind-ten.css') }}" as="style">
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{ asset('assetsAdmin/bootstrap/css/bootstrap.min.css') }}">
+<!-- Bootstrap -->
+<link rel="stylesheet" href="{{ asset('assetsAdmin/bootstrap/css/bootstrap.min.css') }}">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
     <!-- Template style -->
     <link rel="stylesheet" href="{{ asset('assetsAdmin/dist/et-line-font/et-line-font.css') }}">
@@ -111,11 +114,13 @@
     </div>
     <!-- wrapper -->
 
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <!-- jQuery -->
     <script src="{{ asset('assetsAdmin/dist/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assetsAdmin/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assetsAdmin/dist/js/ovio.js') }}"></script>
-    {{-- <script src="{{ asset('tenancy/assets/assetsAdmin/bootstrap/js/bootstrap.js') }}"></script> --}}
+@yield('script')    {{-- <script src="{{ asset('tenancy/assets/assetsAdmin/bootstrap/js/bootstrap.js') }}"></script> --}}
 
     <!-- datatables -->
     <script src="{{ asset('assetsAdmin/dist/js/jquery.dataTables.min.js') }}"></script>

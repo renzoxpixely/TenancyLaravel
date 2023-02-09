@@ -24,6 +24,11 @@ use App\Http\Controllers\Tenant\InventoryController;
 use App\Http\Controllers\Tenant\RegisteredTenantUserController;
 
 
+use App\Http\Controllers\Tenant\ProductController;
+
+
+
+use App\Http\Controllers\Tenant\PurchaseController;
 /*
 |--------------------------------------------------------------------------
 | Tenant Routes
@@ -132,9 +137,29 @@ Route::resource('branches.inventories', InventoryController::class);
 Route::resource('branches.inventories', InventoryController::class);
 Route::get('branches.inventories', [InventoryController::class, 'autocompleteSearch']);
 
+
+//purcharse
+Route::resource('branches.purchases', PurchaseController::class)->names('branches.purchases');
+
+
+
+Route::resource('/purchases', PurchaseController::class)->except([
+    'edit', 'update', 'destroy'
+]);
+
+
+
+Route::resource('products', ProductController::class)->except([
+    'create'
+])->names('products');
+
+Route::get('get_products_by_barcode', [ProductController::class, 'get_products_by_barcode']);
+Route::get('get_products_by_id', [ProductController::class, 'get_products_by_id']);
+
+
 //prueba ruta
 Route::get('/test', function () {
-    return view('tenant.sales.index');
+    return view('tenant.purchases.index');
 });    
 
 

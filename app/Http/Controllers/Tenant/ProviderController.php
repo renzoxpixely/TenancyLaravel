@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Tenant;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Tenant\Product;
+use App\Models\Tenant\Provider;
+use App\Http\Controllers\Controller;
+
 use App\Models\Tenant\Branch;
-use App\Models\Tenant\Service;
-class InventoryController extends Controller
+class ProviderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,22 +16,21 @@ class InventoryController extends Controller
      */
     public function index($branch_id)
     {
-        $services = Service::where('branch_id', $branch_id)->get();
-        $products = Product::where('branch_id', $branch_id)->get();
+        $providers = Provider::where('branch_id', $branch_id)->get();
         $branches = Branch::where('id', $branch_id)->get();
-        return view('tenant.inventories.products_services.index', compact('products','branch_id','branches','services'));
+        return view('tenant.providers.index', compact('providers', 'branch_id','branches'));
+        // $cities = City::where('country_id', $country_id)->get();
+        // return view('admin.cities.index', compact('cities', 'country_id'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($branch_id)
     {
-        //
+        return view('tenant.providers.create', compact('branch_id'));
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -40,10 +39,10 @@ class InventoryController extends Controller
      */
     public function store($branch_id,Request $request)
     {
-        Product::create($request->all() + ['branch_id' => $branch_id]);
-        return redirect()->route('tenant.branches.inventories.index', $branch_id)->with('success','Product has been created successfully.');
+        Provider::create($request->all() + ['branch_id' => $branch_id]);
+        return redirect()->route('tenant.branches.providers.index', $branch_id);
     }
-
+ 
     /**
      * Display the specified resource.
      *
@@ -88,18 +87,4 @@ class InventoryController extends Controller
     {
         //
     }
-
-
-
-    public function autocompleteSearch(Request $request)
-    {
-          $query = $request->get('query');
-          $filterResult = Product::where('name', 'LIKE', '%'. $query. '%')->get();
-
-          $stack = array("orange", "banana");
-            array_push($stack, "apple", "raspberry");
-            
-          return response()->json($filterResult);
-    } 
-
 }
