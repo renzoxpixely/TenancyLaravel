@@ -8,9 +8,9 @@
     <section class="content-header">
 
     @foreach ($branches as $branch)
-        <h1>{{ ucfirst($branch->description) }} - Ventas</h1>
+        <h1>{{ ucfirst($branch->description) }} - Proveedores</h1>
     @endforeach  
-    <!-- <a class="btn btn-success" href="{{ route('tenant.branches.shoppings.index', $branch->id) }}"> Ingrsardashhs</a> -->
+    
     
     <div class="row">
         <div class="pull-right m-2">
@@ -105,17 +105,8 @@
             </tr>
         </thead>
         <tbody>
-                 @foreach ($sales as $sale)
-                <tr>          {{-- protected $fillable = ['customer','product','amount','price','total','branch_id']; --}}
-                  <td>{{ $sale->id }}</td>
-                  <td><a href="#"></a>{{ $sale->price }}</td>
-                  <td>{{ $sale->product }}</td>
-                  <td><span class="lable-tag tag-success">{{ $sale->total }}</span></td>
-                  <td>{{ $sale->branch_id }}</td>
-                  <td>{{ $sale->product }}</td>
-                  <td>{{ $sale->branch_id }}</td>                  
-                </tr>
-                @endforeach
+               
+                
         </tbody>
         <tfoot>
             <tr>
