@@ -55,6 +55,8 @@
 <script src="{{ asset('assetsAdmin/plugins/charts/code/modules/exporting.js') }}"></script>
 <script src="{{ asset('assetsAdmin/plugins/charts/chart-functions.js') }}"></script>
 
+<!-- Sweet alert -->
+<script src="{{ asset('assetsAdmin/dist/js/sweetalert.min.js') }}"></script>
 
 @yield('script')
 

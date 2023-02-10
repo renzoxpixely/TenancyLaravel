@@ -47,6 +47,9 @@
 <script src="{{ asset('assetsAdmin/bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assetsAdmin/dist/js/ovio.js') }}"></script>
 
+<!-- Sweet alert -->
+<script src="{{ asset('assetsAdmin/dist/js/sweetalert.min.js') }}"></script>
+
 <!-- datatables -->
 <script src="{{ asset('assetsAdmin/dist/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('assetsAdmin/dist/js/dataTables.bootstrap4.min.js') }}"></script>

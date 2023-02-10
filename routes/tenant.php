@@ -146,6 +146,25 @@ Route::resource('/purchases', PurchaseController::class)->except([
 ]);
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //providers
 Route::resource('branches.providers', ProviderController::class);
 

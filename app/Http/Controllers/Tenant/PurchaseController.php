@@ -39,9 +39,10 @@ class PurchaseController extends Controller
     }
     public function store(StoreRequest $request, Purchase $purchase)
     {
-
+ 
         $purchase->my_store($request);
-        return redirect()->route('tenant.purchases.index')->with('toast_success', '¡Compra registrada con éxito!');
+
+        return back()->with('success', '¡Compra registrada con éxito!');
     }
     public function show(Purchase $purchase)
     {
