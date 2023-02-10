@@ -18,24 +18,32 @@ class CreateProductsTable extends Migration
             $table->string('code')->unique()->nullable();
 
             $table->string('name')->unique();
-           
+            $table->string('slug')->unique();
 
             $table->integer('stock')->default(0);
-            $table->string('image')->nullable();
             $table->decimal('sell_price',12,2)->nullable();
 
-            $table->enum('status',['ACTIVE','DISABLED'])->default('ACTIVE'); 
+            $table->mediumText('short_description')->nullable();
+            $table->longText('long_description')->nullable();
 
-       
+            $table->enum('status',['DRAFT','SHOP','POS','BOTH','DISABLED'])->default('DRAFT'); 
 
-            $table->foreignId('category_id')->nullable()->constrained('categories')->onDelete('cascade');
-          
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('categories');
+            
 
-            $table->foreignId('provider_id')->nullable()->constrained('providers')->onDelete('cascade');
+            $table->integer('views')->nullable();
+
+            $table->softDeletes();
+
+            // $table->unsignedBigInteger('subcategory_id');
+            // $table->foreign('subcategory_id')->references('id')->on('subcategories');
+            $table->unsignedBigInteger('provider_id')->nullable();
+            $table->foreign('provider_id')->references('id')->on('providers');
 
 
             $table->foreignId('branch_id')->nullable()->constrained('branches')->onDelete('cascade');
-            
+
             $table->timestamps();
         });
     }
