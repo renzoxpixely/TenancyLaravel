@@ -11,7 +11,7 @@
         <h1>{{ ucfirst($branch->description) }} - Proveedores</h1>
     @endforeach  
     
-    
+  
     <div class="row">
         <div class="pull-right m-2">
           <button type="button" class="btn btn-primary btn-rounded dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nueva Transacción <span class="caret"></span></button>
