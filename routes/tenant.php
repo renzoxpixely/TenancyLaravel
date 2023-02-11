@@ -142,7 +142,7 @@ Route::get('branches.inventories', [InventoryController::class, 'autocompleteSea
 Route::resource('branches.purchases', PurchaseController::class);
 
 Route::resource('/purchases', PurchaseController::class)->except([
-    'edit', 'update', 'destroy'
+    'edit', 'update', 'destroy','store'
 ]);
 
 
