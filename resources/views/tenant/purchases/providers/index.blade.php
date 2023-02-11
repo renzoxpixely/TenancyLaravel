@@ -79,6 +79,8 @@
           <div class="col-md-12">
             <div class="chart-box">
               <h4>Ventas</h4>
+              
+              <a href="{{ route('tenant.branches.providers.create', $branch_id) }}">Botton agregar provveeodr</a>
               <div id="example_filter" class="dataTables_filter pull-right">
 
                 
