@@ -262,6 +262,11 @@
 </div>
 @endsection
 @section('script')
+<script>
+            @if ($message = Session::get('success'))
+            swal("Listo!", "Click en OK!", "success");
+        @endif
+</script>
 <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.bootstrap4.min.js"></script>
 <script>
