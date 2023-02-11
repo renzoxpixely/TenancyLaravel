@@ -29,7 +29,7 @@
                         </div>
                         <div class="col-md-4 text-center">
                             <label class="form-control-label" for="num_compra"><strong>Comprador</strong></label>
-                            <p>{{$purchase->user->name}}</p>
+                         
                         </div>
                     </div>
                     <br /><br />

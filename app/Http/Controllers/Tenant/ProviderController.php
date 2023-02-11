@@ -29,7 +29,7 @@ class ProviderController extends Controller
      */
     public function create($branch_id)
     {
-        return view('tenant.providers.create', compact('branch_id'));
+        return view('tenant.purchases.providers.create', compact('branch_id'));
     }
     /**
      * Store a newly created resource in storage.
@@ -37,12 +37,11 @@ class ProviderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($branch_id,Request $request)
+    public function store($branch_id, Request $request)
     {
         Provider::create($request->all() + ['branch_id' => $branch_id]);
         return redirect()->route('tenant.branches.providers.index', $branch_id);
     }
- 
     /**
      * Display the specified resource.
      *

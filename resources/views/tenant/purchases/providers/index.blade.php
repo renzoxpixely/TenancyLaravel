@@ -16,14 +16,13 @@
         <div class="pull-right m-2">
           <button type="button" class="btn btn-primary btn-rounded dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nueva Transacción <span class="caret"></span></button>
           <ul class="dropdown-menu">
-            <li><a  href="{{ route("tenant.branches.sales.create", $branch_id) }}">Ventas</a></li>
+            <li><a  href="{{ route('tenant.branches.providers.create', $branch_id) }}">Ventas</a></li>
             <li><a href="#">Cotización</a></li>
             <li><a href="#">Guía de Remisión</a></li>
           </ul>
         </div>
       </div>
-
-       
+     
       
       
       <ol class="breadcrumb">
@@ -95,18 +94,27 @@
       <table id="example" class="table table-striped table-bordered table-responsive" style="width:100%">
         <thead>
             <tr>
-            <th>Fecha</th>
-                <th>Fecha</th>
-                <th>Documento</th>
-                <th>Cliente</th>
-                <th>Total</th>
-                <th>Saldo</th>
-                <th>Acciones</th>
+            <th>Nombre</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>RUC</th>
+                <th>Direccion</th>
+                <th>Celular</th>
+                <th>Sucursal</th>
             </tr>
         </thead>
         <tbody>
-               
-                
+               @foreach ($providers as $provider)
+                <tr>          {{-- protected $fillable = ['name','email','ruc_number','address','phone','branch_id']; --}}
+                  <td>{{ $provider->name }}</td>
+                  <td><a href="#"></a>{{ $provider->name }}</td>
+                  <td>{{ $provider->email }}</td>
+                  <td><span class="lable-tag tag-success">{{ $provider->ruc_number }}</span></td>
+                  <td>{{ $provider->address }}</td>
+                  <td>{{ $provider->phone }}</td>
+                  <td>{{ $provider->branch_id }}</td>                  
+                </tr>
+                @endforeach
         </tbody>
         <tfoot>
             <tr>

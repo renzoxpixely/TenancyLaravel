@@ -37,7 +37,7 @@ class Purchase extends Model
     public function my_store($request){
 
         $purchase = self::create($request->all()+[
-            'user_id'=>'1',
+      
             'purchase_date'=>Carbon::now('America/Lima'),
         ]);
 

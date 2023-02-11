@@ -18,9 +18,7 @@ class CreatePurchasesTable extends Migration
 
             $table->unsignedBigInteger('provider_id');
             $table->foreign('provider_id')->references('id')->on('providers');
-           
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+
 
 
             $table->dateTime('purchase_date');
