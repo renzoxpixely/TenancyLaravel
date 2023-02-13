@@ -1,6 +1,7 @@
 <?php
-
 declare(strict_types=1);
+
+
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\NewPasswordController;
@@ -49,6 +50,11 @@ Route::group([
         PreventAccessFromCentralDomains::class,
     ]
 ], function () {
+
+    // Obtén el nombre de la base de datos
+$databaseName = DB::connection()->getPdo()->query('SELECT DATABASE()')->fetchColumn();
+
+
     Route::get('/', function () {
         return view('auth.login');
     });
@@ -120,7 +126,8 @@ Route::group([
     Route::resource('branches', BranchController::class);
 //company
     //Route::resource('branches', CompanyController::class);
-    Route::resource('users', UserController::class);
+    Route::resource('users', UserController::class)
+    ->middleware(['auth']);
 //shopping
     Route::resource('branches.shoppings', ShoppingController::class);
 
@@ -152,11 +159,11 @@ Route::resource('/purchases', PurchaseController::class)->except([
 
 
 
-
-
-
-
-
+Route::get('/{databaseName}', function ($databaseName) {
+    // Imprime el nombre de la base de datos
+    // return "Nombre de la base de datos: $name";
+    return redirect()->route('tenant.branches.index', ['uuid' => $databaseName]);
+})->where('databaseName', '^tenant[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$');
 
 
 

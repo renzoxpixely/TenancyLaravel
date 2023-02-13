@@ -35,6 +35,7 @@
                   <th class="sortable">Correo</th>
                   <th class="sortable">Dominio</th>
                   <th class="sortable">Empresa</th>
+                  <th class="sortable">Ingresar</th>
                   <th>Base de Datos</th>
                 </tr>
               </thead>
@@ -46,6 +47,8 @@
                 
                  <td class="text-truncate"><a href="">{{ $tenant->domain }}:8000</a></td> 
                 <td class="text-truncate"><span class="lable-tag tag-success">{{ $tenant->company }}</span></td>
+                <td class="text-truncate"><a href="{{ route('tenant.branches.index', ['uuid' => $tenant->tenancy_db_name, 'domain' => $tenant->domain]) }}">{{ $tenant->domain }}:8000/{{ $tenant->tenancy_db_name }}</a></td>
+
                 <td class="text-truncate">{{ $tenant->tenancy_db_name }}</td>
               </tr>
               @endforeach
