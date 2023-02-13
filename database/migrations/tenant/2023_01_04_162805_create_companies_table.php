@@ -18,10 +18,10 @@ class CreateCompaniesTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('address');
+            $table->string('logo')->nullable()->default('logoNubefa.png');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

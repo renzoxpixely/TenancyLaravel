@@ -40,9 +40,20 @@ class CompanyController extends Controller
             'name' => 'required',
             'email' => 'required',
             'address' => 'required',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-
-        Company::create($request->post());
+        
+        if ($request->has('logo')) {
+            $logo = $request->file('logo');
+            $logoName = time() . '_' . $logo->getClientOriginalName();
+            $logo->move(public_path('tenancy/assets/logo'), $logoName);
+        } else {
+            $logoName = 'logoNubefa.png';
+        }
+        
+        $company = new Company($request->except(['logo']));
+        $company->logo = $logoName;
+        $company->save();
 
         return redirect()->route('tenant.companies.index')->with('success','Company has been created successfully.');
     }

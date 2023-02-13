@@ -50,9 +50,12 @@
         <div class="col-lg-3">
           <div class="chart-box">
                 <div class="panel">
-                
-                  <div class="panel-box"> <img src="https://api.nubefa.com/storage/131/AfypFkZIQzfSYYXXugD8ODsowI7akiFywgoxtGb1.png" class="img-responsive img-rounded">
-                   
+                @foreach ($companies as $company)
+                <div class="panel-box">
+                    <img src="{{ asset('logo/' . $company->logo) }}" alt="{{ $company->name }} logo" style="max-width: 200px; max-height: 200px;">
+                </div>
+                  <!-- <div class="panel-box"> <img src="https://api.nubefa.com/storage/131/AfypFkZIQzfSYYXXugD8ODsowI7akiFywgoxtGb1.png" class="img-responsive img-rounded"> -->
+                  @endforeach 
             <!-- Tab panes -->
             <div class="tab-content">
             @foreach ($branches as $branch)
