@@ -96,7 +96,7 @@
       <table id="example" class="table table-striped table-bordered table-responsive" style="width:100%">
         <thead>
             <tr>
-            <th>Nombre</th>
+            <th class="d-none">ID</th>
                 <th>Nombre</th>
                 <th>Email</th>
                 <th>RUC</th>
@@ -107,8 +107,8 @@
         </thead>
         <tbody>
                @foreach ($providers as $provider)
-                <tr>          {{-- protected $fillable = ['name','email','ruc_number','address','phone','branch_id']; --}}
-                  <td>{{ $provider->name }}</td>
+                <tr>          {{-- protected $fillable = ['id','name','email','ruc_number','address','phone','branch_id']; --}}
+                  <td class="d-none">{{ $provider->id }}</td>
                   <td><a href="#"></a>{{ $provider->name }}</td>
                   <td>{{ $provider->email }}</td>
                   <td><span class="lable-tag tag-success">{{ $provider->ruc_number }}</span></td>
@@ -120,6 +120,7 @@
         </tbody>
         <tfoot>
             <tr>
+            <th class="d-none">ID</th>
                 <th>Fecha</th>
                 <th>Documento</th>
                 <th>Cliente</th>
@@ -149,15 +150,11 @@
 @section('script')
 <script>
 $(document).ready(function () {
-    $('#example').dataTable( {
-  "pageLength": 20
-} );
+  $('#example').dataTable( {
+    "pageLength": 20,
+    "order": [[0, "desc"]]
+  } );
 });
 </script>
 
-<script>
-            @if ($message = Session::get('success'))
-            swal("Listo!", "Click en OK!", "success");
-        @endif
-</script>
 @endsection

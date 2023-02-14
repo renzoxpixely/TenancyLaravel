@@ -14,11 +14,28 @@
 
 
             <div class="d-flex justify-content-between">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group">
+                <h3>Producto</h3>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <fieldset class="form-group">
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                  </fieldset>
+                </div>
+              </div>
+
+
+<!-- 
   <h3>Producto</h3>
   <div class="d-flex">
     <button type="submit" class="btn btn-primary">Guardar</button>
     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-  </div>
+  </div> -->
 </div>
 
 </div>
