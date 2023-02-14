@@ -230,7 +230,7 @@ body {
                   <!-- <a href="#" class="btn  btn-default btn-lg" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o   fa-xs" aria-hidden="true"></i></a>     -->
                   <!-- <a href="#" class="btn  btn-danger btn-lg" data-toggle="modal" data-target="#basicModal"><i class="fa fa-times-circle   fa-xs" aria-hidden="true"></i></a> -->
                   <!-- <a class="btn btn-danger"  aria-label="Delete" data-toggle="modal" data-target="#basicModal"><i class="fa fa-trash-o fa-xs" aria-hidden="true"></i></a> -->
-                  <a class=""   data-toggle="modal" data-target="#deleteModal"><i class="fa fa-times-circle fa-lg text-warning" aria-hidden="true"></i></a>               
+                  <a class=""   data-toggle="modal" data-target="#deleteModal"><i class="fa fa-times-circle fa-lg text-warning" aria-hidden="true"></i></a>         
                 </td>
                 
                 </tr>

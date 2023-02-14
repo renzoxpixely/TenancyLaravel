@@ -129,7 +129,8 @@
                                        
 
 
-                                            Activo <i class="fas fa-check"></i>
+
+                                    Activo <i class="fa fa-check-circle"></i>
                                         </a>
                                     </td>
                                     @else
@@ -138,15 +139,17 @@
 
 
                                     
-                                            Cancelado <i class="fas fa-times"></i>
+                                            Cancelado <i class="fa fa-times-circle"></i>
                                         </a>
                                     </td>
                                     @endif
                                     <td style="width: 20%;">
-                                        
-                                        <a href="{{route('tenant.purchases.show', $purchase)}}" class="btn btn-outline-info"
+                                    <a class="" href="{{route('tenant.purchases.show', $purchase)}}" title="Ver detalles"><i class="fa fa-credit-card" aria-hidden="true"></i></a>       
+                    
+                  
+                                        <!-- <a href="{{route('tenant.purchases.show', $purchase)}}" class="btn btn-outline-info"
                                         title="Ver detalles"
-                                        ><i class="far fa-eye"></i></a>
+                                        ><i class="far fa-eye"></i></a> -->
                                     </td>
                                 </tr>
             @endforeach
@@ -179,87 +182,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-<div class="content-wrapper">
-    <div class="page-header">
-        <h3 class="page-title">
-            Compras
-        </h3>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb breadcrumb-custom">
-                <li class="breadcrumb-item"><a href="">Panel administrador</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Compras</li>
-            </ol>
-        </nav>
-    </div>
-    <div class="row">
-        <div class="col-lg-12 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table id="purchases_listing" class="table">
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Fecha</th>
-                                    <th>Total</th>
-                                    <th>Estado</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($purchases as $purchase)
-                                <tr>
-                                    <th scope="row">
-                                        <a href="{{route('tenant.purchases.show', $purchase)}}">{{$purchase->id}}</a>
-                                    </th>
-                                    <td>
-                                        {{\Carbon\Carbon::parse($purchase->purchase_date)->format('d M y h:i a')}}
-                                    </td>
-                                    <td>{{$purchase->total}}</td>
-
-                                    @if ($purchase->status == 'VALID')
-                                    <td>
-                                       
-
-
-                                            Activo <i class="fas fa-check"></i>
-                                        </a>
-                                    </td>
-                                    @else
-                                    <td>
-                                       
-
-
-                                    
-                                            Cancelado <i class="fas fa-times"></i>
-                                        </a>
-                                    </td>
-                                    @endif
-                                    <td style="width: 20%;">
-                                        
-                                        <a href="{{route('tenant.purchases.show', $purchase)}}" class="btn btn-outline-info"
-                                        title="Ver detalles"
-                                        ><i class="far fa-eye"></i></a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection
 @section('script')
 <script>
@@ -297,7 +219,7 @@
 <script>
 $(document).ready(function () {
     $('#example').dataTable( {
-  "pageLength": 20,
+  "pageLength": 25,
   responsive: true,
             language: {
                 "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
