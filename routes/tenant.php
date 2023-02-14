@@ -30,6 +30,8 @@ use App\Http\Controllers\Tenant\ProviderController;
 
 
 use App\Http\Controllers\Tenant\PurchaseController;
+
+use App\Http\Controllers\Tenant\ClientController;
 /*
 |--------------------------------------------------------------------------
 | Tenant Routes
@@ -150,6 +152,15 @@ Route::resource('branches.purchases', PurchaseController::class);
 Route::resource('/purchases', PurchaseController::class)->except([
     'edit', 'update', 'destroy','store'
 ]);
+
+
+//clients
+Route::resource('branches.clients', ClientController::class);
+
+
+
+
+
 
 
 

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Tenant\Branch;
-
+use App\Models\Tenant\Client;
 class ClientController extends Controller
 {
     /**
@@ -18,7 +18,7 @@ class ClientController extends Controller
     {
         $clients = Client::where('branch_id', $branch_id)->get();
         $branches = Branch::where('id', $branch_id)->get();
-        return view('tenant.clients.index', compact('clients', 'branch_id','branches'));
+        return view('tenant.sales.clients.index', compact('clients', 'branch_id','branches'));
         // $cities = City::where('country_id', $country_id)->get();
         // return view('admin.cities.index', compact('cities', 'country_id'));
     }
