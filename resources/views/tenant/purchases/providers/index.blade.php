@@ -155,4 +155,9 @@ $(document).ready(function () {
 });
 </script>
 
+<script>
+            @if ($message = Session::get('success'))
+            swal("Listo!", "Click en OK!", "success");
+        @endif
+</script>
 @endsection

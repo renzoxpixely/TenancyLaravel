@@ -30,18 +30,31 @@
                          <img src="https://app.nubefa.com/assets/images/welcome.png" class="img-responsive" alt="User Image">
                             <a class="btn btn-success" href="{{ route('tenant.companies.create') }}"> Registrar Empresa</a>
                         </div> -->
-  <div class="form-body">
-    <div class="form-group has-feedback">
-        <img src="https://app.nubefa.com/assets/images/welcome.png" class="img-responsive" alt="User Image">            
-    </div>
-    <div class="form-group has-feedback">
-        <a class="btn btn-primary" href="{{ route('tenant.companies.create') }}"> Registrar Empresa</a> </div>
-      </div>
-  </div>
+                        <div class="form-body d-flex align-items-center flex-column">
+                          <div class="form-group has-feedback">
+                          <img src="{{ asset('/assetsAdmin/dist/img/welcome.png') }}"  class="img-responsive" alt="User Image" style="width: 100%;">
+                              <!-- <img src="https://app.nubefa.com/assets/images/welcome.png" class="img-responsive" alt="User Image" style="width: 100%;"> -->
+                              <h2 style="margin-top: 20px; white-space: nowrap;">Hola! Bienvenido a Nubefa</h2>
+                          </div>
+                          <div class="form-group has-feedback text-center">
+                              <a class="btn btn-primary" href="{{ route('tenant.companies.create') }}">Registrar Empresa</a>
+                          </div>
+                      </div>
+
+
+
             @elseif(count($branches) === 0)
-                        <div class="pull-right mb-2">
-                            <a class="btn btn-success" href="{{ route('tenant.branches.create') }}"> Registrar Sucursal</a>
-                        </div>
+            <div class="form-body d-flex align-items-center flex-column">
+                          <div class="form-group has-feedback">
+                          <img src="{{ asset('/assetsAdmin/dist/img/company.jpg') }}"  class="img-responsive" alt="User Image" style="width: 100%;">
+                              <!-- <img src="https://app.nubefa.com/assets/images/company.jpg" class="img-responsive" alt="User Image" style="width: 100%;"> -->
+                              <h2 style="margin-top: 20px; white-space: nowrap; text-align: center;">Registra tu local</h2>
+                          </div>
+                          <div class="form-group has-feedback text-center">
+                              <a class="btn btn-success" href="{{ route('tenant.branches.create') }}">Registrar Sucursal</a>
+                          </div>
+                      </div>
+                        
             @else
 
     <!-- Main content -->

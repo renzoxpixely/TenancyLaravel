@@ -209,12 +209,12 @@ body {
         </thead>
         <tbody>
         @foreach ($products as $product)
-                <tr>          {{-- protected $fillable = ['codigo','name','sale_price_igv','type_product','sku','branch_id','quantity', 'alternative_code']; --}}
-                  <td>{{ $product->codigo }}</td>
+                <tr>          {{-- protected $fillable = ['code','name','sell_price','type_product','sku','branch_id','quantity', 'alternative_code']; --}}
+                  <td>{{ $product->code }}</td>
                   <td>{{ $product->name }}</td>
                   <td>{{ $product->alternate_code }}</td>
                   <td>{{ $product->sku }}</td>
-                  <td>{{ $product->sale_price_igv }}</td>
+                  <td>{{ $product->sell_price }}</td>
                   <td><span class="lable-tag tag-success">{{ $product->purchase_price_noigv }}</span></td>
                   <td>{{ $product->unitary_presentation }}</td>
                 <!-- <td class="text-truncate">{{ $product->quantity }}</td>                 -->
@@ -388,5 +388,9 @@ $(document).ready(function () {
         });
     </script> -->
 
-
+    <script>
+            @if ($message = Session::get('success'))
+            swal("Listo!", "Click en OK!", "success");
+        @endif
+</script>
 @endsection

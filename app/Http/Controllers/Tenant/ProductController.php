@@ -45,9 +45,8 @@ class ProductController extends Controller
     public function store($branch_id,Request $request)
     {
         Product::create($request->all() + ['branch_id' => $branch_id]);
-        return redirect()->route('tenant.branches.products.index', $branch_id);
+        return redirect()->route('tenant.branches.products.index', $branch_id)->with('success', '¡Producto registrado con éxito!');
     }
- 
     /**
      * Display the specified resource.
      *

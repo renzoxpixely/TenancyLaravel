@@ -126,8 +126,7 @@ $databaseName = DB::connection()->getPdo()->query('SELECT DATABASE()')->fetchCol
     Route::resource('branches', BranchController::class);
 //company
     //Route::resource('branches', CompanyController::class);
-    Route::resource('users', UserController::class)
-    ->middleware(['auth']);
+    Route::resource('users', UserController::class);
 //shopping
     Route::resource('branches.shoppings', ShoppingController::class);
 
@@ -158,7 +157,7 @@ Route::resource('/purchases', PurchaseController::class)->except([
 
 
 
-
+//acceder a un inquilino desde su id
 Route::get('/{databaseName}', function ($databaseName) {
     // Imprime el nombre de la base de datos
     // return "Nombre de la base de datos: $name";

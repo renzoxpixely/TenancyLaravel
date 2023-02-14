@@ -40,7 +40,7 @@ class ProviderController extends Controller
     public function store($branch_id, Request $request)
     {
         Provider::create($request->all() + ['branch_id' => $branch_id]);
-        return redirect()->route('tenant.branches.providers.index', $branch_id);
+        return redirect()->route('tenant.branches.providers.index', $branch_id)->with('success', '¡Proveedor registrado con éxito!');
     }
     /**
      * Display the specified resource.

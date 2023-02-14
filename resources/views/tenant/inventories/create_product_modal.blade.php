@@ -5,7 +5,25 @@
         <h4 class="modal-title" id="myModalLabel">Editar Producto</h4>
       </div>
       <div class="modal-body">
-        <h3>Producto</h3>
+
+      <form action="{{ route('tenant.branches.inventories.store', $branch_id) }}"  method="POST" enctype="multipart/form-data">
+            @csrf
+
+
+           
+
+
+            <div class="d-flex justify-content-between">
+  <h3>Producto</h3>
+  <div class="d-flex">
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+  </div>
+</div>
+
+</div>
+
+     
       <!-- Main content -->
       <section class="content container-fluid">
       <div class="row">
@@ -14,10 +32,10 @@
             <!-- <h4>Text Inputs</h4> -->
             <div class="row">
               <div class="col-md-4">
-                <fieldset class="form-group">
-                  <label>Código del producto</label>
-                  <input class="form-control" id="basicInput" type="text">
-                </fieldset>
+              <fieldset class="form-group">
+                <label id="label" class="text-danger">Código del producto <span id="asterisk" class="text-danger">*</span></label>
+                <input name='code' class="form-control" id="basicInput" type="text" required >
+              </fieldset>
               </div>
               <div class="col-md-4">
                 <fieldset class="form-group">
@@ -29,8 +47,8 @@
               <div class="row">
               <div class="col-md-8">
                 <fieldset class="form-group">
-                  <label>Nombre del product</label>
-                  <input class="form-control" id="disabledInput" disabled="" type="text">
+                <label id="label" class="text-danger">Nombre del producto <span id="asterisk" class="text-danger">*</span></label>
+                  <input name='name' class="form-control" id="basicInput" type="text" required >
                 </fieldset>
               </div>
               <div class="col-md-4">
@@ -83,22 +101,28 @@
               </div>   
               <div class="col-md-3">
                 <fieldset class="form-group">
-                  <label>Peso (Kg.)</label>
-                  <input id="squareText" class="form-control square" placeholder="square Input" type="text">
+                  <label id="label" class="text-danger">Precio de Venta (Inc. IGV)<span id="asterisk" class="text-danger">*</span></label>
+                  <input name='sell_price' class="form-control" id="basicInput" type="text" required >
                 </fieldset>
               </div>   
-              <div class="col-md-3">
+              <div class="col-md-2">
                 <fieldset class="form-group">
                   <label>% Detracción</label>
                   <input id="squareText" class="form-control square" placeholder="square Input" type="text">
                 </fieldset>
               </div>   
-              <div class="col-md-3">
+              <div class="col-md-2">
                 <fieldset class="form-group">
                   <label>% ISC</label>
                   <input id="squareText" class="form-control square" placeholder="square Input" type="text">
                 </fieldset>
               </div>     
+              <div class="col-md-2">
+                <fieldset class="form-group">
+                  <label>% ISC</label>
+                  <input id="squareText" class="form-control square" placeholder="square Input" type="text">
+                </fieldset>
+              </div>                
               <div class="col-md-3">
                 <fieldset class="form-group">
                 <div class="checkbox">
@@ -121,17 +145,17 @@
         </div>
 
         </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+
     </div>
   </div>    
 
       </div>
  
   
-      
     </section>
-    <!-- content --> 
 
+
+
+
+    </form>
+    <!-- content --> 
