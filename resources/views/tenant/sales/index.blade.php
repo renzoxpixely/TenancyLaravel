@@ -24,7 +24,14 @@
       </div>
 
        
-      
+      <form method="POST" action="{{ route('tenant.consultarRuc') }}">
+    @csrf
+    <button id="consultarRucBtn">Consultar RUC</button>
+    <input id="rucInput" type="text" name="ruc" placeholder="Ingrese el RUC">
+</form>
+<div id="resultado"></div> 
+
+
       
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
@@ -152,6 +159,38 @@ $(document).ready(function () {
   "pageLength": 20
 } );
 });
+</script>
+
+
+
+
+
+
+
+<script>
+    $(document).ready(function() {
+        $('#consultarRucBtn').click(function() {
+            var ruc = $('#rucInput').val();
+            $.ajax({
+                url: "{{ route('tenant.consultarRuc') }}",
+                type: "POST",
+                headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+                data: {
+                    ruc: ruc
+                },
+                success: function(response) {
+                    console.log(response);
+                    $('#resultado').html('Nombre: ' + response['nombre']);
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
+                    $('#resultado').html('Ha ocurrido un error al consultar el RUC.');
+                }
+            });
+        });
+    });
 </script>
 
 @endsection

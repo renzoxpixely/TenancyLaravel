@@ -14,21 +14,6 @@
           <div class="chart-box">
 
 
-          <form>
-      <label for="ruc">RUC:</label>
-      <input type="text" id="ruc" name="ruc" required>
-      <br>
-      <label for="nombre">Nombre o razón social:</label>
-      <input type="text" id="nombre" name="nombre" required>
-      <br>
-      <label for="estado">Estado del contribuyente:</label>
-      <input type="text" id="estado" name="estado" required>
-      <br>
-      <label for="condicion">Condición de domicilio:</label>
-      <input type="text" id="condicion" name="condicion" required>
-      <br>
-      <button type="submit" id="buscar">Buscar</button>
-    </form>
 
 
 
@@ -186,45 +171,22 @@
 
   </div>    
 
+  
+
+  </div>
+ 
+  
+
+
+
+      
+ </section>
+ <!-- content --> 
+
+
+
   @section('script')
-  <script>
-const form = document.querySelector('form');
-const rucInput = document.querySelector('#ruc');
-const nombreInput = document.querySelector('#nombre');
-const estadoInput = document.querySelector('#estado');
-const condicionInput = document.querySelector('#condicion');
-const buscarButton = document.querySelector('#buscar');
 
-buscarButton.addEventListener('click', (event) => {
-  event.preventDefault();
-
-  const ruc = rucInput.value;
-  const apiUrl = `http://y.localhost:8000/https://ruc.com.pe/api/v1/consultas?ruc=${ruc}`;
-
-  fetch(apiUrl, {
-    method: 'GET',
-    headers: {
-      'Authorization': 'f050c3ab-d85a-4083-91e9-e5b068ad9c50-64a32f1c-3c31-4d35-ae13-702ee3239485',
-      'Content-Type': 'application/json'
-    }
-  })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Error al buscar el RUC');
-    }
-    return response.json();
-  })
-  .then(data => {
-    nombreInput.value = data.nombre_o_razon_social;
-    estadoInput.value = data.estado_del_contribuyente;
-    condicionInput.value = data.condicion_de_domicilio;
-  })
-  .catch(error => {
-    console.error(error);
-    alert('Error al buscar el RUC');
-  });
-});
-  </script>
 
 @endsection
 
@@ -245,19 +207,5 @@ buscarButton.addEventListener('click', (event) => {
 
 
 
-
-
-
-  
-
-      </div>
- 
-  
-
-
-
-      
-    </section>
-    <!-- content --> 
 
 

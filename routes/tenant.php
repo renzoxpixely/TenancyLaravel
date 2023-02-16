@@ -32,6 +32,8 @@ use App\Http\Controllers\Tenant\ProviderController;
 use App\Http\Controllers\Tenant\PurchaseController;
 
 use App\Http\Controllers\Tenant\ClientController;
+
+use App\Http\Controllers\Tenant\SunatController;
 /*
 |--------------------------------------------------------------------------
 | Tenant Routes
@@ -158,7 +160,8 @@ Route::resource('/purchases', PurchaseController::class)->except([
 Route::resource('branches.clients', ClientController::class);
 
 
-
+//consultar sunat
+Route::post('/consultar-ruc', [SunatController::class, 'consultarRuc'] )->name('consultarRuc');
 
 
 

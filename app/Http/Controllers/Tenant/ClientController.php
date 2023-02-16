@@ -96,4 +96,50 @@ class ClientController extends Controller
     {
         //
     }
+
+    function buscarRuc(Request $request)
+    {
+        if ($request->ajax()) {
+            $ruc=$request->get('ruc');
+            $ruta = "https://ruc.com.pe/api/v1/consultas";
+            //$token = "f050c3ab-d85a-4083-91e9-e5b068ad9c50-64a32f1c-3c31-4d35-ae13-702ee3239485";
+            $token="fd49d95c-0dc4-4d7c-80bd-13f1b2e07943-d23070ac-9472-42ad-96eb-4a69d1f8e1d4";
+
+            $rucaconsultar = $ruc;
+            $data = array(
+                "token" => $token,
+                "ruc"   => $rucaconsultar
+            );
+                
+            $data_json = json_encode($data);
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $ruta);
+            curl_setopt(
+                $ch, CURLOPT_HTTPHEADER, array(
+                'Content-Type: application/json',
+                )
+            );
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_POSTFIELDS,$data_json);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $respuesta  = curl_exec($ch);
+            curl_close($ch);
+
+            $leer_respuesta = json_decode($respuesta, true);
+            $data=array('entidad' => $leer_respuesta);
+            echo json_encode($data);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
