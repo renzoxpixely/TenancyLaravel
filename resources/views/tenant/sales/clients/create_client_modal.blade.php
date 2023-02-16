@@ -1,3 +1,20 @@
+<style>
+#value_ruc, #value_dni, #value_otro {
+  display: none;
+}
+
+select {
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.dropdown-options {
+  font-family: Arial;
+}
+</style>
+
+
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -14,24 +31,11 @@
           <div class="chart-box">
 
 
-          <form id="consulta-form" method="post">
-		@csrf
-		<input type="text" class="ruc" id="ruc" name="ruc">
-		<button type="submit" class="botoncito btn btn-primary"><i class="fa fa-search"></i> Buscar en SUNAT</button>
-            
-            <button class="btn btn-default btn-lg ajaxgif hide"><i class="fa fa-spinner fa-spin"></i> Buscando</button>
-    <div class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></div>
-		<!-- <img src="ajax.gif" class="ajaxgif hide"> -->
-	</form>
 
 
 
 
 
-
-
-      <form action="{{ route('tenant.branches.clients.store', $branch_id) }}"  method="POST" enctype="multipart/form-data">
-            @csrf
 
             <div class="d-flex justify-content-between">
               
@@ -61,26 +65,61 @@
 
 </div>
 
-     
+
+
+
+
+
   
 
-            <div class="row">
+            <div class="row" id="hockey">
               <div class="col-md-4">
               <fieldset class="form-group">
               <label for="identificacion">Tipo de identificación:</label>
-                  <select class="form-control" id="identificacion" name="national_identity_document">
-                    <option value="RUC">RUC</option>
-                    <option value="DNI">DNI</option>
-                    <option value="CE">Carnet de Extranjería</option>
-                    <option value="PASAPORTE">Pasaporte</option>
-                    <option value="CEDULA">Cédula Diplomática</option>
-                    <option value="OTRO">Otro</option>
+                  <select class="form-control" id="identificacion" name="national_identity_document" onchange="showHide(this)">
+                    <option >SELECIONAR</option>
+                    <option value="value_ruc">RUC</option>
+                    <option value="value_dni">DNI</option>
+                    <option value="value_otro">Carnet de Extranjería</option>
+                    <option value="value_otro">Pasaporte</option>
+                    <option value="value_otro">Cédula Diplomática</option>
+                    <option value="value_otro">Otro</option>
                   </select>
                   </fieldset>
               </div>
+
+            <div class="dropdown-options">
+
+
+            <form id="consulta-form" method="post">
+		          @csrf
+              <div class="show-hide" id="value_ruc">
               <div class="col-md-4">
                 <fieldset class="form-group">
-                  <label class="text-danger">Número de Documento<span id="asterisk" class="text-danger">*</span></label>
+                  <label class="text-danger">Ingresar RUC<span id="asterisk" class="text-danger">*</span></label>
+                  <input type="text" class="ruc form-control" id="ruc" name="ruc">
+                </fieldset>
+              </div>
+              <div class="col-md-4">
+              <fieldset class="form-group">
+                  
+              <label class="text-danger">Busqueda en SUNAT<span id="asterisk" class="text-danger">*</span></label>
+		<button type="submit" class="botoncito btn btn-primary"><i class="fa fa-search"></i> Buscar en SUNAT</button>
+            
+            <button class="btn btn-default btn-lg ajaxgif hide"><i class="fa fa-spinner fa-spin"></i> Buscando</button>
+    <div class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></div>
+                </fieldset>
+              </div>
+              </form>
+
+
+
+              </div>
+
+              <div class="show-hide" id="value_dni">
+              <div class="col-md-4">
+                <fieldset class="form-group">
+                  <label class="text-danger">Ingresar DNI<span id="asterisk" class="text-danger">*</span></label>
                   <input class="form-control" name="document_number" type="text">
                 </fieldset>
               </div>
@@ -90,7 +129,25 @@
                   <button data-dismiss="modal" data-toggle="modal"  type="button" class="btn btn-primary btn-lg btn-block">Buscar en Sunat</button>
                 </fieldset>
               </div>
+              </div>   
 
+              
+              <div class="show-hide" id="value_otro">
+              <div class="col-md-4">
+                <fieldset class="form-group">
+                  <label class="text-danger">Ingresar Otros<span id="asterisk" class="text-danger">*</span></label>
+                  <input class="form-control" name="document_number" type="text">
+                </fieldset>
+              </div>
+              <div class="col-md-4">
+              <fieldset class="form-group">
+                  <label>Sunat</label>
+                  <button data-dismiss="modal" data-toggle="modal"  type="button" class="btn btn-primary btn-lg btn-block">Buscar en Sunat</button>
+                </fieldset>
+              </div>
+              </div>  
+
+            </div>
 
 
 
@@ -98,7 +155,10 @@
 
 
             </div>
-      
+
+
+            <form action="{{ route('tenant.branches.clients.store', $branch_id) }}"  method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="row">
               <div class="col-md-6">
                 <fieldset class="form-group">
@@ -245,6 +305,24 @@ $(function(){
 		return false;
 	});
 });
+</script>
+
+<script>
+   function showHide(elem) {
+    if(elem.selectedIndex !== 0) {
+         //hide the divs
+         for(var i=0; i < divsO.length; i++) {
+             divsO[i].style.display = 'none';
+        }
+        //unhide the selected div
+        document.getElementById(elem.value).style.display = 'block';
+    }
+}
+ 
+window.onload=function() {
+    //get the divs to show/hide
+    divsO = document.getElementById("hockey").getElementsByClassName('show-hide');
+};
 </script>
 @endsection
 
