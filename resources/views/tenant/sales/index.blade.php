@@ -23,6 +23,38 @@
         </div>
       </div>
 
+
+
+
+      <section class="contenedor">
+	<h1>Consulta Sunat en tu Web</h1>
+	<form id="consulta-form" method="post">
+		@csrf
+		<input type="text" class="ruc" id="ruc" name="ruc">
+		<button type="submit" class="botoncito"><i class="fa fa-search"></i> Buscar</button>
+		<img src="ajax.gif" class="ajaxgif hide">
+	</form>
+	<div>RUC: <span id="numero_ruc" name="numero_ruc"></span></div>
+	<div>RAZON SOCIAL: <span id="razon_social" name="razon_social"></span></div>
+	<div>INICIO DE ACTIVIDAD: <span id="fecha_actividad" name="fecha_actividad"></span></div>
+	<div>CONDICION: <span id="condicion" name="condicion"></span></div>
+	<div>TIPO DE CONTRIBUYENTE: <span id="tipo" name="tipo"></span></div>
+	<div>ESTADO DE CONTRIBUYENTE: <span id="estado" name="estado"></span></div>
+	<div>FECHA DE INSCRIPCION: <span id="fecha_inscripcion" name="fecha_inscripcion"></span></div>
+	<div>DOMICILIO: <span id="domicilio" name="domicilio"></span></div>
+	<div>EMISION ELECTRONICA: <span id="emision" name="emision"></span></div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
        
       <form method="POST" action="{{ route('tenant.consultarRuc') }}">
     @csrf
@@ -30,7 +62,12 @@
     <input id="rucInput" type="text" name="ruc" placeholder="Ingrese el RUC">
 </form>
 <div id="resultado"></div> 
-
+<div class="form-group">
+            <label for="email" class="col-md-3 control-label">Razon Social:</label>
+            <div class="col-md-9">
+                <textarea id="txtrazon" class="form-control" placeholder="Razon social" readonly=""></textarea>
+            </div>
+        </div>
 
       
       <ol class="breadcrumb">
@@ -193,4 +230,40 @@ $(document).ready(function () {
     });
 </script>
 
+
+<script>
+$(function(){
+	$('#consulta-form').on('submit', function(e){
+		e.preventDefault();
+		var ruc = $('#ruc').val();
+		var url = '{{ route("tenant.consultarRuc") }}';
+		$('.ajaxgif').removeClass('hide');
+		$.ajax({
+			type:'POST',
+			url:url,
+			data:$(this).serialize(),
+			success: function(datos_dni){
+				$('.ajaxgif').addClass('hide');
+				var datos = eval(datos_dni);
+				var nada ='nada';
+				if(datos[0]==nada){
+					alert('DNI o RUC no válido o no registrado');
+				}else{
+					$('span[name=numero_ruc]').text(datos.ruc);
+					$('span[name=razon_social]').text(datos.nombre_o_razon_social);
+					$('span[name=fecha_actividad]').text(datos.fecha_de_inicio_de_actividades);
+					$('span[name=condicion]').text(datos.estado_del_contribuyente);
+					$('span[name=tipo]').text(datos.tipo_de_contribuyente);
+					$('span[name=estado]').text(datos.condicion_de_domicilio);
+					$('span[name=fecha_inscripcion]').text(datos.fecha_de_inscripcion);
+					$('span[name=domicilio]').text(datos.direccion);
+					$('span[name=emision]').text(datos.sistema_de_emision_de_comprobante);
+          $('#txtrazon').val(datos.nombre_o_razon_social);
+				}		
+			}
+		});
+		return false;
+	});
+});
+</script>
 @endsection
