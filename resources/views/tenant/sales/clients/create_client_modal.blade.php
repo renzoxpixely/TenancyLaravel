@@ -89,8 +89,6 @@ select {
               </div>
 
             <div class="dropdown-options">
-
-
             <form id="consulta-form" method="post">
 		          @csrf
               <div class="show-hide" id="value_ruc">
@@ -102,33 +100,34 @@ select {
               </div>
               <div class="col-md-4">
               <fieldset class="form-group">
-                  
               <label class="text-danger">Busqueda en SUNAT<span id="asterisk" class="text-danger">*</span></label>
 		<button type="submit" class="botoncito btn btn-primary"><i class="fa fa-search"></i> Buscar en SUNAT</button>
-            
-            <button class="btn btn-default btn-lg ajaxgif hide"><i class="fa fa-spinner fa-spin"></i> Buscando</button>
-    <div class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></div>
+                <button class="btn btn-default btn-lg ajaxgif hide"><i class="fa fa-spinner fa-spin"></i> Buscando</button>
+        <div class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></div>
                 </fieldset>
               </div>
               </form>
-
-
-
               </div>
 
+
+              <form id="consulta-form-dni" method="post">
+		          @csrf
               <div class="show-hide" id="value_dni">
               <div class="col-md-4">
-                <fieldset class="form-group">
-                  <label class="text-danger">Ingresar DNI<span id="asterisk" class="text-danger">*</span></label>
-                  <input class="form-control" name="document_number" type="text">
+              <fieldset class="form-group">
+                  <label class="text-danger">Ingresar RUC<span id="asterisk" class="text-danger">*</span></label>
+                  <input type="text" class="ruc form-control" id="ruc" name="ruc">
                 </fieldset>
               </div>
               <div class="col-md-4">
               <fieldset class="form-group">
-                  <label>Sunat</label>
-                  <button data-dismiss="modal" data-toggle="modal"  type="button" class="btn btn-primary btn-lg btn-block">Buscar en Sunat</button>
+              <label class="text-danger">Busqueda en SUNAT<span id="asterisk" class="text-danger">*</span></label>
+		<button type="submit" class="botoncito btn btn-primary"><i class="fa fa-search"></i> Buscar en SUNAT</button>
+                <button class="btn btn-default btn-lg ajaxgif hide"><i class="fa fa-spinner fa-spin"></i> Buscando</button>
+        <div class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></div>
                 </fieldset>
               </div>
+              </form>              
               </div>   
 
               
@@ -280,15 +279,7 @@ $(function(){
 				if(datos[0]==nada){
 					alert('DNI o RUC no válido o no registrado');
 				}else{
-					$('span[name=numero_ruc]').text(datos.ruc);
-					$('span[name=razon_social]').text(datos.nombre_o_razon_social);
-					$('span[name=fecha_actividad]').text(datos.fecha_de_inicio_de_actividades);
-					$('span[name=condicion]').text(datos.estado_del_contribuyente);
-					$('span[name=tipo]').text(datos.tipo_de_contribuyente);
-					$('span[name=estado]').text(datos.condicion_de_domicilio);
-					$('span[name=fecha_inscripcion]').text(datos.fecha_de_inscripcion);
-					$('span[name=domicilio]').text(datos.direccion);
-					$('span[name=emision]').text(datos.sistema_de_emision_de_comprobante);
+					// $('span[name=numero_ruc]').text(datos.ruc);
           $('#address').val(datos.direccion);
           // $('#location_code').val(datos.ubigeo);
           $('#names_surnames').val(datos.nombre_o_razon_social);
@@ -306,6 +297,45 @@ $(function(){
 	});
 });
 </script>
+
+<script>
+$(function(){
+	$('#consulta-form-dni').on('submit', function(e){
+		e.preventDefault();
+		var ruc = $('#ruc').val();
+		var url = '{{ route("tenant.consultarDni") }}';
+		$('.ajaxgif').removeClass('hide');
+		$.ajax({
+			type:'POST',
+			url:url,
+			data:$(this).serialize(),
+			success: function(datos_dni){
+				$('.ajaxgif').addClass('hide');
+				var datos = eval(datos_dni);
+				var nada ='nada';
+				if(datos[0]==nada){
+					alert('DNI o RUC no válido o no registrado');
+				}else{
+					// $('span[name=numero_ruc]').text(datos.ruc);
+          $('#address').val(datos.direccion);
+          // $('#location_code').val(datos.ubigeo);
+          $('#names_surnames').val(datos.nombre_completo);
+          $('#display_name').val(datos.nombre_completo);          
+          $('#location_code').val(datos.ubigeo);
+          var ubicacion = datos.departamento + ' ' + datos.provincia + ' ' + datos.distrito;
+          $('#location_code').val(ubicacion);
+    //       "departamento": "LIMA",
+    // "provincia": "LIMA",
+    // "distrito": "COMAS",
+				}		
+			}
+		});
+		return false;
+	});
+});
+</script>
+
+
 
 <script>
    function showHide(elem) {

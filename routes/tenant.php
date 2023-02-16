@@ -162,6 +162,7 @@ Route::resource('branches.clients', ClientController::class);
 
 //consultar sunat
 Route::post('/consultar-ruc', [SunatController::class, 'consultarRuc'] )->name('consultarRuc');
+Route::post('/consultar-dni', [SunatController::class, 'consultarDni'] )->name('consultarDni');
 
 
 
