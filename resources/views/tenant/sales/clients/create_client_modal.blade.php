@@ -17,8 +17,11 @@
           <form id="consulta-form" method="post">
 		@csrf
 		<input type="text" class="ruc" id="ruc" name="ruc">
-		<button type="submit" class="botoncito"><i class="fa fa-search"></i> Buscar</button>
-		<img src="ajax.gif" class="ajaxgif hide">
+		<button type="submit" class="botoncito btn btn-primary"><i class="fa fa-search"></i> Buscar en SUNAT</button>
+            
+            <button class="btn btn-default btn-lg ajaxgif hide"><i class="fa fa-spinner fa-spin"></i> Buscando</button>
+    <div class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></div>
+		<!-- <img src="ajax.gif" class="ajaxgif hide"> -->
 	</form>
 
 
@@ -100,13 +103,13 @@
               <div class="col-md-6">
                 <fieldset class="form-group">
                   <label class="text-danger">Nombres y Apellidos<span id="asterisk" class="text-danger">*</span></label>
-                  <input class="form-control" name="names_surnames" type="text">
+                  <input id="names_surnames" class="form-control" name="names_surnames" type="text">
                 </fieldset>
               </div>
               <div class="col-md-6">
               <fieldset class="form-group">
                  <label class="text-danger">Mostrar Nombre como (Alias)<span id="asterisk" class="text-danger">*</span></label>
-                  <input class="form-control" name="display_name" type="text">
+                  <input id="display_name" class="form-control" name="display_name" type="text">
                 </fieldset>
               </div>
             </div>
@@ -122,7 +125,7 @@
               <div class="col-md-6">
               <fieldset class="form-group">
                  <label>Ubigeo (Distrito)</label>
-                  <input  class="form-control" name="location_code" type="text">
+                  <input  id="location_code" class="form-control" name="location_code" type="text">
                 </fieldset>
               </div>
             </div>
@@ -227,6 +230,15 @@ $(function(){
 					$('span[name=domicilio]').text(datos.direccion);
 					$('span[name=emision]').text(datos.sistema_de_emision_de_comprobante);
           $('#address').val(datos.direccion);
+          // $('#location_code').val(datos.ubigeo);
+          $('#names_surnames').val(datos.nombre_o_razon_social);
+          $('#display_name').val(datos.nombre_o_razon_social);          
+          $('#location_code').val(datos.ubigeo);
+          var ubicacion = datos.departamento + ' ' + datos.provincia + ' ' + datos.distrito;
+          $('#location_code').val(ubicacion);
+    //       "departamento": "LIMA",
+    // "provincia": "LIMA",
+    // "distrito": "COMAS",
 				}		
 			}
 		});
