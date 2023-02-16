@@ -1,6 +1,7 @@
 <?php
-
 declare(strict_types=1);
+
+
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\NewPasswordController;
@@ -21,7 +22,7 @@ use App\Http\Controllers\Tenant\SaleController;
 use App\Http\Controllers\Tenant\DashboardController;
 use App\Http\Controllers\Tenant\InventoryController;
 
-use App\Http\Controllers\Tenant\RegisteredTenantUserController;
+// use App\Http\Controllers\Tenant\RegisteredTenantUserController;
 
 
 use App\Http\Controllers\Tenant\ProductController;
@@ -29,6 +30,10 @@ use App\Http\Controllers\Tenant\ProviderController;
 
 
 use App\Http\Controllers\Tenant\PurchaseController;
+
+use App\Http\Controllers\Tenant\ClientController;
+
+use App\Http\Controllers\Tenant\SunatController;
 /*
 |--------------------------------------------------------------------------
 | Tenant Routes
@@ -49,6 +54,11 @@ Route::group([
         PreventAccessFromCentralDomains::class,
     ]
 ], function () {
+
+    // Obtén el nombre de la base de datos
+$databaseName = DB::connection()->getPdo()->query('SELECT DATABASE()')->fetchColumn();
+
+
     Route::get('/', function () {
         return view('auth.login');
     });
@@ -70,40 +80,40 @@ Route::group([
     Route::post('/login', [AuthenticatedSessionController::class, 'storeTenant'])
         ->middleware('guest');
 
-    Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
-        ->middleware('guest')
-        ->name('password.request');
+    // Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
+    //     ->middleware('guest')
+    //     ->name('password.request');
 
-    Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
-        ->middleware('guest')
-        ->name('password.email');
+    // Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
+    //     ->middleware('guest')
+    //     ->name('password.email');
 
-    Route::get('/reset-password/{token}', [NewPasswordController::class, 'create'])
-        ->middleware('guest')
-        ->name('password.reset');
+    // Route::get('/reset-password/{token}', [NewPasswordController::class, 'create'])
+    //     ->middleware('guest')
+    //     ->name('password.reset');
 
-    Route::post('/reset-password', [NewPasswordController::class, 'store'])
-        ->middleware('guest')
-        ->name('password.update');
+    // Route::post('/reset-password', [NewPasswordController::class, 'store'])
+    //     ->middleware('guest')
+    //     ->name('password.update');
 
-    Route::get('/verify-email', [EmailVerificationPromptController::class, '__invoke'])
-        ->middleware('auth')
-        ->name('verification.notice');
+    // Route::get('/verify-email', [EmailVerificationPromptController::class, '__invoke'])
+    //     ->middleware('auth')
+    //     ->name('verification.notice');
 
-    Route::get('/verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
-        ->middleware(['auth', 'signed', 'throttle:6,1'])
-        ->name('verification.verify');
+    // Route::get('/verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
+    //     ->middleware(['auth', 'signed', 'throttle:6,1'])
+    //     ->name('verification.verify');
 
-    Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
-        ->middleware(['auth', 'throttle:6,1'])
-        ->name('verification.send');
+    // Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
+    //     ->middleware(['auth', 'throttle:6,1'])
+    //     ->name('verification.send');
 
-    Route::get('/confirm-password', [ConfirmablePasswordController::class, 'show'])
-        ->middleware('auth')
-        ->name('password.confirm');
+    // Route::get('/confirm-password', [ConfirmablePasswordController::class, 'show'])
+    //     ->middleware('auth')
+    //     ->name('password.confirm');
 
-    Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store'])
-        ->middleware('auth');
+    // Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store'])
+    //     ->middleware('auth');
 
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
         ->middleware('auth')
@@ -142,8 +152,37 @@ Route::get('branches.inventories', [InventoryController::class, 'autocompleteSea
 Route::resource('branches.purchases', PurchaseController::class);
 
 Route::resource('/purchases', PurchaseController::class)->except([
-    'edit', 'update', 'destroy'
+    'edit', 'update', 'destroy','store'
 ]);
+
+
+//clients
+Route::resource('branches.clients', ClientController::class);
+
+
+//consultar sunat
+Route::post('/consultar-ruc', [SunatController::class, 'consultarRuc'] )->name('consultarRuc');
+
+
+
+
+
+
+
+
+
+//acceder a un inquilino desde su id
+Route::get('/{databaseName}', function ($databaseName) {
+    // Imprime el nombre de la base de datos
+    // return "Nombre de la base de datos: $name";
+    return redirect()->route('tenant.branches.index', ['uuid' => $databaseName]);
+})->where('databaseName', '^tenant[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$');
+
+
+
+
+
+
 
 
 //providers
@@ -164,8 +203,8 @@ Route::get('/test', function () {
 });    
 
 
-Route::get('register', [RegisteredTenantUserController::class, 'create'])
-->name('register');
+// Route::get('register', [RegisteredTenantUserController::class, 'create'])
+// ->name('register');
 
-Route::post('register', [RegisteredTenantUserController::class, 'store']);
+// Route::post('register', [RegisteredTenantUserController::class, 'store']);
 });

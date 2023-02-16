@@ -22,7 +22,8 @@ class Product extends Model
       'sell_price',
       'status',
       'category_id',
-      'provider_id'
+      'provider_id',
+      'branch_id'
     ];
 
     public function branch()

@@ -218,6 +218,27 @@
                                             </td>
                                             <td>{{ $product->unitary_presentation }}</td>
                                             <!-- <td class="text-truncate">{{ $product->quantity }}</td>                 -->
+                <th class="sortable">Código</th>
+                    <th>Descripción</th>
+                    <th>Codigo alternativo</th>
+                    <th>Codigo de barra</th>
+                    <th>Precio de venta con IGV</th>
+                    <th>Precio de compra sin IGV</th>
+                    <th>Presentación unitaria</th>
+                    <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach ($products as $product)
+                <tr>          {{-- protected $fillable = ['code','name','sell_price','type_product','sku','branch_id','quantity', 'alternative_code']; --}}
+                  <td>{{ $product->code }}</td>
+                  <td>{{ $product->name }}</td>
+                  <td>{{ $product->alternate_code }}</td>
+                  <td>{{ $product->sku }}</td>
+                  <td>{{ $product->sell_price }}</td>
+                  <td><span class="lable-tag tag-success">{{ $product->purchase_price_noigv }}</span></td>
+                  <td>{{ $product->unitary_presentation }}</td>
+                <!-- <td class="text-truncate">{{ $product->quantity }}</td>                 -->
 
                                             <!-- <td class="text-truncate"><i class="fa fa-dashboard"></i></td> -->
                                             <!-- <td class="text-truncate"> <i class="fas fa-edit"></i></td> -->
@@ -249,6 +270,26 @@
                                             <td>{{ $service->Ledger_account }}</td>
                                             <td><span class="lable-tag tag-success">{{ '' }}</span></td>
                                             <td>{{ '' }}</td>
+
+                  <a class=""  aria-label="Delete" data-toggle="modal" data-target="#editModal"><i class="fa fa-pencil-square-o fa-lg text-success" aria-hidden="true"></i></a>
+                  <!-- <a class="btn btn-default"  aria-label="Delete" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o fa-xs" aria-hidden="true"></i></a> -->
+                  <!-- <a href="#" class="btn  btn-default btn-lg" data-toggle="modal" data-target="#largeModal"><i class="fa fa-pencil-square-o   fa-xs" aria-hidden="true"></i></a>     -->
+                  <!-- <a href="#" class="btn  btn-danger btn-lg" data-toggle="modal" data-target="#basicModal"><i class="fa fa-times-circle   fa-xs" aria-hidden="true"></i></a> -->
+                  <!-- <a class="btn btn-danger"  aria-label="Delete" data-toggle="modal" data-target="#basicModal"><i class="fa fa-trash-o fa-xs" aria-hidden="true"></i></a> -->
+                  <a class=""   data-toggle="modal" data-target="#deleteModal"><i class="fa fa-times-circle fa-lg text-warning" aria-hidden="true"></i></a>
+                </td>
+
+                </tr>
+        @endforeach
+        @foreach ($services as $service)
+                <tr>          {{-- protected $fillable = ['code','service_name','cost','debit_credit','Ledger_account','branch_id']; --}}
+                  <td>{{ $service->code }}</td>
+                  <td>{{ $service->service_name }}</td>
+                  <td>{{ $service->cost }}</td>
+                  <td>{{ $service->debit_credit }}</td>
+                  <td>{{ $service->Ledger_account }}</td>
+                  <td><span class="lable-tag tag-success">{{ "" }}</span></td>
+                  <td>{{ "" }}</td>
 
 
                                             <!-- <td class="text-truncate"><i class="fa fa-dashboard"></i></td> -->
@@ -404,4 +445,26 @@
                 }
             });
         </script> -->
+<!--
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js">
+    </script>
+    <script type="text/javascript">
+        var route = "{{ url('branches.inventories') }}";
+        $('#searchItem').typeahead({
+            source: function (query, process) {
+                return $.get(route, {
+                    query: query
+                }, function (data) {
+                    return process(data);
+                });
+            }
+        });
+    </script> -->
+
+    <script>
+            @if ($message = Session::get('success'))
+            swal("Listo!", "Click en OK!", "success");
+        @endif
+</script>
 @endsection

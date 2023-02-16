@@ -22,6 +22,14 @@
         <h3 class="page-title">
             Compras
         </h3>
+        @if ($message = Session::get('success'))
+            <!-- <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div> -->
+            <!-- <script>
+            swal("Listo!", "Click al boton!", "success");
+            </script> -->
+        @endif
         <!-- <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-custom">
                 <li class="breadcrumb-item"><a href="#">Panel administrador</a></li>
@@ -33,8 +41,7 @@
     <div class="row">
         <div class="col-lg-12 ">
             <div class="card">
-            <form action="{{ route('tenant.purchases.store') }}" method="POST" enctype="multipart/form-data">
-                
+              <form action="{{ route('tenant.branches.purchases.store', $branch_id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     @include('tenant.purchases._form')
@@ -66,6 +73,12 @@
 
 
 @section('script')
+<script>
+            @if ($message = Session::get('success'))
+            swal("Listo!", "Click en OK!", "success");
+        @endif
+</script>
+
 
 <script>
     $(document).ready(function () {

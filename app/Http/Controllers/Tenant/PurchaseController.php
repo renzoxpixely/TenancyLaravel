@@ -37,11 +37,13 @@ class PurchaseController extends Controller
 
         return view('tenant.purchases.create', compact('providers','products','branch_id'));
     }
-    public function store(StoreRequest $request, Purchase $purchase)
+    public function store(StoreRequest $request, Purchase $purchase,$branch_id)
     {
-
+ 
         $purchase->my_store($request);
-        return redirect()->route('tenant.purchases.index')->with('toast_success', '¡Compra registrada con éxito!');
+
+        return redirect()->route('tenant.branches.purchases.index', $branch_id)->with('success', '¡Compra registrada con éxito!');
+        // return back()->with('success', '¡Compra registrada con éxito!');
     }
     public function show(Purchase $purchase)
     {
@@ -52,6 +54,9 @@ class PurchaseController extends Controller
         }
         return view('tenant.purchases.show', compact('purchase', 'purchaseDetails', 'subtotal'));
     }
+
+
+
     public function edit(Purchase $purchase)
     {
         // $providers = Provider::get();

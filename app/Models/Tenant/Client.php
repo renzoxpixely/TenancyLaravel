@@ -15,12 +15,16 @@ class Client extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'dni',
-        'ruc',
+        'national_identity_document',
+        'document_number',
+        'names_surnames',
+        'display_name',
         'address',
-        'phone',
-        'email'
+        'location_code',
+        'email',
+        'mobile_phone',
+        'landline_phone',
+        'branch_id'     
     ];
 
     public function branch()

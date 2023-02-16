@@ -17,10 +17,10 @@
             <li class="{{ Route::is('tenant.branches.providers.index', $branch_id) ? 'active' : '' }}"><a href="{{ route('tenant.branches.providers.index', $branch_id) }}"><i class="fa fa-angle-right"></i>Proveedores</a></li>
           </ul>
         </li>
-        <li class="treeview {{ Route::is('tenant.branches.sales.index', $branch_id) ? 'active' : '' }}"><a href="#"><i class="fa fa-dashboard"></i> <span>Ventas</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+        <li class="treeview {{ Route::is('tenant.branches.sales.index', $branch_id) ? 'active' : '' }} {{ Route::is('tenant.branches.clients.index', $branch_id) ? 'active' : '' }}"><a href="#"><i class="fa fa-dashboard"></i> <span>Ventas</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
           <ul class="treeview-menu ">
             <li class="{{ Route::is('tenant.branches.sales.index', $branch_id) ? 'active' : '' }}"><a href="{{ route('tenant.branches.sales.index', $branch_id) }}"><i class="fa fa-angle-right"></i> Ventas</a></li>
-            <li><a href="dashboard-2.html"><i class="fa fa-angle-right"></i> Clientes </a></li>
+            <li class="{{ Route::is('tenant.branches.clients.index', $branch_id) ? 'active' : '' }}"><a href="{{ route('tenant.branches.clients.index', $branch_id) }}"><i class="fa fa-angle-right"></i> Clientes </a></li>
             <li><a href="dashboard-3.html"><i class="fa fa-angle-right"></i> Despachos </a></li>
           </ul>
         </li>

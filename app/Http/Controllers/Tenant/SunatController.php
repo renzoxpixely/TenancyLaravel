@@ -3,12 +3,42 @@
 namespace App\Http\Controllers\Tenant;
 
 use Illuminate\Http\Request;
-use App\Models\Tenant\Provider;
 use App\Http\Controllers\Controller;
-
-use App\Models\Tenant\Branch;
-class ProviderController extends Controller
+use GuzzleHttp\Client;
+class SunatController extends Controller
 {
+
+    public function consultarRuc(Request $request)
+    {
+        $data = array(
+            'token' => 'fd49d95c-0dc4-4d7c-80bd-13f1b2e07943-d23070ac-9472-42ad-96eb-4a69d1f8e1d4',
+            'ruc' => $request->ruc
+        );
+
+        $client = new Client([
+            'base_uri' => 'https://ruc.com.pe/api/v1/consultas',
+            'timeout' => 10,
+        ]);
+    
+        $response = $client->request('POST', 'consultas', [
+            'headers' => [
+                // 'Access-Control-Allow-Origin' => '*',
+                // 'Access-Control-Allow-Methods' => 'GET, POST, PUT, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers' => 'Origin, Content-Type, X-Auth-Token',
+                'Content-Type' => 'application/json',
+                'token' => 'fd49d95c-0dc4-4d7c-80bd-13f1b2e07943-d23070ac-9472-42ad-96eb-4a69d1f8e1d4'
+            ],
+            'body' => json_encode($data)
+        ]);
+
+        
+        $statusCode = $response->getStatusCode();
+        $body = $response->getBody();
+        $arr_body = json_decode($body);
+        return response()->json($arr_body, $statusCode);
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -16,12 +46,7 @@ class ProviderController extends Controller
      */
     public function index($branch_id)
     {
-        $providers = Provider::where('branch_id', $branch_id)->get();
-        $branches = Branch::where('id', $branch_id)->get();
-        return view('tenant.purchases.providers.index', compact('providers', 'branch_id','branches'));
-        // $cities = City::where('country_id', $country_id)->get();
-        // return view('admin.cities.index', compact('cities', 'country_id'));
-    }
+  }
     /**
      * Show the form for creating a new resource.
      *
@@ -29,7 +54,7 @@ class ProviderController extends Controller
      */
     public function create($branch_id)
     {
-        return view('tenant.purchases.providers.create', compact('branch_id'));
+       
     }
     /**
      * Store a newly created resource in storage.
@@ -39,9 +64,7 @@ class ProviderController extends Controller
      */
     public function store($branch_id, Request $request)
     {
-        Provider::create($request->all() + ['branch_id' => $branch_id]);
-        return redirect()->route('tenant.branches.providers.index', $branch_id)->with('success', '¡Proveedor registrado con éxito!');
-    }
+   }
     /**
      * Display the specified resource.
      *

@@ -15,14 +15,19 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-
-            $table->string('name');
-            $table->string('dni');
-            $table->string('ruc');
+            $table->string('national_identity_document');
+            $table->string('document_number');
+            $table->string('names_surnames');
+            $table->string('display_name');
             $table->string('address');
-            $table->string('phone');
-            $table->string('email');
+            //ubigeo
+            $table->string('location_code')->nullable();
+            $table->string('email')->nullable();
+            $table->string('mobile_phone')->nullable();
+            $table->string('landline_phone')->nullable();;
 
+            $table->foreignId('branch_id')->nullable()->constrained('branches')->onDelete('cascade');
+                        
             $table->timestamps();
         });
     }
