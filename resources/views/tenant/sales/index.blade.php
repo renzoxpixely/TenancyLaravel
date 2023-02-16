@@ -65,9 +65,16 @@
 <div class="form-group">
             <label for="email" class="col-md-3 control-label">Razon Social:</label>
             <div class="col-md-9">
-                <textarea id="txtrazon" class="form-control" placeholder="Razon social" readonly=""></textarea>
+                <textarea  class="form-control" placeholder="Razon social" readonly=""></textarea>
             </div>
         </div>
+        <div class="col-md-4">
+                <fieldset class="form-group">
+                  <label>Email</label>
+                  <input class="form-control" name="email" id="txtrazon" type="email">
+                </fieldset>
+              </div>
+
 
       
       <ol class="breadcrumb">

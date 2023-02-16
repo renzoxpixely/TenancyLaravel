@@ -14,7 +14,12 @@
           <div class="chart-box">
 
 
-
+          <form id="consulta-form" method="post">
+		@csrf
+		<input type="text" class="ruc" id="ruc" name="ruc">
+		<button type="submit" class="botoncito"><i class="fa fa-search"></i> Buscar</button>
+		<img src="ajax.gif" class="ajaxgif hide">
+	</form>
 
 
 
@@ -82,6 +87,13 @@
                   <button data-dismiss="modal" data-toggle="modal"  type="button" class="btn btn-primary btn-lg btn-block">Buscar en Sunat</button>
                 </fieldset>
               </div>
+
+
+
+
+
+
+
             </div>
       
             <div class="row">
@@ -104,13 +116,13 @@
               <div class="col-md-6">
                 <fieldset class="form-group">
                   <label class="text-danger">Dirección<span id="asterisk" class="text-danger">*</span></label>
-                  <input class="form-control" name="address" type="text">
+                  <input id="address" class="form-control" name="address" type="text">
                 </fieldset>
               </div>
               <div class="col-md-6">
               <fieldset class="form-group">
                  <label>Ubigeo (Distrito)</label>
-                  <input class="form-control" name="location_code" type="text">
+                  <input  class="form-control" name="location_code" type="text">
                 </fieldset>
               </div>
             </div>
@@ -187,7 +199,41 @@
 
   @section('script')
 
-
+<script>
+$(function(){
+	$('#consulta-form').on('submit', function(e){
+		e.preventDefault();
+		var ruc = $('#ruc').val();
+		var url = '{{ route("tenant.consultarRuc") }}';
+		$('.ajaxgif').removeClass('hide');
+		$.ajax({
+			type:'POST',
+			url:url,
+			data:$(this).serialize(),
+			success: function(datos_dni){
+				$('.ajaxgif').addClass('hide');
+				var datos = eval(datos_dni);
+				var nada ='nada';
+				if(datos[0]==nada){
+					alert('DNI o RUC no válido o no registrado');
+				}else{
+					$('span[name=numero_ruc]').text(datos.ruc);
+					$('span[name=razon_social]').text(datos.nombre_o_razon_social);
+					$('span[name=fecha_actividad]').text(datos.fecha_de_inicio_de_actividades);
+					$('span[name=condicion]').text(datos.estado_del_contribuyente);
+					$('span[name=tipo]').text(datos.tipo_de_contribuyente);
+					$('span[name=estado]').text(datos.condicion_de_domicilio);
+					$('span[name=fecha_inscripcion]').text(datos.fecha_de_inscripcion);
+					$('span[name=domicilio]').text(datos.direccion);
+					$('span[name=emision]').text(datos.sistema_de_emision_de_comprobante);
+          $('#address').val(datos.direccion);
+				}		
+			}
+		});
+		return false;
+	});
+});
+</script>
 @endsection
 
 
