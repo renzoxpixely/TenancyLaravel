@@ -45,14 +45,14 @@ select {
                 <h3>Cliente</h3>
                 </div>
               </div>
-              <div class="col-md-4">
+              <!-- <div class="col-md-4">
                 <div class="form-group">
                   <fieldset class="form-group">
                   <button type="submit" class="btn btn-primary">Guardar</button>
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                   </fieldset>
                 </div>
-              </div>
+              </div> -->
 
 
 <!-- 
@@ -207,7 +207,17 @@ select {
                  <label>Teléfono Fijo</label>
                   <input class="form-control" name="landline_phone" type="text">
                 </fieldset>
-              </div>              
+              </div>  
+              
+              
+              <div class="col-md-4">
+                <div class="form-group">
+                  <fieldset class="form-group">
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                  </fieldset>
+                </div>
+              </div>
             </div>      
 
 
@@ -321,9 +331,9 @@ $(function(){
           // $('#location_code').val(datos.ubigeo);
           $('#names_surnames').val(datos.nombre_completo);
           $('#display_name').val(datos.nombre_completo);          
-          $('#location_code').val(datos.ubigeo);
-          var ubicacion = datos.departamento + ' ' + datos.provincia + ' ' + datos.distrito;
-          $('#location_code').val(ubicacion);
+          // $('#location_code').val(datos.ubigeo);
+          // var ubicacion = datos.departamento + ' ' + datos.provincia + ' ' + datos.distrito;
+          // $('#location_code').val(ubicacion);
     //       "departamento": "LIMA",
     // "provincia": "LIMA",
     // "distrito": "COMAS",
