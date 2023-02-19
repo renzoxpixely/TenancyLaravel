@@ -19,7 +19,7 @@ class CreateClientsTable extends Migration
             $table->string('document_number');
             $table->string('names_surnames');
             $table->string('display_name');
-            $table->string('address');
+            $table->string('address')->nullable();
             //ubigeo
             $table->string('location_code')->nullable();
             $table->string('email')->nullable();

@@ -14,7 +14,7 @@
   
     <div class="row">
         <div class="pull-right m-2">
-          <button type="button" class="btn btn-primary btn-rounded dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nueva Transacción <span class="caret"></span></button>
+        <button data-dismiss="modal" data-toggle="modal" data-target="#addModal" type="button" class="btn btn-primary btn-lg btn-block">Nuevo</button>
           <ul class="dropdown-menu">
             <li><a  href="{{ route('tenant.branches.providers.create', $branch_id) }}">Ventas</a></li>
             <li><a href="#">Cotización</a></li>
@@ -32,44 +32,6 @@
     </section>
     <!-- Main content -->
     <section class="content container-fluid">
-        <div class="row">
-          <div class="col-lg-3 col-xs-6">
-            <div class="media-box">
-              <div class="media-icon pull-left"><i class="icon-bargraph"></i> </div>
-              <div class="media-info">
-                <h5>Total Leads</h5>
-                <h3>1530</h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-xs-6">
-            <div class="media-box bg-sea">
-              <div class="media-icon pull-left"><i class="icon-wallet"></i> </div>
-              <div class="media-info">
-                <h5>Total Payment</h5>
-                <h3>$8,530</h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-xs-6">
-            <div class="media-box bg-blue">
-              <div class="media-icon pull-left"><i class="icon-basket"></i> </div>
-              <div class="media-info">
-                <h5>Total Sales</h5>
-                <h3>935</h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-xs-6">
-            <div class="media-box bg-green">
-              <div class="media-icon pull-left"><i class="icon-layers"></i> </div>
-              <div class="media-info">
-                <h5>New Orders</h5>
-                <h3>5324</h3>
-              </div>
-            </div>
-          </div>
-        </div>
 
 
 
@@ -80,7 +42,7 @@
             <div class="chart-box">
               <h4>Ventas</h4>
               
-              <a href="{{ route('tenant.branches.providers.create', $branch_id) }}">Botton agregar provveeodr</a>
+              
               <div id="example_filter" class="dataTables_filter pull-right">
 
                 
@@ -145,6 +107,10 @@
   </div>
   <!-- content-wrapper --> 
 
+  <!-- modal agregar providers -->
+  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true">
+  @include('tenant.purchases.providers.create_provider_modal')
+</div>
 
 @endsection
 @section('script')

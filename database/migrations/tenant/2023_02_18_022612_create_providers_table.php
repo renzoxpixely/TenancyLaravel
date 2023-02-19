@@ -16,12 +16,19 @@ class CreateProvidersTable extends Migration
         Schema::create('providers', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name')->unique();
-            $table->string('email');
-            $table->string('ruc_number');
+            $table->string('national_identity_document');
+            $table->string('document_number');
+            $table->string('names_surnames');
+            $table->string('display_name');
             $table->string('address')->nullable();
-            $table->string('phone');
+            //ubigeo
+            $table->string('location_code')->nullable();
+            $table->string('email')->nullable();
+            $table->string('mobile_phone')->nullable();
+            $table->string('landline_phone')->nullable();;
 
+            $table->foreignId('branch_id')->nullable()->constrained('branches')->onDelete('cascade');
+             
             $table->foreignId('branch_id')->nullable()->constrained('branches')->onDelete('cascade');
             
             $table->timestamps();
