@@ -215,7 +215,17 @@ select {
             <form action="{{ route('tenant.branches.clients.store', $branch_id) }}"  method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
+            <div class="col-md-12">
+          <div class="chart-box">
 
+
+
+
+
+
+
+
+            <div class="d-flex justify-content-between">
 
 
 
