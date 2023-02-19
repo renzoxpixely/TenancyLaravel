@@ -19,7 +19,7 @@ select {
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Editar Producto</h4>
+        <h4 class="modal-title" id="myModalLabel">Agregar Cliente</h4>
       </div>
 
       <div class="modal-body">
@@ -32,17 +32,13 @@ select {
 
 
 
-
-
-
-
-
             <div class="d-flex justify-content-between">
               
             <div class="row">
               <div class="col-md-8">
                 <div class="form-group">
                 <h3>Cliente</h3>
+                <p>Seleccionar su tipo documento y agrege al formulario</p>
                 </div>
               </div>
               <!-- <div class="col-md-4">
@@ -228,19 +224,16 @@ select {
             <div class="d-flex justify-content-between">
 
 
-
-
-            
             <div class="col-md-6">
                 <fieldset class="form-group">
                   <label class="text-danger">Documento<span id="asterisk" class="text-danger">*</span></label>
-                  <input id="national_identity_document" class="form-control" name="national_identity_document" type="text">
+                  <input disabled id="national_identity_document" class="form-control" name="national_identity_document" type="text">
                 </fieldset>
               </div>
               <div class="col-md-6">
                 <fieldset class="form-group">
                   <label class="text-danger">Número<span id="asterisk" class="text-danger">*</span></label>
-                  <input id="document_number" class="form-control" name="document_number" type="text">
+                  <input disabled id="document_number" class="form-control" name="document_number" type="text">
                 </fieldset>
               </div>
 
@@ -518,10 +511,6 @@ $(function(){
 	});
 });
 </script>
-
-
-
-
 
 
 <script>
