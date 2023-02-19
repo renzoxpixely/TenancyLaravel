@@ -1,5 +1,5 @@
 <style>
-#value_ruc, #value_dni, #value_otro {
+#value_ruc, #value_dni, #value_otro, #value_carn, #value_pass, #value_cedu {
   display: none;
 }
 
@@ -81,9 +81,9 @@ select {
                     <option >SELECIONAR</option>
                     <option value="value_ruc">RUC</option>
                     <option value="value_dni">DNI</option>
-                    <option value="value_otro">Carnet de Extranjería</option>
-                    <option value="value_otro">Pasaporte</option>
-                    <option value="value_otro">Cédula Diplomática</option>
+                    <option value="value_carn">Carnet de Extranjería</option>
+                    <option value="value_pass">Pasaporte</option>
+                    <option value="value_cedu">Cédula Diplomática</option>
                     <option value="value_otro">Otro</option>
                   </select>
                   </fieldset>
@@ -131,26 +131,77 @@ select {
               </div>   
 
               
-
+     
+            
               <form id="consulta-form-otro" method="post">
 	@csrf
 	<div class="show-hide" id="value_otro">
 		<div class="col-md-4">
 			<fieldset class="form-group">
-				<label class="text-danger">Ingresar Número<span id="asterisk" class="text-danger">*</span></label>
+				<label class="text-danger">Ingresar Otro Número<span id="asterisk" class="text-danger">*</span></label>
 				<input type="text" class="dni form-control" id="dni" name="dni">
 			</fieldset>
 		</div>
 		<div class="col-md-4">
 			<fieldset class="form-group">
 				<label class="text-danger">Asignar Valores<span id="asterisk" class="text-danger">*</span></label>
-				<button type="submit" class="botoncito btn btn-primary"><i class="fa fa-check"></i> Asignar Valores</button>
+				<button type="submit" class="botoncito btn btn-primary"><i class="fa fa-check"></i> Agregar al Formulario</button>
+			</fieldset>
+		</div>
+	</div>
+</form>           
+                             <form id="consulta-form-carn" method="post">
+	@csrf
+	<div class="show-hide" id="value_carn">
+		<div class="col-md-4">
+			<fieldset class="form-group">
+				<label class="text-danger">Ingresar Carnet de Extranjería<span id="asterisk" class="text-danger">*</span></label>
+				<input type="text" class="dni form-control" id="car" name="car">
+			</fieldset>
+		</div>
+		<div class="col-md-4">
+			<fieldset class="form-group">
+				<label class="text-danger">Asignar Valores<span id="asterisk" class="text-danger">*</span></label>
+				<button type="submit" class="botoncito btn btn-primary"><i class="fa fa-check"></i> Agregar al Formulario</button>
+			</fieldset>
+		</div>
+	</div>
+</form>           
+                             <form id="consulta-form-pass" method="post">
+	@csrf
+	<div class="show-hide" id="value_pass">
+		<div class="col-md-4">
+			<fieldset class="form-group">
+				<label class="text-danger">Ingresar Pasaporte<span id="asterisk" class="text-danger">*</span></label>
+				<input type="text" class="dni form-control" id="pas" name="pas">
+			</fieldset>
+		</div>
+		<div class="col-md-4">
+			<fieldset class="form-group">
+				<label class="text-danger">Asignar Valores<span id="asterisk" class="text-danger">*</span></label>
+				<button type="submit" class="botoncito btn btn-primary"><i class="fa fa-check"></i> Agregar al Formulario</button>
+			</fieldset>
+		</div>
+	</div>
+</form>           
+                           <form id="consulta-form-cedu" method="post">
+	@csrf
+	<div class="show-hide" id="value_cedu">
+		<div class="col-md-4">
+			<fieldset class="form-group">
+				<label class="text-danger">Ingresar Cédula Diplomática<span id="asterisk" class="text-danger">*</span></label>
+				<input type="text" class="dni form-control" id="ced" name="ced">
+			</fieldset>
+		</div>
+		<div class="col-md-4">
+			<fieldset class="form-group">
+				<label class="text-danger">Asignar Valores<span id="asterisk" class="text-danger">*</span></label>
+				<button type="submit" class="botoncito btn btn-primary"><i class="fa fa-check"></i> Agregar al Formulario</button>
 			</fieldset>
 		</div>
 	</div>
 </form>           
               </div>   
-
             </div>
 
 
@@ -396,6 +447,72 @@ $(function(){
 	});
 });
 </script>
+
+
+<script>
+$(function(){
+	$('#consulta-form-carn').on('submit', function(e){
+		e.preventDefault();
+		var dni = $('#car').val();
+		
+		// Asignar los valores a los campos correspondientes
+		$('#national_identity_document').val('Carnet de Extranjería');
+		$('#document_number').val(dni);
+
+		
+		// Mostrar un mensaje de éxito
+		// alert('Valores asignados correctamente');
+		
+		return false;
+	});
+});
+</script>
+
+
+<script>
+$(function(){
+	$('#consulta-form-pass').on('submit', function(e){
+		e.preventDefault();
+		var dni = $('#pas').val();
+		
+		// Asignar los valores a los campos correspondientes
+		$('#national_identity_document').val('Pasaporte');
+		$('#document_number').val(dni);
+
+		
+		// Mostrar un mensaje de éxito
+		// alert('Valores asignados correctamente');
+		
+		return false;
+	});
+});
+</script>
+
+
+
+<script>
+$(function(){
+	$('#consulta-form-cedu').on('submit', function(e){
+		e.preventDefault();
+		var dni = $('#ced').val();
+		
+		// Asignar los valores a los campos correspondientes
+		$('#national_identity_document').val('Cédula Diplomática');
+		$('#document_number').val(dni);
+
+		
+		// Mostrar un mensaje de éxito
+		// alert('Valores asignados correctamente');
+		
+		return false;
+	});
+});
+</script>
+
+
+
+
+
 
 <script>
    function showHide(elem) {
