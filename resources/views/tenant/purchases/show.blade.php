@@ -28,7 +28,7 @@
                     <div class="form-group row">
                         <div class="col-md-4 text-center">
                             <label class="form-control-label" for="nombre"><strong>Proveedor</strong></label>
-                            <p>{{$purchase->provider->name}}</p>
+                            <p>{{$purchase->provider->names_surnames}}</p>
                         </div>
                         <div class="col-md-4 text-center">
                             <label class="form-control-label" for="num_compra"><strong>Número Compra</strong></label>
