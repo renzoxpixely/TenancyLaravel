@@ -71,7 +71,8 @@ select {
 
 
   
-
+<form id="consulta-form" method="post">
+		          @csrf
             <div class="row" id="hockey">
               <div class="col-md-4">
               <fieldset class="form-group">
@@ -89,8 +90,7 @@ select {
               </div>
 
             <div class="dropdown-options">
-            <form id="consulta-form" method="post">
-		          @csrf
+            
               <div class="show-hide" id="value_ruc">
               <div class="col-md-4">
                 <fieldset class="form-group">
@@ -159,6 +159,31 @@ select {
             <form action="{{ route('tenant.branches.clients.store', $branch_id) }}"  method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
+
+
+
+
+
+            
+            <div class="col-md-6">
+                <fieldset class="form-group">
+                  <label class="text-danger">Documento<span id="asterisk" class="text-danger">*</span></label>
+                  <input id="national_identity_document" class="form-control" name="national_identity_document" type="text">
+                </fieldset>
+              </div>
+              <div class="col-md-6">
+                <fieldset class="form-group">
+                  <label class="text-danger">Número<span id="asterisk" class="text-danger">*</span></label>
+                  <input id="document_number" class="form-control" name="document_number" type="text">
+                </fieldset>
+              </div>
+
+
+
+
+
+
+
               <div class="col-md-6">
                 <fieldset class="form-group">
                   <label class="text-danger">Nombres y Apellidos<span id="asterisk" class="text-danger">*</span></label>
@@ -269,8 +294,7 @@ select {
 
 
 
-  @section('script')
-
+@section('script')
 <script>
 $(function(){
 	$('#consulta-form').on('submit', function(e){
@@ -289,6 +313,8 @@ $(function(){
 				if(datos[0]==nada){
 					alert('DNI o RUC no válido o no registrado');
 				}else{
+          $('#national_identity_document').val('RUC');
+          $('#document_number').val(datos.ruc);          
 					// $('span[name=numero_ruc]').text(datos.ruc);
           $('#address').val(datos.direccion);
           // $('#location_code').val(datos.ubigeo);
@@ -326,6 +352,8 @@ $(function(){
 				if(datos[0]==nada){
 					alert('DNI o RUC no válido o no registrado');
 				}else{
+          $('#national_identity_document').val('DNI');
+          $('#document_number').val(datos.dni);           
 					// $('span[name=numero_ruc]').text(datos.ruc);
           $('#address').val(datos.direccion);
           // $('#location_code').val(datos.ubigeo);
