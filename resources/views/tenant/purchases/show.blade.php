@@ -1,17 +1,24 @@
-@extends('tenant.layouts.layout_home.base')
+@extends('tenant.layouts.layout_dashboard.layout.base_only_style')
+
+
 @section('content')
-<div class="content-wrapper">
+
+<body class="sidebar-mini">
+<div class="wrapper">
+
+
+  
+  <div class="container mt-2">
+        <div class="row">
+            <div class="col-lg-12 margin-tb">
+
+
+
     <div class="page-header">
         <h3 class="page-title">
             Detalles de compra
         </h3>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb breadcrumb-custom">
-           
-              
-                <li class="breadcrumb-item active" aria-current="page">Detalles de compra</li>
-            </ol>
-        </nav>
+
     </div>
     <div class="row">
         <div class="col-12">
@@ -93,7 +100,20 @@
         </div>
     </div>
 
+
+
+
+
+
+
 </div>
+    </div>
+</div>
+
+
+
+</div>
+</body>
 @endsection
 @section('scripts')
 

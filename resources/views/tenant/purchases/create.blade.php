@@ -9,8 +9,6 @@
 <body class="sidebar-mini">
 <div class="wrapper">
 
-  <!-- Main Header -->
-  <header class="main-header dark-bg">
 
   
   <div class="container mt-2">
