@@ -29,8 +29,6 @@ class CreateProvidersTable extends Migration
 
             $table->foreignId('branch_id')->nullable()->constrained('branches')->onDelete('cascade');
              
-            $table->foreignId('branch_id')->nullable()->constrained('branches')->onDelete('cascade');
-            
             $table->timestamps();
         });
     }

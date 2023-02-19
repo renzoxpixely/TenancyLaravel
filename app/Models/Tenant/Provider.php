@@ -9,7 +9,16 @@ class Provider extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name', 'email','ruc_number', 'address','phone','branch_id',
+        'national_identity_document',
+        'document_number',
+        'names_surnames',
+        'display_name',
+        'address',
+        'location_code',
+        'email',
+        'mobile_phone',
+        'landline_phone',
+        'branch_id'  
     ];
     
     public function branch()

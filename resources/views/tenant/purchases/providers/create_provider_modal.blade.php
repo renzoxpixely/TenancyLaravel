@@ -227,13 +227,13 @@ select {
             <div class="col-md-6">
                 <fieldset class="form-group">
                   <label class="text-danger">Documento<span id="asterisk" class="text-danger">*</span></label>
-                  <input disabled id="national_identity_document" class="form-control" name="national_identity_document" type="text">
+                  <input id="national_identity_document" class="form-control" name="national_identity_document" type="text">
                 </fieldset>
               </div>
               <div class="col-md-6">
                 <fieldset class="form-group">
                   <label class="text-danger">Número<span id="asterisk" class="text-danger">*</span></label>
-                  <input disabled id="document_number" class="form-control" name="document_number" type="text">
+                  <input id="document_number" class="form-control" name="document_number" type="text">
                 </fieldset>
               </div>
 

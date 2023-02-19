@@ -55,40 +55,37 @@
 
 
 
-      <table id="example" class="table table-striped table-bordered table-responsive" style="width:100%">
+              <table id="example" class="table table-striped table-bordered table-responsive" style="width:100%">
         <thead>
             <tr>
-            <th class="d-none">ID</th>
+            <th>Doc.</th>
+                <th>Número</th>
                 <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
                 <th>Email</th>
-                <th>RUC</th>
-                <th>Direccion</th>
-                <th>Celular</th>
-                <th>Sucursal</th>
             </tr>
         </thead>
         <tbody>
-               @foreach ($providers as $provider)
-                <tr>          {{-- protected $fillable = ['id','name','email','ruc_number','address','phone','branch_id']; --}}
-                  <td class="d-none">{{ $provider->id }}</td>
-                  <td><a href="#"></a>{{ $provider->name }}</td>
-                  <td>{{ $provider->email }}</td>
-                  <td><span class="lable-tag tag-success">{{ $provider->ruc_number }}</span></td>
-                  <td>{{ $provider->address }}</td>
-                  <td>{{ $provider->phone }}</td>
-                  <td>{{ $provider->branch_id }}</td>                  
+                 @foreach ($providers as $provider)
+                <tr>          {{-- protected $fillable = ['national_identity_document','document_number','names_surnames','display_name','address','location_code','email','mobile_phone','landline_phone','branch_id']; --}}
+                  <td>{{ $provider->national_identity_document }}</td>
+                  <td><a href="#"></a>{{ $provider->document_number }}</td>
+                  <td>{{ $provider->names_surnames }}</td>
+                  <td><span class="lable-tag tag-success">{{ $provider->address }}</span></td>
+                  <td>{{ $provider->mobile_phone }}</td>
+                  <td>{{ $provider->email }}</td>                
                 </tr>
                 @endforeach
         </tbody>
         <tfoot>
             <tr>
-            <th class="d-none">ID</th>
-                <th>Fecha</th>
-                <th>Documento</th>
-                <th>Cliente</th>
-                <th>Total</th>
-                <th>Saldo</th>
-                <th>Acciones</th>
+            <th>Doc.</th>
+                <th>Número</th>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th>Email</th>
             </tr>
         </tfoot>
     </table>
