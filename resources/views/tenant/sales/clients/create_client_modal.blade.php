@@ -115,7 +115,7 @@ select {
               <div class="show-hide" id="value_dni">
               <div class="col-md-4">
               <fieldset class="form-group">
-                  <label class="text-danger">Ingresar RUC<span id="asterisk" class="text-danger">*</span></label>
+                  <label class="text-danger">Ingresar DNI<span id="asterisk" class="text-danger">*</span></label>
                   <input type="text" class="ruc form-control" id="ruc" name="ruc">
                 </fieldset>
               </div>
@@ -131,20 +131,25 @@ select {
               </div>   
 
               
-              <div class="show-hide" id="value_otro">
-              <div class="col-md-4">
-                <fieldset class="form-group">
-                  <label class="text-danger">Ingresar Otros<span id="asterisk" class="text-danger">*</span></label>
-                  <input class="form-control" name="document_number" type="text">
-                </fieldset>
-              </div>
-              <div class="col-md-4">
-              <fieldset class="form-group">
-                  <label>Sunat</label>
-                  <button data-dismiss="modal" data-toggle="modal"  type="button" class="btn btn-primary btn-lg btn-block">Buscar en Sunat</button>
-                </fieldset>
-              </div>
-              </div>  
+
+              <form id="consulta-form-otro" method="post">
+	@csrf
+	<div class="show-hide" id="value_otro">
+		<div class="col-md-4">
+			<fieldset class="form-group">
+				<label class="text-danger">Ingresar Número<span id="asterisk" class="text-danger">*</span></label>
+				<input type="text" class="dni form-control" id="dni" name="dni">
+			</fieldset>
+		</div>
+		<div class="col-md-4">
+			<fieldset class="form-group">
+				<label class="text-danger">Asignar Valores<span id="asterisk" class="text-danger">*</span></label>
+				<button type="submit" class="botoncito btn btn-primary"><i class="fa fa-check"></i> Asignar Valores</button>
+			</fieldset>
+		</div>
+	</div>
+</form>           
+              </div>   
 
             </div>
 
@@ -373,7 +378,24 @@ $(function(){
 });
 </script>
 
+<script>
+$(function(){
+	$('#consulta-form-otro').on('submit', function(e){
+		e.preventDefault();
+		var dni = $('#dni').val();
+		
+		// Asignar los valores a los campos correspondientes
+		$('#national_identity_document').val('Otro');
+		$('#document_number').val(dni);
 
+		
+		// Mostrar un mensaje de éxito
+		// alert('Valores asignados correctamente');
+		
+		return false;
+	});
+});
+</script>
 
 <script>
    function showHide(elem) {
