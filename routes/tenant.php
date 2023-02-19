@@ -34,6 +34,8 @@ use App\Http\Controllers\Tenant\PurchaseController;
 use App\Http\Controllers\Tenant\ClientController;
 
 use App\Http\Controllers\Tenant\SunatController;
+use App\Http\Controllers\Tenant\DispatchController;
+
 /*
 |--------------------------------------------------------------------------
 | Tenant Routes
@@ -136,6 +138,10 @@ $databaseName = DB::connection()->getPdo()->query('SELECT DATABASE()')->fetchCol
 
 //sale
 Route::resource('branches.sales', SaleController::class);
+Route::resource('branches.dispatches', DispatchController::class);
+
+
+
 
  //dashboard
 Route::resource('branches.dashboard', DashboardController::class);
@@ -143,10 +149,7 @@ Route::resource('branches.dashboard', DashboardController::class);
 //invnetory
 Route::resource('branches.inventories', InventoryController::class);
 
-//invnetory autocomplete
-Route::resource('branches.inventories', InventoryController::class);
-Route::get('branches.inventories', [InventoryController::class, 'autocompleteSearch']);
-
+ 
 
 //purcharse
 Route::resource('branches.purchases', PurchaseController::class);
