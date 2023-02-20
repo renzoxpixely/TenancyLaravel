@@ -12,8 +12,7 @@ use App\Http\Controllers\TenantController;
 
 use App\Http\Controllers\BranchController;
 
-
-
+use App\Http\Controllers\CompanyController;
 
 
 use App\Http\Controllers\Tenant\ProductController;
@@ -35,9 +34,10 @@ Route::get('/', function () {
 Route::get('/register-tenant', [RegisteredTenantController::class, 'create' ])->name('register-tenant');
 Route::post('/register-tenant', [RegisteredTenantController::class, 'store' ]);
 
-Route::get('/dashboard', function () {
-    return view('system.home.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/home', function () {
+    // return view('system.dashboard.index');
+         return view('system.home.index');
+})->middleware(['auth', 'verified'])->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -45,7 +45,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
+    
 
+        Route::get('/company/create', [CompanyController::class, 'create' ])->name('companies.create');
+    Route::post('/company/create', [CompanyController::class, 'store' ]);
 
     // Route::get('/register-tenant', [RegisteredTenantController::class, 'create' ])->name('tenant.register');
     // Route::post('/register-tenant', [RegisteredTenantController::class, 'store' ]);

@@ -1,112 +1,47 @@
-@extends('system.layout.base')
+@extends('system.layout.partials.base')
 
 
 @section('content')
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper"> 
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>Dashboard</h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-        <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
-      </ol>
-    </section>
-    
     <!-- Main content -->
     <section class="content container-fluid">
-      <div class="row">
-        <div class="col-lg-3 col-xs-6">
-          <div class="media-box">
-            <div class="media-icon pull-left"><i class="icon-bargraph"></i> </div>
-            <div class="media-info">
-              <h5>Total Leads</h5>
-              <h3>1530</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-xs-6">
-          <div class="media-box bg-sea">
-            <div class="media-icon pull-left"><i class="icon-wallet"></i> </div>
-            <div class="media-info">
-              <h5>Total Payment</h5>
-              <h3>$8,530</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-xs-6">
-          <div class="media-box bg-blue">
-            <div class="media-icon pull-left"><i class="icon-basket"></i> </div>
-            <div class="media-info">
-              <h5>Total Sales</h5>
-              <h3>935</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-xs-6">
-          <div class="media-box bg-green">
-            <div class="media-icon pull-left"><i class="icon-layers"></i> </div>
-            <div class="media-info">
-              <h5>New Orders</h5>
-              <h3>5324</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-3 col-xs-6">
-          <div class="media-box">
-            <div class="media-icon pull-left"><i class="icon-bargraph"></i> </div>
-            <div class="media-info">
-              <h5>Total Leads</h5>
-              <h3>1530</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-xs-6">
-          <div class="media-box bg-sea">
-            <div class="media-icon pull-left"><i class="icon-wallet"></i> </div>
-            <div class="media-info">
-              <h5>Total Payment</h5>
-              <h3>$8,530</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-xs-6">
-          <div class="media-box bg-blue">
-            <div class="media-icon pull-left"><i class="icon-basket"></i> </div>
-            <div class="media-info">
-              <h5>Total Sales</h5>
-              <h3>935</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-xs-6">
-          <div class="media-box bg-green">
-            <div class="media-icon pull-left"><i class="icon-layers"></i> </div>
-            <div class="media-info">
-              <h5>New Orders</h5>
-              <h3>5324</h3>
-            </div>
-          </div>
-        </div>
-      </div>      
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="chart-box">
-            <h4>Ventas y Compras</h4>
-            <div class="chart">
-              <div id="container"></div>
-              <!--for values check "Product Sales" chart on char-function.js--> 
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- <div class="row">
+                    <div class="col-lg-12 margin-tb">
+                        <div class="pull-left">
+                            <h2>Sucursales</h2>
+                        </div>
+                        <div class="pull-right mb-2">
+                            <a class="btn btn-success" href="{{ route('tenant.branches.create') }}"> Create Sucursal</a>
+                        </div>
+                    </div>
+    </div> -->
 
-    </section>
-    <!-- content --> 
-  </div>
-  <!-- content-wrapper --> 
 
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content">
+
+
+
+    <!-- Main content -->
+    <section class="content container-fluid">
+
+      <div class="row">
+
+<!--                         <div class="pull-right mb-2">
+                         <img src="https://app.nubefa.com/assets/images/welcome.png" class="img-responsive" alt="User Image">
+                            <a class="btn btn-success" href="{{ route('tenant.companies.create') }}"> Registrar Empresa</a>
+                        </div> -->
+                        <div class="form-body d-flex align-items-center flex-column">
+                          <div class="form-group has-feedback">
+                          <img src="{{ asset('/assetsAdmin/dist/img/welcome.png') }}"  class="img-responsive" alt="User Image" style="width: 100%;">
+                              <!-- <img src="https://app.nubefa.com/assets/images/welcome.png" class="img-responsive" alt="User Image" style="width: 100%;"> -->
+                              <h2 style="margin-top: 20px; white-space: nowrap;">Hola! Bienvenido a Nubefa</h2>
+                          </div>
+                          <div class="form-group has-feedback text-center">
+                              <a class="btn btn-primary" href="{{ route('companies.create') }}">Registrar Empresa</a>
+                          </div>
+                      </div>
+        </div>                      
+  </section>
+</div>  
 @endsection
