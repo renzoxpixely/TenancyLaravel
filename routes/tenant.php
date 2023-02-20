@@ -163,9 +163,7 @@ Route::resource('/purchases', PurchaseController::class)->except([
 Route::resource('branches.clients', ClientController::class);
 
 
-//consultar sunat
-Route::post('/consultar-ruc', [SunatController::class, 'consultarRuc'] )->name('consultarRuc');
-Route::post('/consultar-dni', [SunatController::class, 'consultarDni'] )->name('consultarDni');
+
 
 
 
@@ -195,7 +193,9 @@ Route::resource('branches.providers', ProviderController::class);
 
 
 
-
+//consultar sunat
+Route::post('/consultar-ruc', [SunatController::class, 'consultarRuc'] )->name('consultarRuc');
+Route::post('/consultar-dni', [SunatController::class, 'consultarDni'] )->name('consultarDni');
 
 Route::get('get_products_by_barcode', [ProductController::class, 'get_products_by_barcode']);
 Route::get('get_products_by_id', [ProductController::class, 'get_products_by_id']);

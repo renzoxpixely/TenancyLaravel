@@ -16,6 +16,10 @@ use App\Http\Controllers\CompanyController;
 
 
 use App\Http\Controllers\Tenant\ProductController;
+
+
+
+use App\Http\Controllers\Tenant\SunatController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +44,15 @@ Route::get('/home', function () {
 })->middleware(['auth', 'verified'])->name('home');
 
 Route::middleware('auth')->group(function () {
+
+
+//consultar sunat
+Route::post('/consultar-ruc', [SunatController::class, 'consultarRuc'] )->name('consultarRuc');
+Route::post('/consultar-dni', [SunatController::class, 'consultarDni'] )->name('consultarDni');
+
+
+
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -48,7 +61,7 @@ Route::middleware('auth')->group(function () {
     
 
         Route::get('/company/create', [CompanyController::class, 'create' ])->name('companies.create');
-    Route::post('/company/create', [CompanyController::class, 'store' ]);
+    Route::post('/company/create', [CompanyController::class, 'store' ])->name('companies.store');;
 
     // Route::get('/register-tenant', [RegisteredTenantController::class, 'create' ])->name('tenant.register');
     // Route::post('/register-tenant', [RegisteredTenantController::class, 'store' ]);
