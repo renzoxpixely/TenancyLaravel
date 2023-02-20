@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap">
     <link rel="stylesheet" href="{{ asset('assetsAdmin/dist/css/sty-ind-ten.css') }}"rel="stylesheet">
-    <link rel="stylesheet" href="https://www.1001fonts.com/metropolis-font.html">
+    {{-- <link rel="stylesheet" href="https://www.1001fonts.com/metropolis-font.html"> --}}
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -120,7 +120,6 @@
     <script src="{{ asset('assetsAdmin/dist/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assetsAdmin/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assetsAdmin/dist/js/ovio.js') }}"></script>
-@yield('script')    {{-- <script src="{{ asset('tenancy/assets/assetsAdmin/bootstrap/js/bootstrap.js') }}"></script> --}}
 
     <!-- datatables -->
     <script src="{{ asset('assetsAdmin/dist/js/jquery.dataTables.min.js') }}"></script>
