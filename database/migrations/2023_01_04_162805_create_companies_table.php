@@ -15,7 +15,7 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('names_surnames');
             $table->string('email');
             $table->string('address');
             $table->string('logo')->nullable()->default('logoNubefa.png');

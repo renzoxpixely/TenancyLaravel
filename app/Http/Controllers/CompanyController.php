@@ -14,7 +14,7 @@ class CompanyController extends Controller
     */
     public function index()
     {
-
+        return view('register-tenant');
     }
 
     /**
@@ -35,26 +35,15 @@ class CompanyController extends Controller
     */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'address' => 'required',
-            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-        
-        if ($request->has('logo')) {
-            $logo = $request->file('logo');
-            $logoName = time() . '_' . $logo->getClientOriginalName();
-            $logo->move(public_path('tenancy/assets/logo'), $logoName);
-        } else {
-            $logoName = 'logoNubefa.png';
-        }
-        
-        $company = new Company($request->except(['logo']));
-        $company->logo = $logoName;
-        $company->save();
+      
 
-        return redirect()->route('system.home.index')->with('success','Company has been created successfully.');
+
+        Company::create($request->all());
+   
+        return redirect()->route('tenant.register')->with('success','Company has been created successfully.');
+        
+ 
+  
     }
 
     /**

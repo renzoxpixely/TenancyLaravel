@@ -118,19 +118,19 @@
               <div class="col-md-4">
                 <fieldset class="form-group">
                   <label>Email</label>
-                  <input  readonly class="form-control" name="email" type="email">
+                  <input  readonly id="email" class="form-control" name="email" type="email">
                 </fieldset>
               </div>
               <div class="col-md-4">
               <fieldset class="form-group">
                  <label>Teléfono Móvil</label>
-                  <input readonly class="form-control" name="mobile_phone" type="text">
+                  <input readonly id="mobile_phone" class="form-control" name="mobile_phone" type="text">
                 </fieldset>
               </div>
               <div class="col-md-4">
               <fieldset class="form-group">
                  <label>Teléfono Fijo</label>
-                  <input readonly class="form-control" name="landline_phone" type="text">
+                  <input readonly id="landline_phone" class="form-control" name="landline_phone" type="text">
                 </fieldset>
               </div>  
               
@@ -225,10 +225,15 @@ $(function(){
           $('#display_name').val(datos.nombre_o_razon_social);          
           var ubicacion = datos.departamento + ' ' + datos.provincia + ' ' + datos.distrito;
           $('#location_code').val(ubicacion);
-
+          $('#email').val('');
+          $('#mobile_phone').val('');       
+          $('#landline_phone').val('');
           
 
-          
+
+
+
+
 				}		
 			}
 		});

@@ -35,8 +35,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register-tenant', [RegisteredTenantController::class, 'create' ])->name('register-tenant');
-Route::post('/register-tenant', [RegisteredTenantController::class, 'store' ]);
+// Route::get('/register-tenant', [RegisteredTenantController::class, 'create' ])->name('register-tenant');
+// Route::post('/register-tenant', [RegisteredTenantController::class, 'store' ]);
 
 Route::get('/home', function () {
     // return view('system.dashboard.index');
@@ -63,9 +63,8 @@ Route::post('/consultar-dni', [SunatController::class, 'consultarDni'] )->name('
         Route::get('/company/create', [CompanyController::class, 'create' ])->name('companies.create');
     Route::post('/company/create', [CompanyController::class, 'store' ])->name('companies.store');;
 
-    // Route::get('/register-tenant', [RegisteredTenantController::class, 'create' ])->name('tenant.register');
-    // Route::post('/register-tenant', [RegisteredTenantController::class, 'store' ]);
-    Route::get('/show_tenant', [TenantController::class,'show_tenant'])->name('tenants.show_tenant');
+
+    // Route::get('/show_tenant', [TenantController::class,'show_tenant'])->name('tenants.show_tenant');
 
     //prueba ruta
     Route::get('/test', function () {
@@ -74,8 +73,6 @@ Route::post('/consultar-dni', [SunatController::class, 'consultarDni'] )->name('
     });    
 
 
-
-    
 Route::get('get_products_by_barcode', [ProductController::class, 'get_products_by_barcode'])->name('get_products_by_barcode');
 Route::get('get_products_by_id', [ProductController::class, 'get_products_by_id'])->name('get_products_by_id');
 
@@ -83,3 +80,6 @@ Route::get('get_products_by_id', [ProductController::class, 'get_products_by_id'
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/register-tenant', [RegisteredTenantController::class, 'create' ])->name('tenant.register');
+Route::post('/register-tenant', [RegisteredTenantController::class, 'store' ]);

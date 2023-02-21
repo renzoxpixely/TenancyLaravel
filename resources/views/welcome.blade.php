@@ -64,7 +64,7 @@
                                 @endauth
 
                         @endif
-                        <li><a href="{{ route('register-tenant') }}" style="background-color:rgba(0,0,255,0.3);" >Registrate cliente</a></li>
+                        <li><a href="{{ route('register') }}" style="background-color:rgba(0,0,255,0.3);" >Registrate cliente</a></li>
 
 
             </ul>
