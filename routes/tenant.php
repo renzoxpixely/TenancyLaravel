@@ -136,10 +136,6 @@ $databaseName = DB::connection()->getPdo()->query('SELECT DATABASE()')->fetchCol
 //shopping
     Route::resource('branches.shoppings', ShoppingController::class);
 
-//sale
-Route::resource('branches.sales', SaleController::class);
-Route::resource('branches.dispatches', DispatchController::class);
-
 
 
 
@@ -157,6 +153,14 @@ Route::resource('branches.purchases', PurchaseController::class);
 Route::resource('/purchases', PurchaseController::class)->except([
     'edit', 'update', 'destroy','store'
 ]);
+
+//sale
+Route::resource('branches.sales', SaleController::class);
+Route::resource('branches.dispatches', DispatchController::class);
+Route::resource('/sales', SaleController::class)->except([
+    'edit', 'update', 'destroy','store'
+]);
+
 
 
 //clients

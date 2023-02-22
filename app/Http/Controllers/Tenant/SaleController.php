@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Tenant;
 use Illuminate\Http\Request;
 use App\Models\Tenant\Sale;
 use App\Http\Controllers\Controller;
-
+use App\Models\Tenant\Client;
+use App\Models\Tenant\Product;
 use App\Models\Tenant\Branch;
 class SaleController extends Controller
 {
@@ -16,11 +17,10 @@ class SaleController extends Controller
      */
     public function index($branch_id)
     {
-        $sales = Sale::where('branch_id', $branch_id)->get();
         $branches = Branch::where('id', $branch_id)->get();
-        return view('tenant.sales.index', compact('sales', 'branch_id','branches'));
-        // $cities = City::where('country_id', $country_id)->get();
-        // return view('admin.cities.index', compact('cities', 'country_id'));
+
+        $sales = Sale::get();
+        return view('tenant.sales.sales.index', compact('sales','branch_id','branches'));
     }
     /**
      * Show the form for creating a new resource.
@@ -29,7 +29,13 @@ class SaleController extends Controller
      */
     public function create($branch_id)
     {
-        return view('tenant.sales.create', compact('branch_id'));
+        $branches = Branch::where('id', $branch_id)->get();
+
+        $clients = Client::get();
+
+        $products = Product::get();
+
+        return view('tenant.sales.sales.create', compact('clients','products','branch_id'));
     }
     /**
      * Store a newly created resource in storage.
@@ -37,10 +43,13 @@ class SaleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($branch_id,Request $request)
+    public function store(StoreRequest $request, Sale $sale,$branch_id)
     {
-        Sale::create($request->all() + ['branch_id' => $branch_id]);
-        return redirect()->route('tenant.branches.sales.index', $branch_id);
+ 
+        $sale->my_store($request);
+
+        return redirect()->route('tenant.branches.sales.sales.index', $branch_id)->with('success', '¡Compra registrada con éxito!');
+        // return back()->with('success', '¡Compra registrada con éxito!');
     }
  
     /**

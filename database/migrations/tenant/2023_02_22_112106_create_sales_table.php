@@ -16,17 +16,23 @@ class CreateSalesTable extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
 
-            $table->string('customer');
-            $table->string('product');
-            $table->integer('amount');
-            $table->integer('price');
-            $table->float('total');
-           
+            $table->unsignedBigInteger('provider_id');
+            $table->foreign('provider_id')->references('id')->on('providers');
 
-            $table->timestamps();
+
+
+            $table->dateTime('sale_date');
+
+            $table->decimal('tax');
+            $table->decimal('total');
+
+            $table->enum('status',['VALID','CANCELED'])->default('VALID');
+
+            $table->string('picture')->nullable();
 
             $table->foreignId('branch_id')->nullable()->constrained('branches')->onDelete('cascade');
-            // $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
+
+            $table->timestamps();
         });
 
 
