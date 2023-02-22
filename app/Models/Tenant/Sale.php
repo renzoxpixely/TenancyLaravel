@@ -31,7 +31,7 @@ class Sale extends Model
     }
     public function update_stock($id, $quantity){
         $product = Product::find($id);
-        $product->add_stock($quantity);
+        $product->subtract_stock($quantity);
     }
     public function my_store($request){
 
