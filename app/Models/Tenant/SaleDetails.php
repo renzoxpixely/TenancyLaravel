@@ -1,11 +1,10 @@
 <?php
-
-namespace App;
+namespace App\Models\Tenant;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class saleDetail extends Model
+class SaleDetails extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -15,7 +14,7 @@ class saleDetail extends Model
         'price',
     ];
     public function sale(){
-        return $this->belongsTo(Purchase::class);
+        return $this->belongsTo(Sale::class);
     }
     public function product(){
         return $this->belongsTo(Product::class);

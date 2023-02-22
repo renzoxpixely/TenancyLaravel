@@ -120,7 +120,7 @@
                                         <a href="{{route('tenant.sales.show', $sale)}}">{{$sale->id}}</a>
                                     </th>
                                     <td>
-                                        {{\Carbon\Carbon::parse($sale->purchase_date)->format('d M y h:i a')}}
+                                        {{\Carbon\Carbon::parse($sale->sale_date)->format('d M y h:i a')}}
                                     </td>
                                     <td>{{$sale->total}}</td>
 

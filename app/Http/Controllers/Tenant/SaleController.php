@@ -3,11 +3,17 @@
 namespace App\Http\Controllers\Tenant;
 
 use Illuminate\Http\Request;
+
+
+use App\Models\Tenant\SaleDetails;
 use App\Models\Tenant\Sale;
 use App\Http\Controllers\Controller;
 use App\Models\Tenant\Client;
 use App\Models\Tenant\Product;
 use App\Models\Tenant\Branch;
+
+use App\Http\Requests\Sale\StoreRequest;
+use App\Http\Requests\Sale\UpdateRequest;
 class SaleController extends Controller
 {
     /**
@@ -46,9 +52,10 @@ class SaleController extends Controller
     public function store(StoreRequest $request, Sale $sale,$branch_id)
     {
  
+        
         $sale->my_store($request);
 
-        return redirect()->route('tenant.branches.sales.sales.index', $branch_id)->with('success', '¡Compra registrada con éxito!');
+        return redirect()->route('tenant.branches.sales.index', $branch_id)->with('success', '¡Compra registrada con éxito!');
         // return back()->with('success', '¡Compra registrada con éxito!');
     }
  
@@ -58,9 +65,14 @@ class SaleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Sale $sale)
     {
-        //
+        $subtotal = 0 ;
+        $clientDetails = $client->clientDetails;
+        foreach ($clientDetails as $clientDetail) {
+            $subtotal += $clientDetail->quantity * $clientDetail->price;
+        }
+        return view('tenant.sales.sales.show', compact('sale', 'saleDetails', 'subtotal'));
     }
 
     /**

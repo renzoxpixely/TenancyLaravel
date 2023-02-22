@@ -1,15 +1,18 @@
 <?php
 
 namespace App\Models\Tenant;
-
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Sale extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'provider_id',
+        'client_id',
         'user_id',
         'sale_date',
         'tax',
@@ -20,8 +23,8 @@ class Sale extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
-    public function provider(){
-        return $this->belongsTo(Provider::class);
+    public function client(){
+        return $this->belongsTo(Client::class);
     }
     public function saleDetails(){
         return $this->hasMany(SaleDetails::class);

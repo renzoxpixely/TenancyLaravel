@@ -39,7 +39,7 @@
     <div class="row">
         <div class="col-lg-12 ">
             <div class="card">
-              <form action="{{ route('tenant.branches.purchases.store', $branch_id) }}" method="POST" enctype="multipart/form-data">
+              <form action="{{ route('tenant.branches.sales.store', $branch_id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     @include('tenant.sales.sales._form')

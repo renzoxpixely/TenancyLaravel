@@ -28,11 +28,11 @@
                     <div class="form-group row">
                         <div class="col-md-4 text-center">
                             <label class="form-control-label" for="nombre"><strong>Proveedor</strong></label>
-                            <p>{{$purchase->provider->names_surnames}}</p>
+                            <p>{{$client->provider->names_surnames}}</p>
                         </div>
                         <div class="col-md-4 text-center">
                             <label class="form-control-label" for="num_compra"><strong>Número Compra</strong></label>
-                            <p>{{$purchase->id}}</p>
+                            <p>{{$client->id}}</p>
                         </div>
                         <div class="col-md-4 text-center">
                             <label class="form-control-label" for="num_compra"><strong>Comprador</strong></label>
@@ -63,10 +63,10 @@
                                     </tr>
                                     <tr>
                                         <th colspan="3">
-                                            <p align="right">TOTAL IMPUESTO ({{$purchase->tax}}%):</p>
+                                            <p align="right">TOTAL IMPUESTO ({{$client->tax}}%):</p>
                                         </th>
                                         <th>
-                                            <p align="right">s/{{number_format($subtotal*$purchase->tax/100,2)}}</p>
+                                            <p align="right">s/{{number_format($subtotal*$client->tax/100,2)}}</p>
                                         </th>
                                     </tr>
                                     <tr>
@@ -74,18 +74,18 @@
                                             <p align="right">TOTAL:</p>
                                         </th>
                                         <th>
-                                            <p align="right">s/{{number_format($purchase->total,2)}}</p>
+                                            <p align="right">s/{{number_format($client->total,2)}}</p>
                                         </th>
                                     </tr>
                     
                                 </tfoot>
                                 <tbody>
-                                    @foreach($purchaseDetails as $purchaseDetail)
+                                    @foreach($clientDetails as $clientDetail)
                                     <tr>
-                                        <td>{{$purchaseDetail->product->name }}</td>
-                                        <td>s/{{$purchaseDetail->price}}</td>
-                                        <td>{{$purchaseDetail->quantity}}</td>
-                                        <td>s/{{number_format($purchaseDetail->quantity*$purchaseDetail->price,2)}}</td>
+                                        <td>{{$clientDetail->product->name }}</td>
+                                        <td>s/{{$clientDetail->price}}</td>
+                                        <td>{{$clientDetail->quantity}}</td>
+                                        <td>s/{{number_format($clientDetail->quantity*$clientDetail->price,2)}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
