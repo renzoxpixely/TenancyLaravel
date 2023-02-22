@@ -72,24 +72,23 @@
 
 @section('script')
 <script>
-$(document).ready(function() {
-  var product_id1 = $('#product_id1');
+    var product_id1 = $('#product_id1');
 	
-  product_id1.change(function(){
-    $.ajax({
-      url: "{{route('get_products_by_id')}}",
-      method: 'GET',
-      data:{
-        product_id: product_id1.val(),
-      },
-      success: function(data){
-        $("#price").val(data.sell_price);
-        $("#stock").val(data.stock);
-        $("#code").val(data.code);
-      }
+    product_id1.change(function(){
+            $.ajax({
+                url: "{{route('tenant.get_products_by_id')}}",
+                method: 'GET',
+                data:{
+                    product_id: product_id1.val(),
+                },
+                success: function(data){
+                    $("#price").val(data.sell_price);
+                    $("#stock").val(data.stock);
+                    $("#code").val(data.code);
+            }
+        });
     });
-  });
-});
+    
     
     $(obtener_registro());
     function obtener_registro(code){

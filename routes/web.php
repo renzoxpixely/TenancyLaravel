@@ -73,8 +73,8 @@ Route::post('/consultar-dni', [SunatController::class, 'consultarDni'] )->name('
     });    
 
 
-Route::get('get_products_by_barcode', [ProductController::class, 'get_products_by_barcode'])->name('get_products_by_barcode');
-Route::get('get_products_by_id', [ProductController::class, 'get_products_by_id'])->name('get_products_by_id');
+Route::get('/get_products_by_barcode', [ProductController::class, 'get_products_by_barcode'])->name('get_products_by_barcode');
+Route::get('/get_products_by_id', [ProductController::class, 'get_products_by_id'])->name('get_products_by_id');
 
 
 });

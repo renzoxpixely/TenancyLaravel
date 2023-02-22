@@ -176,7 +176,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        TenancyServiceProvider::class
+        TenancyServiceProvider::class,
+        Fruitcake\Cors\CorsServiceProvider::class
+
 
     ],
 
