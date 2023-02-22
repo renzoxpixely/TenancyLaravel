@@ -68,9 +68,9 @@ class SaleController extends Controller
     public function show(Sale $sale)
     {
         $subtotal = 0 ;
-        $clientDetails = $client->clientDetails;
-        foreach ($clientDetails as $clientDetail) {
-            $subtotal += $clientDetail->quantity * $clientDetail->price;
+        $saleDetails = $sale->saleDetails;
+        foreach ($saleDetails as $saleDetail) {
+            $subtotal += $saleDetail->quantity * $saleDetail->price;
         }
         return view('tenant.sales.sales.show', compact('sale', 'saleDetails', 'subtotal'));
     }

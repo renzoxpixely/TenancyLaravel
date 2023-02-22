@@ -41,4 +41,7 @@ class Client extends Model
     {
         return $this->belongsTo(Provider::class);
     }          
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
 }
